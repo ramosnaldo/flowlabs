@@ -7,6 +7,12 @@
       "skillPath": "skills/ai-seo/SKILL.md",
       "computedHash": "d15d6b1ee35dee306ec904f198e46d5ad7f0ae65e594671c7a1472578c185f0e"
     },
+    "schema": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/schema/SKILL.md",
+      "computedHash": "6809d198493d08931ea1c35ab40d2fca27c6ae63a07a4bc183b75df51243a374"
+    },
     "seo-audit": {
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",
