@@ -11,10 +11,22 @@ Este repositório é a base de trabalho da **FLOW Labs**, agência de marketing 
 - **Pilares:** Estratégia · Criatividade · Tecnologia (IA e automação) · Performance.
 - **Princípios:** realidade antes da promessa; estratégia antes da execução; criatividade com propósito; personalização em vez de fórmulas prontas; proximidade; transparência; tecnologia aplicada a problemas reais; evolução contínua.
 
+## Empresa hoje (atualizado em 15/10/2026)
+
+- **Equipe:** Patrick (responsável principal, toma as decisões e aprova tudo) e Giovanni (entrando para apoiar na execução de demandas).
+- **Atuação:** somente região de Curitiba/PR.
+- **Canais:** Instagram (ativo) e WhatsApp comercial +55 41 98523 9610. Site sem domínio próprio por enquanto; sem e-mail comercial ainda.
+- **Clientes atuais:** Vilas Cavalieri e Escrisul, com espaço para mais um em breve. Há outros cases e empresas já atendidas (detalhes a registrar).
+- **Ferramentas do dia a dia:** Canva, CapCut, Meta Ads e Claude.
+- **Preços:** em construção (não há tabela padrão; não publicar valores além dos já definidos para a Escrisul).
+- **Processos:** estrutura de aprovação e fluxo de trabalho em construção.
+- **Meta para 6 meses (até ~abr/2027):** passar a oferecer construção de sites e trazer mais empresas como clientes.
+- **Brand Kit:** já existe (identidade pode ser refinada). A ser enviado e salvo em `contexto/`.
+
 ## Público e serviços
 
 - **Público:** pequenas e médias empresas, negócios locais, prestadores de serviço e profissionais começando a investir em marketing ou precisando de direção.
-- **Serviços:** estratégia, branding, social media, audiovisual (captação, foto, edição, Reels), tráfego pago, tecnologia/IA, automação, consultoria.
+- **Serviços:** estratégia, branding, social media, audiovisual (captação, foto, edição, Reels), tráfego pago, tecnologia/IA, automação, consultoria. Em planejamento: construção de sites.
 
 ## Tom de voz
 
