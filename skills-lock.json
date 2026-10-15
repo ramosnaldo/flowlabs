@@ -1,6 +1,12 @@
 {
   "version": 1,
   "skills": {
+    "ai-seo": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/ai-seo/SKILL.md",
+      "computedHash": "d257f571718cf2c27aa3e49128a3ec7523a90345ebbc33080f33a26771930ee8"
+    },
     "impeccable": {
       "source": "pbakaus/impeccable",
       "sourceType": "github",
