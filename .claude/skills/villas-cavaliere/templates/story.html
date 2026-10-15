@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200;300;400&family=Hanken+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--noite:#0F1E25;--marinho:#1B2A4A;--azul:#5394A9;--blacktie:#121417;--linho:#EFEBE5;--areia:#D6D1CA;--tiffany:#81D8D0;--cinza:#8E9196;--off:#F7F5F0;--m:96px}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{position:relative;font-family:"Hanken Grotesk",sans-serif;color:var(--linho);background:var(--blacktie)}
+/* FUNDOS: troque a classe do .bg */
+.bg{position:absolute;inset:0}
+.bg.blacktie{background:radial-gradient(120% 90% at 100% 0%,rgba(83,148,169,.32) 0%,rgba(83,148,169,0) 55%),radial-gradient(140% 120% at 80% 10%,#1A1D21 0%,#121417 55%,#0B0C0E 100%)}
+.bg.lapela{background:radial-gradient(110% 90% at 15% 8%,#5394A9 0%,#1B2A4A 45%,#0F1E25 100%)}
+.bg.neblina{background:radial-gradient(110% 80% at 85% 95%,#F7F5F0 0%,#8E9196 40%,#1B2A4A 85%)}
+.bg.linho{background:radial-gradient(120% 100% at 70% 0%,#EFEBE5 0%,#D6D1CA 55%,#81D8D0 120%)}
+body.claro{color:var(--noite)}
+.grain{position:absolute;inset:0;width:100%;height:100%;opacity:.07;mix-blend-mode:overlay;pointer-events:none}
+.ghost{position:absolute;right:-140px;top:-120px;width:640px;opacity:.045}
+.sym{display:block}
+.safe{position:absolute;inset:var(--m);display:flex;flex-direction:column}
+.top{display:flex;justify-content:space-between;font-size:26px;letter-spacing:.32em;text-transform:uppercase;opacity:.6}
+.mid{flex:1;display:flex;flex-direction:column;justify-content:center}
+.eyebrow{font-size:28px;letter-spacing:.32em;text-transform:uppercase;color:var(--tiffany);margin-bottom:28px}
+body.claro .eyebrow{color:var(--azul)}
+.title{font-family:"Yanone Kaffeesatz",sans-serif;font-weight:200;text-transform:uppercase;letter-spacing:.06em;font-size:136px;line-height:.98}
+.num{font-family:"Yanone Kaffeesatz",sans-serif;font-weight:200;font-size:220px;line-height:.9;color:var(--tiffany);opacity:.9;margin-bottom:24px}
+.rule{width:72px;height:2px;background:var(--azul);margin:44px 0 40px}
+.body{font-size:36px;line-height:1.6;font-weight:300;max-width:820px;opacity:.88}
+.foot{display:flex;justify-content:space-between;align-items:flex-end}
+.lockup{display:flex;align-items:center;gap:22px}
+.lockup .bar{width:1.5px;height:68px;background:rgba(239,235,229,.35)}
+body.claro .lockup .bar{background:rgba(15,30,37,.3)}
+.lockup .v{font-size:17px;letter-spacing:.62em;color:var(--azul);margin-bottom:2px}
+.lockup .c{font-family:"Yanone Kaffeesatz",sans-serif;font-weight:200;font-size:52px;letter-spacing:.06em;line-height:1}
+.handle{font-size:26px;letter-spacing:.04em;opacity:.8}
+.btn{display:inline-block;border:1.5px solid currentColor;border-radius:999px;padding:22px 56px;font-size:26px;letter-spacing:.32em;text-transform:uppercase}
+</style></head>
+<body data-size="1080x1920">
+<!-- Fundos: blacktie (feed padrão) | lapela | neblina | linho (em linho, use class="claro" no body) -->
+<svg width="0" height="0" style="position:absolute"><defs>
+<path id="symp" fill-rule="evenodd" d="M84.2 314.5 C77.7 314.0 68.9 311.8 61.6 308.8 C51.1 304.6 39.6 296.8 32.7 289.4 C20.5 276.3 14.3 266.2 11.8 255.5 C9.6 246.3 8.8 239.8 8.8 232.1 C8.7 212.8 15.4 195.8 28.7 181.2 C34.8 174.4 45.2 166.7 53.1 163.0 C54.8 162.2 55.5 161.6 55.1 161.3 C55.0 161.2 53.8 160.5 52.5 159.9 C47.5 157.3 42.1 153.8 37.1 149.9 C33.8 147.3 27.4 140.8 24.8 137.4 C16.8 127.2 11.9 116.2 9.8 103.8 C8.4 95.8 8.4 86.2 9.8 77.8 C11.9 65.2 13.9 59.1 18.8 51.3 C23.2 44.2 33.3 32.3 38.1 28.6 C39.1 27.8 40.7 26.6 41.6 25.9 C53.8 16.3 70.4 9.6 84.5 8.7 C96.4 8.0 107.0 9.7 117.9 14.0 C129.9 18.8 135.3 22.7 140.2 30.1 C142.9 34.1 144.5 38.4 145.4 44.0 C145.9 47.1 145.8 53.6 145.2 56.9 C143.4 66.1 139.5 73.5 133.1 79.9 C128.0 85.0 123.6 87.6 116.9 89.4 C114.5 90.1 114.1 90.1 108.6 90.1 C103.2 90.1 102.7 90.1 100.2 89.5 C94.1 87.9 87.7 85.1 86.2 83.2 C84.0 80.7 84.6 75.9 87.3 73.6 C89.2 72.0 91.3 71.9 95.4 73.1 C97.9 73.8 98.4 73.9 102.0 73.9 C106.1 73.9 107.3 73.7 110.4 72.3 C114.1 70.7 117.6 67.5 119.8 63.8 C122.1 59.8 123.0 56.5 123.0 51.9 C123.1 45.7 121.3 40.9 117.5 36.9 C114.9 34.2 112.4 32.7 108.0 31.2 C98.0 27.8 87.2 27.3 76.1 29.8 C69.9 31.3 62.3 34.6 56.4 38.4 C46.6 44.9 39.2 53.2 34.2 63.4 C29.7 72.8 28.0 81.3 28.5 92.6 C28.8 99.6 29.5 103.3 31.3 109.1 C35.0 121.1 43.0 131.6 54.1 138.9 C62.8 144.6 72.2 148.0 83.0 149.3 C104.1 151.8 124.6 143.9 136.9 128.6 C139.6 125.3 141.6 122.1 143.8 117.6 C146.1 113.0 147.0 112.0 149.2 111.4 C151.6 110.7 153.9 111.3 155.5 113.1 C155.9 113.6 157.0 115.5 157.9 117.3 C166.7 135.7 183.3 147.1 204.5 149.4 C212.9 150.3 221.4 149.5 229.9 147.1 C245.1 142.7 257.9 133.1 265.5 120.5 C269.8 113.3 272.3 105.4 273.1 96.0 C273.8 89.0 273.5 82.5 272.3 76.6 C269.8 64.8 263.1 53.4 253.7 44.8 C237.3 29.9 215.1 24.6 195.1 30.7 C190.6 32.1 187.3 34.0 184.9 36.3 C182.2 39.0 180.4 42.2 179.4 45.9 C178.8 48.0 178.6 52.8 179.0 55.2 C180.2 62.7 184.6 69.0 190.7 72.0 C193.8 73.5 195.5 73.8 199.9 73.9 C203.7 73.9 204.0 73.8 206.5 73.1 C210.8 71.8 212.8 72.0 214.9 74.1 C216.3 75.4 217.0 77.2 217.0 79.3 C217.0 82.5 215.6 84.1 211.0 86.2 C205.4 88.7 201.2 89.8 196.2 90.2 C187.0 91.0 178.5 88.3 171.4 82.5 C163.6 76.1 158.5 67.1 156.6 56.2 C155.9 52.6 156.0 46.2 156.7 42.5 C159.4 29.3 167.7 20.2 182.0 14.9 C182.5 14.7 184.3 14.0 186.0 13.4 C191.6 11.2 196.6 10.0 202.4 9.1 C205.9 8.6 215.2 8.4 219.1 8.7 C227.8 9.5 237.3 12.3 246.6 16.9 C253.7 20.3 259.8 24.7 265.9 30.6 C270.3 34.7 271.4 35.9 275.5 41.0 C283.6 50.9 288.0 58.9 290.0 67.5 C290.8 70.9 291.7 75.4 292.3 79.0 C292.8 82.0 292.9 83.3 292.9 90.9 C292.9 98.5 292.8 99.7 292.3 102.5 C290.6 112.2 288.0 119.8 283.8 127.4 C276.3 140.8 264.5 152.0 250.0 159.5 C248.2 160.4 246.8 161.3 246.8 161.5 C246.7 161.8 247.6 162.4 249.7 163.5 C254.8 166.0 259.7 169.2 264.9 173.3 C268.0 175.9 274.0 181.9 276.6 185.1 C284.0 194.3 289.3 205.4 291.5 216.1 C292.8 222.8 292.9 223.4 292.9 232.2 C292.9 239.6 292.8 241.0 292.3 244.1 C291.8 247.4 290.8 252.7 289.9 256.2 C288.5 262.3 284.7 270.1 280.0 276.4 C272.0 287.2 263.1 296.1 254.5 301.8 C245.4 307.9 233.2 312.5 221.1 314.3 C218.4 314.7 207.8 314.7 204.4 314.3 C197.1 313.4 191.1 311.8 182.3 308.4 C177.6 306.5 174.9 305.2 172.0 303.3 C169.4 301.6 168.9 301.2 166.3 298.7 C161.2 293.7 158.3 288.2 156.7 280.6 C155.9 276.7 155.9 270.4 156.7 266.1 C157.8 260.2 160.2 254.3 163.5 249.3 C165.7 246.1 170.8 240.8 173.8 238.8 C176.1 237.2 180.0 235.3 182.5 234.4 C188.4 232.4 196.0 232.2 202.4 233.9 C207.1 235.1 212.9 237.5 214.8 239.0 C217.0 240.8 217.7 244.2 216.3 247.1 C215.4 248.9 214.6 249.8 213.0 250.5 C211.2 251.3 210.5 251.2 205.6 249.9 C201.1 248.6 195.4 249.0 191.3 250.9 C186.7 253.0 183.2 256.5 181.0 261.4 C179.6 264.4 179.0 266.9 178.8 270.3 C178.5 277.7 181.1 283.9 186.3 288.1 C189.9 291.0 195.7 293.0 203.9 294.4 C206.0 294.8 207.9 294.9 212.1 294.9 C218.0 294.9 221.1 294.5 226.6 293.1 C244.8 288.5 260.9 275.0 268.5 258.1 C272.7 248.5 274.2 238.8 273.1 227.0 C272.2 216.6 269.3 208.3 263.9 200.1 C256.7 189.4 245.4 181.1 231.9 176.7 C219.5 172.6 205.5 172.4 193.0 176.0 C177.3 180.5 165.1 191.0 157.7 206.2 C156.9 207.7 156.0 209.4 155.7 209.8 C154.2 211.8 150.6 212.6 148.4 211.5 C146.6 210.6 145.8 209.5 144.0 205.9 C141.1 200.0 138.3 195.8 134.3 191.5 C125.7 182.2 113.8 176.2 100.1 174.1 C96.1 173.5 87.8 173.4 83.4 173.8 C72.6 175.0 62.9 178.5 54.2 184.2 C41.1 192.8 32.8 205.0 29.6 220.1 C28.2 227.0 28.0 237.6 29.2 244.6 C32.6 264.1 46.5 281.3 65.8 289.8 C70.5 291.9 74.9 293.2 81.0 294.3 C83.6 294.8 85.0 294.9 89.9 294.9 C94.8 294.9 96.1 294.8 98.8 294.3 C102.7 293.6 105.0 293.0 108.3 291.9 C113.0 290.2 116.0 288.3 118.5 285.2 C127.4 274.2 122.9 256.0 110.1 250.7 C106.1 249.0 100.7 248.7 96.4 249.8 C92.4 250.9 92.2 251.0 91.2 251.0 C89.7 251.0 88.6 250.5 87.3 249.4 C85.6 247.8 84.9 246.2 84.9 243.7 C84.9 240.4 85.9 239.3 90.8 237.0 C97.3 233.9 103.8 232.5 110.2 232.8 C113.8 233.0 116.4 233.4 119.6 234.5 C138.9 241.1 150.5 265.2 143.9 285.3 C141.0 294.2 134.9 301.0 125.9 305.6 C117.0 310.1 107.5 313.1 98.5 314.1 C94.6 314.6 87.7 314.8 84.2 314.5 Z M151.7 179.4 C152.2 179.2 154.1 177.5 156.1 175.5 C158.0 173.6 160.5 171.3 161.6 170.4 C163.9 168.4 169.7 164.6 172.6 163.0 C173.9 162.3 174.5 161.8 174.4 161.5 C174.4 161.3 173.3 160.5 172.0 159.8 C166.1 156.5 161.4 152.9 155.9 147.5 C152.1 143.8 151.3 143.2 150.0 143.6 C149.8 143.7 148.7 144.7 147.6 145.8 C141.8 151.9 135.9 156.5 129.7 159.9 C128.5 160.5 127.4 161.2 127.4 161.3 C127.1 161.7 127.7 162.2 129.9 163.4 C135.3 166.3 140.6 170.4 146.1 175.8 C149.3 178.9 150.1 179.6 150.7 179.7 C150.7 179.7 151.2 179.6 151.7 179.4 Z"/>
+<linearGradient id="g-light" x1="0.3" y1="0" x2="0.7" y2="1"><stop offset="0" stop-color="#EFEBE5"/><stop offset="1" stop-color="#81D8D0"/></linearGradient>
+<linearGradient id="g-dark" x1="0.3" y1="0" x2="0.7" y2="1"><stop offset="0" stop-color="#5394A9"/><stop offset="1" stop-color="#1B2A4A"/></linearGradient>
+<filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+</defs></svg>
+<div class="bg neblina"></div>
+<svg class="grain"><rect width="100%" height="100%" filter="url(#noise)"/></svg>
+<!-- STORY 1080x1920. Zona segura: 250px livres em cima e embaixo. -->
+<div class="safe" style="inset:250px var(--m)">
+  <div class="mid" style="align-items:center;text-align:center">
+    <svg class="sym" viewBox="0 0 302 324" style="width:110px;height:118px;margin-bottom:72px"><use href="#symp" fill="url(#g-light)"/></svg>
+    <div class="eyebrow">AGENDA ABERTA</div>
+    <div class="title" style="font-size:150px">PROVA COM<br>HORA MARCADA</div>
+    <div class="rule" style="margin:56px auto"></div>
+    <div class="body" style="margin-bottom:72px">Seu traje escolhido com calma, ao lado de um consultor.</div>
+    <div class="btn">AGENDAR</div>
+  </div>
+  <div class="foot" style="justify-content:center"><div class="handle">@villascavaliere</div></div>
+</div>
+</body></html>
