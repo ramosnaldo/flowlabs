@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Turma da Tati</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Turma da Tati: recreação infantil em Curitiba e região. Catálogo de atividades, experiências Spa Kids, Camarim Fashion Kids e Baladinha Kids, e o manual da marca.">
+<meta name="description" content="Turma da Tati: recreação infantil em Curitiba e região. Catálogo de atividades e experiências Spa Kids, Camarim Fashion Kids e Baladinha Kids.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,600..900,100&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <style>
-/* Layout: faixas de largura total com gradiente granulado; o conteúdo vive em placas creme, como manda o manual (logo sobre escuro sempre com placa creme). */
+/* Layout: faixas de largura total com gradiente granulado, costuradas por ondas; estrelas, confetes, nuvens, arco-íris e polaroides do manual enfeitam as bordas. */
 :root{
   /* Paleta oficial (manual de marca) */
   --uva:#6E1A92;
@@ -43,7 +43,7 @@
   color-scheme:light;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
+html{scroll-behavior:smooth;scroll-padding-top:84px;overflow-x:clip}
 body{
   margin:0;
   font-family:var(--f-texto);
@@ -67,7 +67,7 @@ h1,h2,h3{text-wrap:balance;margin:0}
 p{margin:0}
 
 .wrap{max-width:var(--max);margin:0 auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
-.band{position:relative;padding-block:clamp(64px,9vw,112px);isolation:isolate}
+.band{position:relative;padding-block:clamp(64px,9vw,112px);isolation:isolate;overflow-x:clip}
 .eyebrow{font-family:var(--f-chamada);font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--roxo)}
 .h-sec{font-family:var(--f-titulo);font-variation-settings:"SOFT" 100;font-weight:900;font-size:clamp(34px,5.2vw,56px);line-height:1;color:var(--uva)}
 .lead{font-size:clamp(16px,1.6vw,18px);max-width:58ch}
@@ -103,6 +103,15 @@ p{margin:0}
 
 /* Onda divisória (grafismo do manual) */
 .onda{position:absolute;left:0;right:0;bottom:-1px;height:clamp(36px,6vw,70px);width:100%;z-index:1;pointer-events:none}
+.onda.topo-onda{top:-1px;bottom:auto;transform:scaleY(-1)}
+/* Enfeites do manual: estrela macia, confete, nuvem, arco-íris */
+.band > .wrap{position:relative;z-index:1}
+.deco{position:absolute;pointer-events:none;z-index:0}
+.flutua{animation:flutuar 7s ease-in-out infinite}
+.flutua.d2{animation-delay:-2.4s;animation-duration:8.5s}
+.flutua.d3{animation-delay:-4.6s;animation-duration:9.5s}
+@keyframes flutuar{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(8deg)}}
+@media (max-width:700px){.deco.some-mob{display:none}}
 
 /* ---------- Cabeçalho ---------- */
 .topo{
@@ -156,12 +165,13 @@ p{margin:0}
 .hero-logo{position:relative;display:flex;justify-content:center;align-items:center;min-height:clamp(340px,40vw,520px)}
 .placa{
   position:relative;z-index:2;
-  width:min(100%,400px);aspect-ratio:400/470;max-width:100%;
-  border-radius:200px;background:var(--creme);
+  width:min(100%,380px);max-width:100%;
   display:flex;align-items:center;justify-content:center;
-  box-shadow:0 30px 80px rgba(20,4,30,.45), inset 0 0 0 10px rgba(238,232,251,.9);
 }
-.placa img{width:68%;height:auto;animation:voar 6s ease-in-out infinite}
+.placa img{
+  width:100%;height:auto;animation:voar 6s ease-in-out infinite;
+  filter:drop-shadow(0 0 2px #FFFFFF) drop-shadow(0 0 3px #FFFFFF) drop-shadow(0 0 22px rgba(255,255,255,.55)) drop-shadow(0 24px 40px rgba(20,4,30,.4));
+}
 .hero-logo .enfeites{position:absolute;inset:0;width:100%;height:100%;z-index:1}
 @keyframes voar{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-12px) rotate(1.5deg)}}
 @keyframes piscar{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.85)}}
@@ -170,7 +180,7 @@ p{margin:0}
 @media (max-width:820px){
   .hero .wrap{grid-template-columns:1fr}
   .hero-logo{order:-1;min-height:0;padding-block:8px}
-  .placa{width:min(72vw,300px)}
+  .placa{width:min(66vw,280px)}
 }
 
 /* ---------- Linhas de serviço ---------- */
@@ -285,7 +295,7 @@ body.tem-pacote .zap{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 .empresas .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
 @media (max-width:860px){.empresas .wrap{grid-template-columns:1fr}}
 .lista-emp{display:grid;gap:14px}
-.item-emp{background:rgba(253,252,241,.08);border:1px solid rgba(253,252,241,.18);border-radius:var(--r-card);padding:20px 22px;display:flex;gap:16px;align-items:flex-start}
+.item-emp{background:rgba(26,11,38,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(253,252,241,.18);border-radius:var(--r-card);padding:20px 22px;display:flex;gap:16px;align-items:flex-start}
 .item-emp .ico{flex:none;width:48px;height:48px;border-radius:14px;background:var(--creme);color:var(--uva);display:flex;align-items:center;justify-content:center}
 .item-emp b{font-family:var(--f-chamada);font-weight:600;font-size:19px;display:block;margin-bottom:2px}
 .item-emp span{color:var(--texto-claro);font-size:15.5px}
@@ -299,9 +309,9 @@ body.tem-pacote .zap{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 }
 .pola .f{aspect-ratio:1/1;border-radius:3px;display:flex;align-items:center;justify-content:center}
 .pola figcaption{position:absolute;left:0;right:0;bottom:12px;text-align:center;font-family:var(--f-chamada);font-weight:600;font-size:15px;color:var(--uva)}
-.pola:nth-child(1){left:2%;top:4%;transform:rotate(-6deg)}
-.pola:nth-child(2){right:4%;top:18%;transform:rotate(5deg)}
-.pola:nth-child(3){left:22%;bottom:0;transform:rotate(-2deg)}
+.pola:nth-of-type(1){left:2%;top:4%;transform:rotate(-6deg)}
+.pola:nth-of-type(2){right:4%;top:18%;transform:rotate(5deg)}
+.pola:nth-of-type(3){left:22%;bottom:0;transform:rotate(-2deg)}
 .quem-txt{display:flex;flex-direction:column;gap:18px;min-width:0}
 .valores{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .valor{border-radius:20px;padding:16px 18px}
@@ -341,127 +351,29 @@ body.tem-pacote .zap{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 .copiar{background:rgba(253,252,241,.12);color:var(--branco);border:1px solid rgba(253,252,241,.3);border-radius:999px;min-height:40px;padding:0 14px;font:600 14px var(--f-chamada);cursor:pointer}
 .copiar:hover{background:rgba(253,252,241,.22)}
 
-/* ---------- Manual da marca ---------- */
-.manual-nav{position:sticky;top:calc(68px + env(safe-area-inset-top,0px));z-index:20;margin-bottom:36px}
-.manual-nav .trilho{display:flex;gap:6px;overflow-x:auto;padding:6px;border-radius:999px;background:rgba(253,252,241,.92);box-shadow:0 8px 24px rgba(46,10,64,.12);scrollbar-width:none;width:max-content;max-width:100%}
-.manual-nav .trilho::-webkit-scrollbar{display:none}
-.manual-nav a{flex:none;font-family:var(--f-chamada);font-weight:600;font-size:15px;text-decoration:none;color:var(--uva);padding:8px 14px;border-radius:999px;min-height:40px;display:inline-flex;align-items:center}
-.manual-nav a:hover,.manual-nav a.ativo{background:var(--uva);color:var(--branco)}
-.mbloco{padding-block:clamp(36px,5vw,56px);border-top:2px dashed rgba(110,26,146,.18)}
-.mbloco:first-of-type{border-top:0;padding-top:0}
-.mbloco > .sec-head{margin-bottom:28px}
-.h-man{font-family:var(--f-titulo);font-variation-settings:"SOFT" 100;font-weight:900;font-size:clamp(30px,4.2vw,46px);line-height:1;color:var(--uva)}
-
-.logo-usos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-@media (max-width:900px){.logo-usos{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.uso{display:flex;flex-direction:column;gap:10px}
-.uso .fundo{aspect-ratio:1/1.05;border-radius:var(--r-card);display:flex;align-items:center;justify-content:center;border:2px solid var(--linha)}
-.uso .fundo img{width:58%;height:auto}
-.uso b{font-weight:800;font-size:15px}
-.uso .placinha{width:72%;aspect-ratio:220/240;border-radius:999px;background:var(--creme);display:flex;align-items:center;justify-content:center}
-.uso .placinha img{width:70%}
-.regras{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:20px;margin-top:20px}
-@media (max-width:900px){.regras{grid-template-columns:1fr}}
-.medida{background:var(--uva);color:var(--branco);border-radius:var(--r-card);padding:24px 26px;display:flex;flex-direction:column;gap:12px}
-.medida h4,.evite h4{margin:0;font-family:var(--f-chamada);font-weight:600;font-size:20px}
-.medida h4{color:var(--amarelo)}
-.evite{display:flex;flex-direction:column;gap:12px}
-.evite .g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-@media (max-width:560px){.evite .g{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.erro{display:flex;flex-direction:column;gap:8px}
-.erro .fundo{position:relative;height:104px;border-radius:18px;background:var(--branco);border:2px solid var(--linha);display:flex;align-items:center;justify-content:center;overflow:hidden}
-.erro .fundo::after{content:"";position:absolute;top:8px;right:8px;width:22px;height:22px;border-radius:50%;background:var(--pink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round'%3E%3Cpath d='M7 7l10 10M17 7L7 17'/%3E%3C/svg%3E") center/14px no-repeat}
-.erro span{font-size:14px;font-weight:700}
-
-.cores-a{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.cores-b{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:18px}
-.cores-c{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:18px}
-@media (max-width:900px){.cores-a{grid-template-columns:1fr}.cores-b{grid-template-columns:repeat(3,minmax(0,1fr))}.cores-c{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:480px){.cores-b{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.cor{display:flex;flex-direction:column;gap:6px;background:transparent;border:0;padding:0;text-align:left;font:inherit;color:inherit;cursor:pointer}
-.cor .amostra{border-radius:20px;height:84px;position:relative;transition:transform .18s ease}
-.cores-a .cor .amostra{height:150px;border-radius:24px}
-.cores-c .cor .amostra{height:64px;border:2px solid var(--linha)}
-.cor:hover .amostra{transform:translateY(-3px)}
-.cor .nm{font-family:var(--f-chamada);font-weight:600;font-size:17px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
-.cor .hex{font-weight:800;font-size:13.5px;font-variant-numeric:tabular-nums}
-.cor .uso-cor{font-size:14px;line-height:1.4}
-.cor .copiado{position:absolute;left:12px;bottom:10px;font:600 13px var(--f-chamada);background:var(--berinjela);color:var(--branco);padding:3px 10px;border-radius:999px;opacity:0;transition:opacity .2s}
-.cor.ok .copiado{opacity:1}
-.proporcao{margin-top:22px;display:flex;flex-direction:column;gap:10px}
-.proporcao .barra{display:flex;height:36px;border-radius:18px;overflow:hidden}
-
-.tipos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-@media (max-width:900px){.tipos{grid-template-columns:1fr}}
-.tipo{border-radius:28px;padding:26px;display:flex;flex-direction:column;gap:12px;min-height:320px}
-.tipo .aa{font-size:clamp(84px,9vw,118px);line-height:.9}
-.tipo .rot{font-family:var(--f-chamada);font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
-.tipo .meta{margin-top:auto;font-size:14px;line-height:1.45}
-.hierarquia{display:flex;flex-wrap:wrap;gap:12px 36px;align-items:baseline;border-top:2px solid var(--linha);padding-top:20px;margin-top:22px}
-
-.grafs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
-@media (max-width:1000px){.grafs{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:520px){.grafs{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.graf{display:flex;flex-direction:column;gap:8px}
-.graf .q{height:150px;border-radius:var(--r-card);display:flex;align-items:center;justify-content:center;overflow:hidden}
-.graf b{font-family:var(--f-chamada);font-weight:600;font-size:16px}
-.graf span{font-size:13.5px;line-height:1.4}
-.juntos{position:relative;margin-top:20px;border-radius:var(--r-placa);overflow:hidden;padding:clamp(28px,4vw,48px);min-height:220px;display:flex;align-items:center}
-.juntos svg{position:absolute;right:0;bottom:0;height:100%;width:auto;max-width:70%}
-.juntos .t{position:relative;max-width:560px;display:flex;flex-direction:column;gap:10px}
-
-.selos-man{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
-@media (max-width:820px){.selos-man{grid-template-columns:1fr}}
-.selo-man{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
-.selo-man svg{width:min(240px,80%);height:auto}
-.selo-man p{font-size:14.5px;max-width:32ch}
-.nota{margin-top:22px;background:var(--nevoa);border-radius:20px;padding:16px 22px;font-size:15px}
-
-.vozes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-@media (max-width:900px){.vozes{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:480px){.vozes{grid-template-columns:1fr}}
-.voz{border-radius:var(--r-card);padding:20px 22px;display:flex;flex-direction:column;gap:8px}
-.voz b{font-family:var(--f-chamada);font-weight:600;font-size:22px}
-.voz span{font-size:15px}
-.comparar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:20px}
-@media (max-width:760px){.comparar{grid-template-columns:1fr}}
-.comparar h4{margin:0 0 10px;font-family:var(--f-chamada);font-weight:600;font-size:19px;display:flex;align-items:center;gap:8px}
-.balao{border-radius:20px;padding:14px 18px;font-size:15px;margin-bottom:10px}
-.balao.sim{background:var(--branco);border:2px solid var(--linha)}
-.balao.nao{background:var(--nao-assim);color:#5b4566;text-decoration:line-through;text-decoration-color:rgba(253,1,120,.55)}
-.regras-voz{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;border-top:2px solid var(--linha);padding-top:18px;margin-top:20px;font-size:15px}
-@media (max-width:760px){.regras-voz{grid-template-columns:1fr}}
-.regras-voz strong{font-family:var(--f-chamada);font-weight:600;color:var(--uva);font-size:17px;display:block}
-
-.emuso{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:24px;align-items:start}
-@media (max-width:860px){.emuso{grid-template-columns:1fr}}
-.post{position:relative;aspect-ratio:4/5;max-width:100%;border-radius:var(--r-card);overflow:hidden;background:var(--uva);color:var(--branco);padding:24px;display:flex;flex-direction:column;gap:12px}
-.post .deco{position:absolute;inset:0;width:100%;height:100%}
-.post .k{position:relative;font-family:var(--f-chamada);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--amarelo)}
-.post .tt{position:relative;font-family:var(--f-titulo);font-variation-settings:"SOFT" 100;font-weight:900;font-size:44px;line-height:.95}
-.post .ft{position:relative;flex:1;border-radius:18px;background:var(--nevoa);display:flex;align-items:center;justify-content:center;color:var(--uva);font:600 14px var(--f-chamada)}
-.post .rod{position:relative;display:flex;justify-content:space-between;align-items:center;gap:8px;font:600 13px var(--f-chamada)}
-.post .rod span:first-child{background:var(--creme);color:var(--uva);padding:6px 12px;border-radius:999px}
-.destaques{display:flex;flex-wrap:wrap;gap:14px 18px}
-.dest{display:flex;flex-direction:column;align-items:center;gap:6px;width:76px}
-.dest .c{width:72px;height:72px;border-radius:50%;background:var(--nevoa);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px var(--creme), 0 0 0 5px var(--lavanda)}
-.dest .c.esc{background:var(--berinjela)}
-.dest span{font-size:12.5px;font-weight:700;text-align:center}
-.emuso-dir{display:flex;flex-direction:column;gap:20px;min-width:0}
-.legenda{font-size:14px;font-weight:700;color:var(--uva)}
-
 /* ---------- Rodapé ---------- */
 .rodape{padding-block:56px calc(110px + env(safe-area-inset-bottom,0px))}
 .rodape .wrap{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:32px;align-items:center}
 @media (max-width:820px){.rodape .wrap{grid-template-columns:1fr;text-align:left}}
-.rodape .placa-mini{width:150px;aspect-ratio:220/240;border-radius:999px;background:var(--creme);display:flex;align-items:center;justify-content:center}
-.rodape .placa-mini img{width:122px;height:auto}
+.rodape .placa-mini{width:140px}
+.rodape .placa-mini img{width:140px;height:auto;filter:drop-shadow(0 0 2px #FFFFFF) drop-shadow(0 0 3px #FFFFFF) drop-shadow(0 0 16px rgba(255,255,255,.45))}
 .rodape p{color:var(--texto-claro);font-size:15px}
 .rodape .slogan{font-family:var(--f-titulo);font-variation-settings:"SOFT" 100;font-weight:800;font-size:28px;line-height:1.1;color:var(--branco);margin-bottom:8px}
 .rodape nav{display:flex;flex-direction:column;gap:6px}
 .rodape nav a{color:var(--branco);font:600 16px var(--f-chamada);text-decoration:none;min-height:32px;display:inline-flex;align-items:center}
 .rodape nav a:hover{color:var(--amarelo)}
 
+/* Faixa de chamadas */
+.faixa{position:relative;z-index:3;margin-block:-22px;margin-inline:-20px;transform:rotate(-2deg);background:var(--amarelo);color:var(--berinjela);overflow:hidden;box-shadow:0 10px 30px rgba(46,10,64,.25)}
+.faixa .trilho{display:flex;width:max-content;animation:correr 38s linear infinite}
+.faixa .grupo{display:flex;align-items:center;gap:22px;padding:14px 11px;font-family:var(--f-chamada);font-weight:600;font-size:clamp(17px,2vw,22px);white-space:nowrap}
+.faixa .grupo span{display:inline-flex;align-items:center;gap:22px}
+@keyframes correr{to{transform:translateX(-50%)}}
+/* Nuvem com recado */
+.nuvem-recado{position:relative;width:min(330px,100%);aspect-ratio:190/110;display:flex;align-items:center;justify-content:center;text-align:center;padding:12% 14% 4%;flex:none}
+.nuvem-recado svg{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 12px 24px rgba(110,26,146,.18))}
+.nuvem-recado p{position:relative;font-family:var(--f-chamada);font-weight:600;font-size:clamp(16px,1.8vw,19px);line-height:1.2;color:var(--uva)}
+.nuvem-recado a{color:var(--roxo)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 @media (prefers-reduced-motion:reduce){
@@ -509,7 +421,6 @@ body.tem-pacote .zap{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
       <a href="#empresas">Empresas</a>
       <a href="#quem-somos">Quem somos</a>
       <a href="#duvidas">Dúvidas</a>
-      <a href="#manual">Manual da marca</a>
     </nav>
     <div style="display:flex;gap:8px;align-items:center">
       <a class="btn btn-uva cta-topo" data-zap="Olá! Vi o site da Turma da Tati e quero consultar uma data." href="#orcamento">
@@ -526,6 +437,10 @@ body.tem-pacote .zap{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 
 <!-- ============ HERO ============ -->
 <section class="band bg-uva hero" id="inicio">
+  <svg class="deco flutua some-mob" style="left:3%;top:14%" width="30" height="30" aria-hidden="true"><use href="#estrela" fill="#F5CE57" stroke="#F5CE57"/></svg>
+  <svg class="deco " style="left:46%;top:8%" width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="6" fill="#09B0FF"/></svg>
+  <svg class="deco some-mob" style="left:8%;bottom:22%" width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="7" fill="#F117F4"/></svg>
+  <svg class="deco flutua d2 some-mob" style="right:3%;bottom:20%" width="26" height="26" aria-hidden="true"><use href="#estrela" fill="#FD0178" stroke="#FD0178"/></svg>
   <div class="wrap">
     <div class="hero-txt">
       <div class="eyebrow">Recreação infantil · Curitiba e região</div>
@@ -545,6 +460,7 @@ body.tem-pacote .zap{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
     </div>
     <div class="hero-logo">
       <svg class="enfeites" viewBox="0 0 400 480" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <g fill="#FFFFFF"><path transform="translate(-14 380) scale(.62)" d="M44 100 Q14 100 14 76 Q14 52 42 52 Q48 22 80 24 Q102 4 128 28 Q160 24 164 56 Q184 60 182 82 Q180 100 158 100 Z"/><path transform="translate(300 396) scale(.52)" d="M44 100 Q14 100 14 76 Q14 52 42 52 Q48 22 80 24 Q102 4 128 28 Q160 24 164 56 Q184 60 182 82 Q180 100 158 100 Z"/></g>
         <use href="#estrela" class="cintila" x="-6" y="40" width="58" height="58" fill="#F5CE57" stroke="#F5CE57"/>
         <use href="#estrela" class="cintila d2" x="346" y="70" width="42" height="42" fill="#09B0FF" stroke="#09B0FF"/>
         <use href="#estrela" class="cintila d3" x="340" y="400" width="52" height="52" fill="#FD0178" stroke="#FD0178"/>
@@ -561,11 +477,27 @@ body.tem-pacote .zap{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
       </div>
     </div>
   </div>
+  <svg class="deco some-mob" style="right:-30px;bottom:30px;opacity:.95;width:clamp(150px,22vw,300px)" viewBox="0 0 200 112" aria-hidden="true"><path d="M16 112 A84 84 0 0 1 184 112" fill="none" stroke="#9717E8" stroke-width="18"/><path d="M36 112 A64 64 0 0 1 164 112" fill="none" stroke="#F117F4" stroke-width="18"/><path d="M56 112 A44 44 0 0 1 144 112" fill="none" stroke="#F5CE57" stroke-width="18"/><path d="M76 112 A24 24 0 0 1 124 112" fill="none" stroke="#09B0FF" stroke-width="18"/></svg>
   <svg class="onda" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 Q 90 4 180 34 T 360 34 T 540 34 T 720 34 T 900 34 T 1080 34 T 1260 34 T 1440 34 V 70 H 0 Z" fill="#FDFCF1"/></svg>
 </section>
 
+<div class="faixa" aria-hidden="true">
+  <div class="trilho">
+    <div class="grupo"><span>Diversão garantida</span><svg width="22" height="22"><use href="#estrela" fill="#6E1A92" stroke="#6E1A92"/></svg><span>Brincar e aprender</span><svg width="22" height="22"><use href="#estrela" fill="#FD0178" stroke="#FD0178"/></svg><span>Recreação infantil em Curitiba</span><svg width="22" height="22"><use href="#estrela" fill="#6E1A92" stroke="#6E1A92"/></svg><span>Consulte sua data</span><svg width="22" height="22"><use href="#estrela" fill="#09B0FF" stroke="#09B0FF"/></svg></div>
+    <div class="grupo"><span>Diversão garantida</span><svg width="22" height="22"><use href="#estrela" fill="#6E1A92" stroke="#6E1A92"/></svg><span>Brincar e aprender</span><svg width="22" height="22"><use href="#estrela" fill="#FD0178" stroke="#FD0178"/></svg><span>Recreação infantil em Curitiba</span><svg width="22" height="22"><use href="#estrela" fill="#6E1A92" stroke="#6E1A92"/></svg><span>Consulte sua data</span><svg width="22" height="22"><use href="#estrela" fill="#09B0FF" stroke="#09B0FF"/></svg></div>
+  </div>
+</div>
+
 <!-- ============ CATÁLOGO ============ -->
 <section class="band bg-claro" id="catalogo">
+  <svg class="deco flutua some-mob" style="left:2%;top:120px" width="34" height="34" aria-hidden="true"><use href="#estrela" fill="#F5CE57" stroke="#F5CE57"/></svg>
+  <svg class="deco some-mob" style="left:5%;top:220px" width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="7" fill="#FD0178"/></svg>
+  <svg class="deco some-mob" style="right:-30px;top:60px;opacity:.9" width="190" viewBox="0 0 200 112" aria-hidden="true"><path d="M16 112 A84 84 0 0 1 184 112" fill="none" stroke="#6E1A92" stroke-width="18"/><path d="M36 112 A64 64 0 0 1 164 112" fill="none" stroke="#F117F4" stroke-width="18"/><path d="M56 112 A44 44 0 0 1 144 112" fill="none" stroke="#F5CE57" stroke-width="18"/><path d="M76 112 A24 24 0 0 1 124 112" fill="none" stroke="#09B0FF" stroke-width="18"/></svg>
+  <svg class="deco some-mob" style="right:3%;top:330px" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#09B0FF"/></svg>
+  <svg class="deco flutua d2 some-mob" style="left:1.5%;top:48%" width="26" height="26" aria-hidden="true"><use href="#estrela" fill="#09B0FF" stroke="#09B0FF"/></svg>
+  <svg class="deco flutua d3 some-mob" style="right:2%;top:62%" width="30" height="30" aria-hidden="true"><use href="#estrela" fill="#F117F4" stroke="#F117F4"/></svg>
+  <svg class="deco some-mob" style="left:3%;top:72%" width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="6" fill="#FDB657"/></svg>
+  <svg class="deco flutua d3 some-mob" style="left:-30px;bottom:80px;opacity:.95" width="170" viewBox="0 0 190 110" aria-hidden="true"><g fill="#FFFFFF"><path d="M44 100 Q14 100 14 76 Q14 52 42 52 Q48 22 80 24 Q102 4 128 28 Q160 24 164 56 Q184 60 182 82 Q180 100 158 100 Z"/></g></svg>
   <div class="wrap">
     <div class="sec-head">
       <div>
@@ -584,6 +516,11 @@ body.tem-pacote .zap{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 
 <!-- ============ EXPERIÊNCIAS ============ -->
 <section class="band bg-uva" id="experiencias">
+  <svg class="onda topo-onda" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 Q 90 4 180 34 T 360 34 T 540 34 T 720 34 T 900 34 T 1080 34 T 1260 34 T 1440 34 V 70 H 0 Z" fill="#EEE8FB"/></svg>
+  <svg class="deco some-mob" style="left:-40px;bottom:0;opacity:.85" width="260" viewBox="0 0 200 112" aria-hidden="true"><path d="M16 112 A84 84 0 0 1 184 112" fill="none" stroke="#9717E8" stroke-width="18"/><path d="M36 112 A64 64 0 0 1 164 112" fill="none" stroke="#F117F4" stroke-width="18"/><path d="M56 112 A44 44 0 0 1 144 112" fill="none" stroke="#F5CE57" stroke-width="18"/><path d="M76 112 A24 24 0 0 1 124 112" fill="none" stroke="#09B0FF" stroke-width="18"/></svg>
+  <svg class="deco flutua " style="right:4%;top:90px" width="36" height="36" aria-hidden="true"><use href="#estrela" fill="#F5CE57" stroke="#F5CE57"/></svg>
+  <svg class="deco " style="right:12%;top:150px" width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="6" fill="#FDFCF1"/></svg>
+  <svg class="deco flutua d2 some-mob" style="left:44%;top:80px" width="22" height="22" aria-hidden="true"><use href="#estrela" fill="#09B0FF" stroke="#09B0FF"/></svg>
   <div class="wrap">
     <div class="sec-head">
       <div>
@@ -656,6 +593,11 @@ body.tem-pacote .zap{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 
 <!-- ============ EMPRESAS ============ -->
 <section class="band bg-neon empresas" id="empresas">
+  <svg class="deco some-mob" style="right:3%;bottom:52px;opacity:.9" width="300" viewBox="0 0 200 112" aria-hidden="true"><path d="M16 112 A84 84 0 0 1 184 112" fill="none" stroke="#9717E8" stroke-width="20"/><path d="M36 112 A64 64 0 0 1 164 112" fill="none" stroke="#F117F4" stroke-width="20"/><path d="M56 112 A44 44 0 0 1 144 112" fill="none" stroke="#F5CE57" stroke-width="20"/><path d="M76 112 A24 24 0 0 1 124 112" fill="none" stroke="#09B0FF" stroke-width="20"/></svg>
+  <svg class="deco flutua " style="left:3%;top:70px" width="30" height="30" aria-hidden="true"><use href="#estrela" fill="#F5CE57" stroke="#F5CE57"/></svg>
+  <svg class="deco flutua d2 some-mob" style="right:28%;bottom:150px" width="22" height="22" aria-hidden="true"><use href="#estrela" fill="#FD0178" stroke="#FD0178"/></svg>
+  <svg class="deco " style="left:40%;top:60px" width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="6" fill="#09B0FF"/></svg>
+  <svg class="deco " style="left:8%;bottom:110px" width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="7" fill="#F117F4"/></svg>
   <div class="wrap">
     <div style="display:flex;flex-direction:column;gap:18px;min-width:0">
       <div class="eyebrow" style="color:var(--azul)">Para empresas</div>
@@ -669,12 +611,19 @@ body.tem-pacote .zap{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
       <div class="item-emp"><div class="ico"><svg width="26" height="26" aria-hidden="true"><use href="#i-trofeu"/></svg></div><div><b>Gincanas para adultos</b><span>Brincadeiras em equipe para integração e festas de família.</span></div></div>
     </div>
   </div>
+  <svg class="onda" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 Q 90 4 180 34 T 360 34 T 540 34 T 720 34 T 900 34 T 1080 34 T 1260 34 T 1440 34 V 70 H 0 Z" fill="#FDFCF1"/></svg>
 </section>
 
 <!-- ============ QUEM SOMOS ============ -->
 <section class="band bg-claro quem" id="quem-somos">
+  <svg class="deco flutua " style="left:3%;top:90px" width="32" height="32" aria-hidden="true"><use href="#estrela" fill="#F5CE57" stroke="#F5CE57"/></svg>
+  <svg class="deco " style="left:9%;top:150px" width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="6" fill="#09B0FF"/></svg>
+  <svg class="deco flutua d2 some-mob" style="left:40%;bottom:60px" width="24" height="24" aria-hidden="true"><use href="#estrela" fill="#FD0178" stroke="#FD0178"/></svg>
+  <svg class="deco flutua d3 some-mob" style="right:-20px;top:40px" width="150" viewBox="0 0 190 110" aria-hidden="true"><g fill="#FFFFFF"><path d="M44 100 Q14 100 14 76 Q14 52 42 52 Q48 22 80 24 Q102 4 128 28 Q160 24 164 56 Q184 60 182 82 Q180 100 158 100 Z"/></g></svg>
   <div class="wrap">
     <div class="polas" aria-hidden="true">
+      <svg class="deco flutua d2" style="right:0;bottom:6%;z-index:3" width="44" height="44"><use href="#estrela" fill="#09B0FF" stroke="#09B0FF"/></svg>
+      <svg class="deco" style="left:0;bottom:12%;z-index:3" width="120" height="70" viewBox="0 0 140 80"><circle cx="20" cy="22" r="7" fill="#FD0178"/><circle cx="62" cy="10" r="5" fill="#09B0FF"/><circle cx="104" cy="30" r="8" fill="#F5CE57"/><circle cx="40" cy="62" r="5" fill="#9717E8"/><circle cx="90" cy="68" r="6" fill="#F117F4"/></svg>
       <figure class="pola" style="margin:0"><div class="f" style="background:linear-gradient(135deg,#A08AE8,#9717E8)"><svg width="72" height="72" style="color:#FDFCF1"><use href="#borboleta"/></svg></div><figcaption>Tia Tati</figcaption></figure>
       <figure class="pola" style="margin:0"><div class="f" style="background:linear-gradient(135deg,#FBD3FC,#F117F4)"><svg width="64" height="64" style="color:#FFFFFF"><use href="#i-equipe"/></svg></div><figcaption>A equipe</figcaption></figure>
       <figure class="pola" style="margin:0"><div class="f" style="background:linear-gradient(135deg,#FDE9B4,#F5CE57)"><svg width="64" height="64" style="color:#6E1A92"><use href="#i-coracao"/></svg></div><figcaption>Chicoleta</figcaption></figure>
@@ -695,11 +644,18 @@ body.tem-pacote .zap{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 
 <!-- ============ DÚVIDAS ============ -->
 <section class="band bg-claro" id="duvidas" style="padding-top:0">
+  <svg class="deco some-mob" style="right:-50px;bottom:40px;opacity:.85" width="240" viewBox="0 0 200 112" aria-hidden="true"><path d="M16 112 A84 84 0 0 1 184 112" fill="none" stroke="#6E1A92" stroke-width="18"/><path d="M36 112 A64 64 0 0 1 164 112" fill="none" stroke="#F117F4" stroke-width="18"/><path d="M56 112 A44 44 0 0 1 144 112" fill="none" stroke="#F5CE57" stroke-width="18"/><path d="M76 112 A24 24 0 0 1 124 112" fill="none" stroke="#09B0FF" stroke-width="18"/></svg>
+  <svg class="deco flutua some-mob" style="right:6%;bottom:250px" width="28" height="28" aria-hidden="true"><use href="#estrela" fill="#F5CE57" stroke="#F5CE57"/></svg>
+  <svg class="deco some-mob" style="left:3%;top:40%" width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="7" fill="#F117F4"/></svg>
   <div class="wrap">
     <div class="sec-head">
       <div>
         <div class="eyebrow">Dúvidas frequentes</div>
         <h2 class="h-sec">Antes de chamar no WhatsApp</h2>
+      </div>
+      <div class="nuvem-recado">
+        <svg viewBox="0 0 190 110" aria-hidden="true"><g fill="#FFFFFF"><path d="M44 100 Q14 100 14 76 Q14 52 42 52 Q48 22 80 24 Q102 4 128 28 Q160 24 164 56 Q184 60 182 82 Q180 100 158 100 Z"/></g></svg>
+        <p>Ficou alguma dúvida? <a href="#orcamento">Chama a gente</a></p>
       </div>
     </div>
     <div class="faq">
@@ -729,6 +685,11 @@ body.tem-pacote .zap{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 
 <!-- ============ ORÇAMENTO ============ -->
 <section class="band bg-uva orc" id="orcamento">
+  <svg class="onda topo-onda" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 Q 90 4 180 34 T 360 34 T 540 34 T 720 34 T 900 34 T 1080 34 T 1260 34 T 1440 34 V 70 H 0 Z" fill="#EEE8FB"/></svg>
+  <svg class="deco flutua " style="left:3%;bottom:80px" width="34" height="34" aria-hidden="true"><use href="#estrela" fill="#F5CE57" stroke="#F5CE57"/></svg>
+  <svg class="deco " style="left:12%;bottom:60px" width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="6" fill="#09B0FF"/></svg>
+  <svg class="deco flutua d2" style="right:3%;top:110px" width="26" height="26" aria-hidden="true"><use href="#estrela" fill="#FD0178" stroke="#FD0178"/></svg>
+  <svg class="deco flutua d3 some-mob" style="left:30%;bottom:20px;opacity:.14" width="200" viewBox="0 0 190 110" aria-hidden="true"><g fill="#FFFFFF"><path d="M44 100 Q14 100 14 76 Q14 52 42 52 Q48 22 80 24 Q102 4 128 28 Q160 24 164 56 Q184 60 182 82 Q180 100 158 100 Z"/></g></svg>
   <div class="wrap">
     <div style="display:flex;flex-direction:column;gap:18px;min-width:0">
       <div class="eyebrow">Orçamento</div>
@@ -767,227 +728,12 @@ body.tem-pacote .zap{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
   </div>
 </section>
 
-<!-- ============ MANUAL DA MARCA ============ -->
-<section class="band bg-claro" id="manual">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="eyebrow">Manual da marca · 2026</div>
-        <h2 class="h-sec">Como a Turma da Tati aparece</h2>
-      </div>
-      <p class="lead">As regras que valem para o Instagram, o site, os uniformes e tudo o que chega às famílias. Toque numa cor para copiar o código.</p>
-    </div>
-
-    <nav class="manual-nav" aria-label="Partes do manual">
-      <div class="trilho">
-        <a href="#m-logo">Logo</a><a href="#m-cores">Cores</a><a href="#m-tipografia">Tipografia</a><a href="#m-grafismos">Grafismos</a><a href="#m-selos">Selos</a><a href="#m-voz">Tom de voz</a><a href="#m-uso">Em uso</a>
-      </div>
-    </nav>
-
-    <!-- Logo -->
-    <div class="mbloco" id="m-logo">
-      <div class="sec-head">
-        <div><div class="eyebrow">Logo</div><h3 class="h-man">O logo é intocável</h3></div>
-        <p class="lead">A borboleta e o letreiro aparecem sempre juntos, nas cores originais e sem alterações. O que muda de peça para peça é só o fundo e o tamanho.</p>
-      </div>
-      <div class="logo-usos">
-        <div class="uso"><div class="fundo" style="background:var(--creme)"><img src="assets/logo-turma-da-tati.webp" alt="Logo sobre creme" loading="lazy"></div><b>Creme · fundo preferido</b></div>
-        <div class="uso"><div class="fundo" style="background:var(--branco)"><img src="assets/logo-turma-da-tati.webp" alt="Logo sobre branco" loading="lazy"></div><b>Branco</b></div>
-        <div class="uso"><div class="fundo" style="background:var(--nevoa);border-color:var(--nevoa)"><img src="assets/logo-turma-da-tati.webp" alt="Logo sobre lilás névoa" loading="lazy"></div><b>Lilás névoa · capas e destaques</b></div>
-        <div class="uso"><div class="fundo" style="background:var(--uva);border-color:var(--uva)"><div class="placinha"><img src="assets/logo-turma-da-tati.webp" alt="Logo sobre placa creme em fundo uva" loading="lazy"></div></div><b>Fundo escuro · sempre com placa creme</b></div>
-      </div>
-      <div class="regras">
-        <div class="medida">
-          <h4>Regras de medida</h4>
-          <div style="font-size:15.5px"><strong>Respiro:</strong> deixe em volta do logo um espaço livre igual à altura do “T” de Turma.</div>
-          <div style="font-size:15.5px"><strong>Tamanho mínimo:</strong> 120 px de largura nas telas e 3 cm no impresso. Menor que isso, a borboleta vira borrão.</div>
-        </div>
-        <div class="evite">
-          <h4>Evite</h4>
-          <div class="g">
-            <div class="erro"><div class="fundo"><img src="assets/logo-turma-da-tati.webp" alt="Errado: logo esticado" style="width:120px;height:72px" loading="lazy"></div><span>Esticar ou achatar</span></div>
-            <div class="erro"><div class="fundo"><img src="assets/logo-turma-da-tati.webp" alt="Errado: logo recolorido" style="width:62px;filter:hue-rotate(120deg)" loading="lazy"></div><span>Trocar as cores</span></div>
-            <div class="erro"><div class="fundo"><img src="assets/logo-turma-da-tati.webp" alt="Errado: logo girado" style="width:62px;transform:rotate(-18deg)" loading="lazy"></div><span>Girar ou inclinar</span></div>
-            <div class="erro"><div class="fundo" style="background:var(--roxo);border-color:var(--roxo)"><img src="assets/logo-turma-da-tati.webp" alt="Errado: logo direto sobre roxo" style="width:62px" loading="lazy"></div><span>Pôr direto sobre roxo</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cores -->
-    <div class="mbloco" id="m-cores">
-      <div class="sec-head">
-        <div><div class="eyebrow">Cores</div><h3 class="h-man">A paleta vem da borboleta</h3></div>
-        <p class="lead">Roxos e fúcsia tirados do logo, a base creme e uva do catálogo. As cores de alegria entram em pouca quantidade, como confete.</p>
-      </div>
-      <div class="cores-a" id="coresA"></div>
-      <div class="cores-b" id="coresB"></div>
-      <div class="cores-c" id="coresC"></div>
-      <div class="proporcao">
-        <b style="font-family:var(--f-chamada);font-weight:600;font-size:17px">Proporção numa peça</b>
-        <div class="barra" aria-hidden="true">
-          <div style="flex:60;background:var(--nevoa)"></div><div style="flex:25;background:var(--uva)"></div><div style="flex:10;background:var(--fucsia)"></div>
-          <div style="flex:2;background:var(--amarelo)"></div><div style="flex:2;background:var(--azul)"></div><div style="flex:1;background:var(--pink)"></div>
-        </div>
-        <span style="font-size:15px">60% base clara · 25% uva e roxo · 10% fúcsia · 5% cores de alegria. Texto corrido sempre em Berinjela ou Uva; branco só sobre Uva e Roxo Tati.</span>
-      </div>
-    </div>
-
-    <!-- Tipografia -->
-    <div class="mbloco" id="m-tipografia">
-      <div class="sec-head">
-        <div><div class="eyebrow">Tipografia</div><h3 class="h-man">Três letras, três papéis</h3></div>
-        <p class="lead">A serifada macia segue o clima do catálogo, a arredondada conversa com o letreiro do logo e a Nunito deixa os textos fáceis de ler no celular. O letreiro do logo não vira fonte: ele vive só no logo.</p>
-      </div>
-      <div class="tipos">
-        <div class="tipo" style="background:var(--uva);color:var(--branco)">
-          <span class="rot" style="color:var(--amarelo)">Títulos</span>
-          <span class="aa" style="font-family:var(--f-titulo);font-variation-settings:'SOFT' 100;font-weight:900">Aa</span>
-          <span style="font-family:var(--f-titulo);font-variation-settings:'SOFT' 100;font-weight:800;font-size:28px;line-height:1.1">A magia começa aqui</span>
-          <span class="meta" style="color:var(--texto-claro)">Fraunces, versão Soft · Black 900 e ExtraBold 800 · títulos de página, capas e frases de efeito</span>
-        </div>
-        <div class="tipo" style="background:var(--nevoa)">
-          <span class="rot" style="color:var(--uva)">Chamadas</span>
-          <span class="aa" style="font-family:var(--f-chamada);font-weight:600;color:var(--roxo)">Aa</span>
-          <span style="font-family:var(--f-chamada);font-weight:600;font-size:26px;line-height:1.15;color:var(--uva)">Consultar minha data</span>
-          <span class="meta">Fredoka · SemiBold 600 e Medium 500 · subtítulos, botões, selos, etiquetas e preços</span>
-        </div>
-        <div class="tipo" style="background:var(--branco);border:2px solid var(--linha)">
-          <span class="rot" style="color:var(--uva)">Texto</span>
-          <span class="aa" style="font-family:var(--f-texto);font-weight:800">Aa</span>
-          <span style="font-size:16.5px;line-height:1.5">Cada atividade é planejada para estimular a criatividade, a coordenação motora e a interação entre as crianças.</span>
-          <span class="meta">Nunito · Regular 400, Bold 700 e ExtraBold 800 · descrições, legendas, FAQ e contratos</span>
-        </div>
-      </div>
-      <div class="hierarquia">
-        <span style="font-family:var(--f-chamada);font-weight:600;font-size:15px;color:var(--roxo)">Hierarquia</span>
-        <span style="font-family:var(--f-titulo);font-variation-settings:'SOFT' 100;font-weight:900;font-size:clamp(32px,4vw,44px);color:var(--uva)">Spa Kids</span>
-        <span style="font-family:var(--f-chamada);font-weight:600;font-size:22px;color:var(--roxo)">A partir de 10 crianças</span>
-        <span style="font-size:16px">2 recreadoras · 2 horas de experiência</span>
-        <span style="font-size:13px;font-weight:700;color:var(--uva)">Mínimo 13 px</span>
-      </div>
-    </div>
-
-    <!-- Grafismos -->
-    <div class="mbloco" id="m-grafismos">
-      <div class="sec-head">
-        <div><div class="eyebrow">Grafismos</div><h3 class="h-man">Os enfeites da festa</h3></div>
-        <p class="lead">Estrelas e confetes saem do próprio logo; nuvens, arco-íris e polaroides vêm do catálogo. Formas sempre chapadas e arredondadas, sem o contorno preto, que é exclusivo da borboleta.</p>
-      </div>
-      <div class="grafs">
-        <div class="graf"><div class="q" style="background:var(--nevoa)"><svg width="100" height="100" aria-hidden="true"><use href="#estrela" fill="#F5CE57" stroke="#F5CE57"/></svg></div><b>Estrela macia</b><span>Pontas arredondadas. Até 4 por peça.</span></div>
-        <div class="graf"><div class="q" style="background:var(--nevoa)"><svg width="130" height="112" viewBox="0 0 140 120" aria-hidden="true"><circle cx="20" cy="22" r="8" fill="#FD0178"/><circle cx="70" cy="14" r="6" fill="#09B0FF"/><circle cx="118" cy="30" r="9" fill="#F5CE57"/><circle cx="44" cy="62" r="6" fill="#9717E8"/><circle cx="96" cy="70" r="8" fill="#F117F4"/><circle cx="22" cy="100" r="6" fill="#FDB657"/><circle cx="72" cy="104" r="9" fill="#09B0FF"/><circle cx="124" cy="104" r="6" fill="#FD0178"/></svg></div><b>Confete</b><span>Pontos espalhados nas bordas, nunca sobre texto.</span></div>
-        <div class="graf"><div class="q" style="background:var(--azul)"><svg width="140" height="82" viewBox="0 0 190 110" aria-hidden="true"><path d="M44 100 Q14 100 14 76 Q14 52 42 52 Q48 22 80 24 Q102 4 128 28 Q160 24 164 56 Q184 60 182 82 Q180 100 158 100 Z" fill="#FFFFFF"/></svg></div><b>Nuvem</b><span>Moldura para avisos e textos curtos.</span></div>
-        <div class="graf"><div class="q" style="background:var(--nevoa);align-items:flex-end"><svg width="150" height="100" viewBox="0 0 200 120" aria-hidden="true"><path d="M16 130 A84 84 0 0 1 184 130" fill="none" stroke="#6E1A92" stroke-width="18"/><path d="M36 130 A64 64 0 0 1 164 130" fill="none" stroke="#F117F4" stroke-width="18"/><path d="M56 130 A44 44 0 0 1 144 130" fill="none" stroke="#F5CE57" stroke-width="18"/><path d="M76 130 A24 24 0 0 1 124 130" fill="none" stroke="#09B0FF" stroke-width="18"/></svg></div><b>Arco-íris da Tati</b><span>Quatro faixas nas cores da marca.</span></div>
-        <div class="graf"><div class="q" style="background:var(--creme);border:2px solid var(--linha)"><div style="width:96px;height:116px;background:#fff;box-shadow:0 6px 16px rgba(46,10,64,.16);transform:rotate(-5deg);padding:8px 8px 26px"><div style="width:100%;height:100%;background:var(--lavanda);border-radius:2px"></div></div></div><b>Polaroide</b><span>Moldura das fotos de festas, levemente girada.</span></div>
-        <div class="graf"><div class="q" style="background:var(--uva);align-items:flex-end"><svg width="100%" height="64" viewBox="0 0 180 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 Q 22 10 45 30 T 90 30 T 135 30 T 180 30 L 180 70 L 0 70 Z" fill="#FDFCF1"/></svg></div><b>Onda</b><span>Divisor entre seções no site e no catálogo.</span></div>
-      </div>
-      <div class="juntos bg-uva">
-        <svg viewBox="0 0 520 250" aria-hidden="true">
-          <path d="M130 280 A190 190 0 0 1 510 280" fill="none" stroke="#9717E8" stroke-width="34"/>
-          <path d="M170 280 A150 150 0 0 1 470 280" fill="none" stroke="#F117F4" stroke-width="34"/>
-          <path d="M210 280 A110 110 0 0 1 430 280" fill="none" stroke="#F5CE57" stroke-width="34"/>
-          <path d="M250 280 A70 70 0 0 1 390 280" fill="none" stroke="#09B0FF" stroke-width="34"/>
-          <use href="#estrela" x="60" y="40" width="42" height="42" fill="#F5CE57" stroke="#F5CE57"/>
-          <use href="#estrela" x="450" y="30" width="30" height="30" fill="#FD0178" stroke="#FD0178"/>
-          <circle cx="20" cy="200" r="7" fill="#09B0FF"/><circle cx="130" cy="150" r="6" fill="#FDB657"/><circle cx="370" cy="60" r="7" fill="#F117F4"/>
-        </svg>
-        <div class="t">
-          <div class="eyebrow">Juntos numa peça</div>
-          <div style="font-family:var(--f-titulo);font-variation-settings:'SOFT' 100;font-weight:900;font-size:clamp(28px,3.6vw,42px);line-height:1.04">Seu evento merece muito mais do que entretenimento.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Selos -->
-    <div class="mbloco" id="m-selos">
-      <div class="sec-head">
-        <div><div class="eyebrow">Experiências</div><h3 class="h-man">Selos e etiquetas</h3></div>
-        <p class="lead">As experiências com nome próprio ganham um selo que lembra “isto é da Turma da Tati”. O logo continua sendo a assinatura principal; o selo marca a experiência.</p>
-      </div>
-      <div class="selos-man">
-        <div class="selo-man"><svg viewBox="0 0 280 280" role="img" aria-label="Selo Spa Kids"><circle cx="140" cy="140" r="136" fill="#EEE8FB"/><circle cx="140" cy="140" r="96" fill="#FFFFFF"/><text font-family="Fredoka, sans-serif" font-weight="600" font-size="15" letter-spacing="3" fill="#6E1A92"><textPath href="#ringSpa">TURMA DA TATI · AUTOCUIDADO E DIVERSÃO · </textPath></text><circle cx="104" cy="96" r="10" fill="#A08AE8"/><circle cx="122" cy="80" r="6" fill="#09B0FF"/><circle cx="178" cy="92" r="8" fill="#F117F4"/><text x="140" y="146" text-anchor="middle" font-family="Fraunces, serif" font-weight="900" font-size="46" fill="#6E1A92">Spa</text><text x="140" y="184" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="26" fill="#9717E8">Kids</text></svg>
-          <span class="etq spa">Spa Kids</span><p>Lilás e lavanda, bolhas no lugar das estrelas. Calma e cuidado.</p></div>
-        <div class="selo-man"><svg viewBox="0 0 280 280" role="img" aria-label="Selo Camarim Fashion Kids"><circle cx="140" cy="140" r="136" fill="#F117F4"/><circle cx="140" cy="140" r="96" fill="#FFFFFF"/><text font-family="Fredoka, sans-serif" font-weight="600" font-size="15" letter-spacing="3" fill="#2E0A40"><textPath href="#ringCam">TURMA DA TATI · BRILHO E ESTILO · TURMA DA TATI · </textPath></text><use href="#estrela" x="126" y="64" width="28" height="28" fill="#F5CE57" stroke="#F5CE57"/><text x="140" y="140" text-anchor="middle" font-family="Fraunces, serif" font-weight="900" font-size="38" fill="#6E1A92">Camarim</text><text x="140" y="174" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="22" fill="#9717E8">Fashion Kids</text></svg>
-          <span class="etq camarim">Camarim Fashion</span><p>Fúcsia e estrela amarela. Passarela, brilho e autoestima.</p></div>
-        <div class="selo-man"><svg viewBox="0 0 280 280" role="img" aria-label="Selo Baladinha Kids"><circle cx="140" cy="140" r="136" fill="#2E0A40"/><circle cx="140" cy="140" r="96" fill="none" stroke="#09B0FF" stroke-width="4"/><circle cx="140" cy="140" r="86" fill="none" stroke="#F117F4" stroke-width="3"/><text font-family="Fredoka, sans-serif" font-weight="600" font-size="15" letter-spacing="3" fill="#F5CE57"><textPath href="#ringBal">TURMA DA TATI · LUZ, NEON E DANÇA · </textPath></text><text x="140" y="142" text-anchor="middle" font-family="Fraunces, serif" font-weight="900" font-size="38" fill="#FFFFFF">Baladinha</text><text x="140" y="178" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="26" fill="#09B0FF">Kids</text></svg>
-          <span class="etq neon">Baladinha Neon</span><p>Fundo berinjela com traços neon. Única peça escura do sistema.</p></div>
-      </div>
-      <div class="nota">Pintura facial, oficinas e pacotes não têm selo: usam etiqueta simples em Lilás Névoa com texto Uva. Assim os três selos continuam sendo especiais.</div>
-    </div>
-
-    <!-- Tom de voz -->
-    <div class="mbloco" id="m-voz">
-      <div class="sec-head">
-        <div><div class="eyebrow">Tom de voz</div><h3 class="h-man">Carinho de quem cuida</h3></div>
-        <p class="lead">Carinho de quem cuida, organização de quem trabalha sério. A gente conversa com a família que quer uma festa alegre e tranquila.</p>
-      </div>
-      <div class="vozes">
-        <div class="voz" style="background:var(--uva);color:var(--branco)"><b style="color:var(--amarelo)">Acolhedora</b><span>“Uma equipe preparada para acolher cada criança com carinho.”</span></div>
-        <div class="voz" style="background:var(--roxo);color:var(--branco)"><b>Encantadora</b><span>“Transformamos cada encontro em uma experiência leve e inesquecível.”</span></div>
-        <div class="voz" style="background:var(--nevoa)"><b style="color:var(--uva)">Segura</b><span>“Materiais inclusos, produtos hipoalergênicos e recreadoras treinadas.”</span></div>
-        <div class="voz" style="background:var(--amarelo)"><b>Leve</b><span>“Enquanto as crianças se divertem, os adultos aproveitam cada instante.”</span></div>
-      </div>
-      <div class="comparar">
-        <div>
-          <h4><svg width="20" height="20" style="color:var(--roxo)" aria-hidden="true"><use href="#i-check"/></svg>Assim</h4>
-          <div class="balao sim">Sábado tem Spa Kids da Helena! Robes, escalda-pés e skincare com produtos seguros. Quer na sua festa? Consulte sua data.</div>
-          <div class="balao sim">Para crianças menores de 4 anos, indicamos a companhia de um responsável ou uma recreadora extra.</div>
-        </div>
-        <div>
-          <h4><svg width="20" height="20" style="color:var(--pink);transform:rotate(45deg)" aria-hidden="true"><use href="#i-mais"/></svg>Não assim</h4>
-          <div class="balao nao">SPA KIDS!!!! 🦋💖✨🎉💅 Garanta já a melhor festa de TODAS 😍😍 chama no direct!!!</div>
-          <div class="balao nao">Crianças com idade inferior a 4 anos deverão obrigatoriamente estar acompanhadas por responsável legal.</div>
-        </div>
-      </div>
-      <div class="regras-voz">
-        <div><strong>Nome</strong>Sempre “Turma da Tati”. A fundadora é a “Tia Tati”.</div>
-        <div><strong>Emojis</strong>Até 2 por legenda; no site, nenhum. A borboleta vira ícone gráfico.</div>
-        <div><strong>Chamadas</strong>“Consultar minha data” · “Quero na minha festa” · “Montar meu pacote”</div>
-      </div>
-    </div>
-
-    <!-- Em uso -->
-    <div class="mbloco" id="m-uso">
-      <div class="sec-head">
-        <div><div class="eyebrow">Em uso</div><h3 class="h-man">A marca no dia a dia</h3></div>
-        <p class="lead">Post, destaques e o card de atividade do site seguindo as mesmas regras. As áreas lilás são para fotos reais das festas.</p>
-      </div>
-      <div class="emuso">
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <div class="post">
-            <svg class="deco" viewBox="0 0 340 425" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="320" cy="20" r="80" fill="#9717E8"/><use href="#estrela" x="272" y="168" width="30" height="30" fill="#F5CE57" stroke="#F5CE57"/><circle cx="40" cy="240" r="5" fill="#09B0FF"/><circle cx="300" cy="250" r="5" fill="#F117F4"/></svg>
-            <div class="k">Experiência</div>
-            <div class="tt">Spa Kids</div>
-            <div class="ft">Foto da festa</div>
-            <div class="rod"><span>Consulte sua data</span><span>@turmadatati</span></div>
-          </div>
-          <span class="legenda">Post de feed 4:5</span>
-        </div>
-        <div class="emuso-dir">
-          <div style="display:flex;flex-direction:column;gap:12px">
-            <div class="destaques">
-              <div class="dest"><div class="c" style="color:var(--uva)"><svg width="32" height="32" aria-hidden="true"><use href="#i-balao"/></svg></div><span>Brincadeiras</span></div>
-              <div class="dest"><div class="c" style="color:var(--uva)"><svg width="32" height="32" aria-hidden="true"><use href="#i-bolhas"/></svg></div><span>Spa Kids</span></div>
-              <div class="dest"><div class="c" style="color:var(--uva)"><svg width="32" height="32" aria-hidden="true"><use href="#i-paleta"/></svg></div><span>Oficinas</span></div>
-              <div class="dest"><div class="c esc" style="color:var(--amarelo)"><svg width="32" height="32" aria-hidden="true"><use href="#i-musica"/></svg></div><span>Baladinha</span></div>
-              <div class="dest"><div class="c" style="color:var(--uva)"><svg width="32" height="32" aria-hidden="true"><use href="#i-coracao"/></svg></div><span>Feedback</span></div>
-              <div class="dest"><div class="c" style="color:var(--uva)"><svg width="32" height="32" aria-hidden="true"><use href="#i-equipe"/></svg></div><span>Equipe</span></div>
-            </div>
-            <span class="legenda">Capas de destaque · ícones de traço no lugar da borboleta repetida</span>
-          </div>
-          <div style="background:var(--nevoa);border-radius:var(--r-card);padding:20px 22px;display:flex;flex-direction:column;gap:8px">
-            <b style="font-family:var(--f-chamada);font-weight:600;font-size:19px;color:var(--uva)">Card de atividade do site</b>
-            <span style="font-size:15px">Foto real no topo, etiqueta da linha, nome em Fraunces e botão Uva que abre o WhatsApp com a mensagem pronta. Cantos de 24 px nos cards e botões em pílula com 46 px de altura, bons para o dedo no celular. Os cards do <a href="#catalogo">catálogo</a> acima seguem exatamente esse modelo.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 </main>
 
 <footer class="band bg-uva rodape">
+  <svg class="deco flutua " style="right:6%;top:40px" width="28" height="28" aria-hidden="true"><use href="#estrela" fill="#F5CE57" stroke="#F5CE57"/></svg>
+  <svg class="deco " style="right:14%;top:70px" width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="6" fill="#09B0FF"/></svg>
+  <svg class="deco some-mob" style="left:50%;bottom:90px" width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="7" fill="#F117F4"/></svg>
   <div class="wrap">
     <div class="placa-mini"><img src="assets/logo-turma-da-tati.webp" alt="Logo da Turma da Tati" loading="lazy"></div>
     <div>
@@ -998,7 +744,7 @@ body.tem-pacote .zap{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
     <nav aria-label="Links">
       <a href="https://www.instagram.com/turmadatati/" target="_blank" rel="noopener">Instagram</a>
       <a href="https://linktr.ee/turmadatati" target="_blank" rel="noopener">Linktree</a>
-      <a href="#manual">Manual da marca</a>
+      <a href="#catalogo">Catálogo</a>
     </nav>
   </div>
 </footer>
@@ -1195,33 +941,6 @@ body.tem-pacote .zap{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
     try{ navigator.clipboard.writeText(num).then(ok, selecionar); }catch(e){ selecionar(); }
   });
 
-  // ---------- Manual: cores (toque para copiar) ----------
-  var CORES_A = [["Uva","#6E1A92","Fundos fortes, títulos, botões. Texto branco por cima."],["Roxo Tati","#9717E8","A cor do letreiro. Destaques, ícones, links e formas."],["Fúcsia Borboleta","#F117F4","Asas do logo. Formas e palavras grandes, nunca texto miúdo."]];
-  var CORES_B = [["Pink Estrela","#FD0178"],["Azul Céu","#09B0FF"],["Amarelo Estrela","#F5CE57"],["Laranja Festa","#FDB657"],["Lavanda","#A08AE8"]];
-  var CORES_C = [["Creme","#FDFCF1"],["Lilás Névoa","#EEE8FB"],["Berinjela","#2E0A40"],["Branco","#FFFFFF"]];
-  function corBtn(c){
-    var b = el('<button class="cor" type="button" aria-label="Copiar '+c[0]+' '+c[1]+'"><span class="amostra" style="background:'+c[1]+'"><span class="copiado">Copiado</span></span><span class="nm"><span>'+c[0]+'</span><span class="hex">'+c[1]+'</span></span>'+(c[2]?'<span class="uso-cor">'+c[2]+'</span>':'')+'</button>');
-    b.addEventListener("click", function(){
-      try{ navigator.clipboard.writeText(c[1]).then(function(){ b.classList.add("ok"); setTimeout(function(){ b.classList.remove("ok"); },1400); }, function(){}); }catch(e){}
-    });
-    return b;
-  }
-  CORES_A.forEach(function(c){ document.getElementById("coresA").appendChild(corBtn(c)); });
-  CORES_B.forEach(function(c){ document.getElementById("coresB").appendChild(corBtn(c)); });
-  CORES_C.forEach(function(c){ document.getElementById("coresC").appendChild(corBtn(c)); });
-
-  // Destaque do item do manual visível
-  if("IntersectionObserver" in window){
-    var links = document.querySelectorAll(".manual-nav a");
-    var io = new IntersectionObserver(function(ents){
-      ents.forEach(function(en){
-        if(en.isIntersecting){
-          links.forEach(function(l){ l.classList.toggle("ativo", l.getAttribute("href")==="#"+en.target.id); });
-        }
-      });
-    }, {rootMargin:"-40% 0px -55% 0px"});
-    document.querySelectorAll(".mbloco").forEach(function(s){ io.observe(s); });
-  }
 })();
 </script>
 </body>
