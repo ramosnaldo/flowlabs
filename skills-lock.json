@@ -6,6 +6,12 @@
       "sourceType": "github",
       "skillPath": ".agents/skills/impeccable/SKILL.md",
       "computedHash": "de7de6829490819b3c18cfdad2c93d002bd428c4b738d29b971ef3dc8f911d08"
+    },
+    "pricing": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "skillPath": "skills/pricing/SKILL.md",
+      "computedHash": "6fbe2646324fb367e6b854f91de063996485c0b4ef4b98e7ca8b21629e3e967b"
     }
   }
 }
