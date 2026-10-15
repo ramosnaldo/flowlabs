@@ -206,6 +206,11 @@ p{margin:0}
 .chip[aria-pressed="true"]{background:var(--uva);border-color:var(--uva);color:var(--branco)}
 .chip .n{font-variant-numeric:tabular-nums;opacity:.7;margin-left:4px;font-weight:500}
 .grade{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.ver-mais-wrap{display:flex;justify-content:center;margin-top:28px}
+.ver-mais{background:var(--branco);color:var(--uva);box-shadow:inset 0 0 0 2px var(--lavanda), 0 10px 26px rgba(110,26,146,.12);padding:0 28px}
+.ver-mais:hover{background:var(--uva);color:var(--branco);box-shadow:0 10px 26px rgba(110,26,146,.3)}
+.ver-mais svg{transition:transform .25s ease}
+.ver-mais[aria-expanded="true"] svg{transform:rotate(180deg)}
 @media (max-width:980px){.grade{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:620px){.grade{grid-template-columns:1fr}}
 .card{
@@ -511,6 +516,9 @@ body.tem-pacote .zap{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 
     <div class="filtros" role="group" aria-label="Filtrar atividades" id="filtros"></div>
     <div class="grade" id="grade" aria-live="polite"></div>
+    <div class="ver-mais-wrap" id="verMaisWrap" hidden>
+      <button class="btn ver-mais" type="button" id="verMais" aria-controls="grade" aria-expanded="false"></button>
+    </div>
   </div>
 </section>
 
@@ -880,13 +888,39 @@ body.tem-pacote .zap{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
     return c;
   }
 
+  // Em "Todas", mostra 4 fileiras completas (12 no desktop, 8 no tablet, 4 no celular) e o resto fica em "Ver mais"
+  var FILEIRAS = 4, expandido = false;
+  var verMaisWrap = document.getElementById("verMaisWrap"), verMais = document.getElementById("verMais");
+  function colunas(){ return getComputedStyle(grade).gridTemplateColumns.split(" ").filter(Boolean).length || 1; }
+  function limite(){ return colunas() * FILEIRAS; }
+  var ultimoLimite = 0;
   function render(){
     grade.innerHTML = "";
-    ATIV.filter(function(a){ return filtroAtual==="todas" || a[1]===filtroAtual || a[3]===filtroAtual; })
-        .forEach(function(a){ grade.appendChild(card(a)); });
+    var lista = ATIV.filter(function(a){ return filtroAtual==="todas" || a[1]===filtroAtual || a[3]===filtroAtual; });
+    var lim = limite(); ultimoLimite = lim;
+    var corta = filtroAtual==="todas" && lista.length > lim;
+    (corta && !expandido ? lista.slice(0, lim) : lista).forEach(function(a){ grade.appendChild(card(a)); });
+    verMaisWrap.hidden = !corta;
+    if(corta){
+      verMais.setAttribute("aria-expanded", expandido ? "true" : "false");
+      verMais.innerHTML = (expandido ? "Ver menos" : "Ver mais " + (lista.length - lim) + " atividades") +
+        '<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>';
+    }
   }
+  verMais.addEventListener("click", function(){
+    expandido = !expandido;
+    render();
+    if(!expandido){ grade.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto":"smooth", block:"start"}); }
+    else { var novo = grade.children[ultimoLimite]; if(novo){ var b = novo.querySelector("a,button"); if(b) b.focus({preventScroll:true}); } }
+  });
+  var tResize;
+  window.addEventListener("resize", function(){
+    clearTimeout(tResize);
+    tResize = setTimeout(function(){ if(filtroAtual==="todas" && !expandido && limite()!==ultimoLimite) render(); }, 150);
+  });
   function setFiltro(k){
     filtroAtual = k;
+    expandido = false;
     filtros.querySelectorAll(".chip").forEach(function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-f")===k ? "true":"false"); });
     render();
     try{ localStorage.setItem("tati-filtro", k); }catch(e){}
