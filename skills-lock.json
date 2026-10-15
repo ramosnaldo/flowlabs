@@ -6,6 +6,12 @@
       "sourceType": "github",
       "skillPath": ".agents/skills/impeccable/SKILL.md",
       "computedHash": "de7de6829490819b3c18cfdad2c93d002bd428c4b738d29b971ef3dc8f911d08"
+    },
+    "taste": {
+      "source": "affaan-m/ecc",
+      "sourceType": "github",
+      "skillPath": "skills/taste/SKILL.md",
+      "computedHash": "74bd7ffcd8231d77b752d0cfca1daf264b50d182259945f89a077e16f4e1aae0"
     }
   }
 }
