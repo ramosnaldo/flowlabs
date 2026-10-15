@@ -1,0 +1,1228 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Turma da Tati</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Turma da Tati: recreação infantil em Curitiba e região. Catálogo de atividades, experiências Spa Kids, Camarim Fashion Kids e Baladinha Kids, e o manual da marca.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,600..900,100&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: faixas de largura total com gradiente granulado; o conteúdo vive em placas creme, como manda o manual (logo sobre escuro sempre com placa creme). */
+:root{
+  /* Paleta oficial (manual de marca) */
+  --uva:#6E1A92;
+  --roxo:#9717E8;
+  --fucsia:#F117F4;
+  --pink:#FD0178;
+  --azul:#09B0FF;
+  --amarelo:#F5CE57;
+  --laranja:#FDB657;
+  --lavanda:#A08AE8;
+  --creme:#FDFCF1;
+  --nevoa:#EEE8FB;
+  --berinjela:#2E0A40;
+  --branco:#FFFFFF;
+  /* Derivados */
+  --linha:#E8E0F5;
+  --texto-claro:#E3D9FB;
+  --nao-assim:#F3EEF4;
+  /* Tipografia: 3 letras, 3 papéis */
+  --f-titulo:"Fraunces", Georgia, "Times New Roman", serif;
+  --f-chamada:"Fredoka", "Trebuchet MS", system-ui, sans-serif;
+  --f-texto:"Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Forma */
+  --r-card:24px;
+  --r-placa:32px;
+  --gutter-l:max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(16px, env(safe-area-inset-right, 0px));
+  --max:1180px;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  margin:0;
+  font-family:var(--f-texto);
+  font-size:17px;
+  line-height:1.55;
+  color:var(--berinjela);
+  background:var(--berinjela);
+  overflow-x:hidden;
+}
+/* Granulado global: dá profundidade aos gradientes */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:60;
+  background-image:var(--grain);background-size:220px;
+  mix-blend-mode:soft-light;opacity:.55;
+}
+img{max-width:100%;display:block}
+a{color:var(--uva)}
+a:hover{color:var(--berinjela)}
+:focus-visible{outline:3px solid var(--azul);outline-offset:3px;border-radius:8px}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+.band{position:relative;padding-block:clamp(64px,9vw,112px);isolation:isolate}
+.eyebrow{font-family:var(--f-chamada);font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--roxo)}
+.h-sec{font-family:var(--f-titulo);font-variation-settings:"SOFT" 100;font-weight:900;font-size:clamp(34px,5.2vw,56px);line-height:1;color:var(--uva)}
+.lead{font-size:clamp(16px,1.6vw,18px);max-width:58ch}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 48px;margin-bottom:clamp(28px,4vw,44px)}
+.sec-head > div{display:flex;flex-direction:column;gap:10px;min-width:0}
+
+/* Fundos de faixa: gradientes granulados */
+.bg-claro{
+  background:
+    radial-gradient(60% 50% at 8% 0%, rgba(160,138,232,.55), transparent 70%),
+    radial-gradient(45% 40% at 100% 30%, rgba(241,23,244,.22), transparent 70%),
+    radial-gradient(50% 45% at 30% 100%, rgba(9,176,255,.18), transparent 70%),
+    linear-gradient(180deg, var(--creme) 0%, var(--nevoa) 100%);
+}
+.bg-uva{
+  color:var(--branco);
+  background:
+    radial-gradient(55% 60% at 90% 10%, rgba(241,23,244,.55), transparent 65%),
+    radial-gradient(50% 55% at 0% 100%, rgba(9,176,255,.28), transparent 70%),
+    radial-gradient(70% 70% at 40% 40%, rgba(151,23,232,.75), transparent 75%),
+    linear-gradient(160deg, var(--berinjela) 0%, var(--uva) 55%, #4a1066 100%);
+}
+.bg-uva .h-sec{color:var(--branco)}
+.bg-uva .eyebrow{color:var(--amarelo)}
+.bg-uva .lead{color:var(--texto-claro)}
+.bg-neon{
+  color:var(--branco);
+  background:
+    radial-gradient(40% 50% at 15% 20%, rgba(9,176,255,.35), transparent 70%),
+    radial-gradient(45% 55% at 85% 80%, rgba(241,23,244,.4), transparent 70%),
+    linear-gradient(180deg,#1A0B26 0%, var(--berinjela) 100%);
+}
+
+/* Onda divisória (grafismo do manual) */
+.onda{position:absolute;left:0;right:0;bottom:-1px;height:clamp(36px,6vw,70px);width:100%;z-index:1;pointer-events:none}
+
+/* ---------- Cabeçalho ---------- */
+.topo{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:50;
+  background:rgba(253,252,241,.86);
+  backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);
+  border-bottom:1px solid rgba(110,26,146,.12);
+}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--uva);font-family:var(--f-chamada);font-weight:700;font-size:21px;white-space:nowrap}
+.marca svg{flex:none}
+.menu{display:flex;gap:4px;align-items:center}
+.menu a{font-family:var(--f-chamada);font-weight:500;font-size:16px;text-decoration:none;color:var(--berinjela);padding:10px 12px;border-radius:999px}
+.menu a:hover{background:var(--nevoa);color:var(--uva)}
+.menu a.ativo{color:var(--uva);background:var(--nevoa)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:46px;padding:0 22px;border-radius:999px;border:0;cursor:pointer;
+  font-family:var(--f-chamada);font-weight:600;font-size:17px;text-decoration:none;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.btn:active{transform:scale(.97)}
+.btn-uva{background:var(--uva);color:var(--branco)}
+.btn-uva:hover{background:var(--berinjela);color:var(--branco);box-shadow:0 8px 24px rgba(110,26,146,.35)}
+.btn-creme{background:var(--creme);color:var(--uva)}
+.btn-creme:hover{background:var(--branco);color:var(--berinjela);box-shadow:0 8px 28px rgba(46,10,64,.35)}
+.btn-linha{background:transparent;color:var(--branco);box-shadow:inset 0 0 0 2px rgba(255,255,255,.6)}
+.btn-linha:hover{color:var(--branco);box-shadow:inset 0 0 0 2px var(--branco);background:rgba(255,255,255,.08)}
+.btn svg{flex:none}
+.abrir-menu{display:none;background:var(--nevoa);color:var(--uva);border:0;width:46px;height:46px;border-radius:999px;cursor:pointer;align-items:center;justify-content:center}
+@media (max-width:980px){
+  .menu{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:2px;
+    background:var(--creme);padding:10px var(--gutter-r) 16px var(--gutter-l);border-bottom:1px solid var(--linha);box-shadow:0 18px 30px rgba(46,10,64,.18)}
+  .menu.aberto{display:flex}
+  .menu a{padding:12px 14px;font-size:18px}
+  .abrir-menu{display:inline-flex}
+  .topo .cta-topo{display:none}
+}
+
+/* ---------- Hero ---------- */
+.hero{padding-block:clamp(48px,7vw,96px) clamp(88px,11vw,140px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,5vw,72px);align-items:center}
+.hero-txt{display:flex;flex-direction:column;gap:22px;min-width:0}
+.hero h1{font-family:var(--f-titulo);font-variation-settings:"SOFT" 100;font-weight:900;font-size:clamp(44px,7.4vw,92px);line-height:.95;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--amarelo)}
+.hero .lead{color:var(--texto-claro);font-size:clamp(17px,1.9vw,20px)}
+.hero-acoes{display:flex;flex-wrap:wrap;gap:12px}
+.hero-fatos{display:flex;flex-wrap:wrap;gap:8px 22px;font-weight:700;font-size:15px;color:var(--texto-claro)}
+.hero-fatos span{display:inline-flex;align-items:center;gap:8px}
+.hero-fatos i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.hero-logo{position:relative;display:flex;justify-content:center;align-items:center;min-height:clamp(340px,40vw,520px)}
+.placa{
+  position:relative;z-index:2;
+  width:min(100%,400px);aspect-ratio:400/470;max-width:100%;
+  border-radius:200px;background:var(--creme);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 30px 80px rgba(20,4,30,.45), inset 0 0 0 10px rgba(238,232,251,.9);
+}
+.placa img{width:68%;height:auto;animation:voar 6s ease-in-out infinite}
+.hero-logo .enfeites{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+@keyframes voar{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-12px) rotate(1.5deg)}}
+@keyframes piscar{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.85)}}
+.cintila{transform-box:fill-box;transform-origin:center;animation:piscar 3.2s ease-in-out infinite}
+.cintila.d2{animation-delay:1.1s}.cintila.d3{animation-delay:2s}
+@media (max-width:820px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-logo{order:-1;min-height:0;padding-block:8px}
+  .placa{width:min(72vw,300px)}
+}
+
+/* ---------- Linhas de serviço ---------- */
+.linhas{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-bottom:clamp(32px,4vw,48px)}
+.linha{
+  background:rgba(255,255,255,.72);border:1px solid var(--linha);border-radius:var(--r-card);
+  padding:18px;display:flex;flex-direction:column;gap:10px;text-align:left;cursor:pointer;
+  font:inherit;color:inherit;transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.linha:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(110,26,146,.14);background:var(--branco)}
+.linha .ico{width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:var(--nevoa);color:var(--uva)}
+.linha b{font-family:var(--f-chamada);font-weight:600;font-size:19px;color:var(--uva);line-height:1.15}
+.linha small{font-size:14px;line-height:1.4}
+@media (max-width:980px){.linhas{grid-template-columns:repeat(2,minmax(0,1fr))}.linha:last-child{grid-column:1/-1}}
+
+/* ---------- Catálogo ---------- */
+.filtros{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{
+  font-family:var(--f-chamada);font-weight:600;font-size:15px;min-height:44px;padding:0 18px;border-radius:999px;
+  border:2px solid var(--linha);background:rgba(255,255,255,.7);color:var(--uva);cursor:pointer;
+}
+.chip:hover{border-color:var(--lavanda)}
+.chip[aria-pressed="true"]{background:var(--uva);border-color:var(--uva);color:var(--branco)}
+.chip .n{font-variant-numeric:tabular-nums;opacity:.7;margin-left:4px;font-weight:500}
+.grade{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:980px){.grade{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.grade{grid-template-columns:1fr}}
+.card{
+  background:var(--branco);border-radius:var(--r-card);overflow:hidden;display:flex;flex-direction:column;
+  box-shadow:0 1px 0 var(--linha), 0 10px 30px rgba(110,26,146,.08);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 1px 0 var(--linha), 0 20px 44px rgba(110,26,146,.18)}
+.card-foto{position:relative;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card-foto svg.ico-g{width:64px;height:64px;position:relative;z-index:1}
+.card-foto .bolhas{position:absolute;inset:0;width:100%;height:100%}
+.card-corpo{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.etiquetas{display:flex;flex-wrap:wrap;gap:6px}
+.etq{font-family:var(--f-chamada);font-weight:600;font-size:13px;padding:4px 12px;border-radius:999px;background:var(--nevoa);color:var(--uva)}
+.etq.neon{background:var(--berinjela);color:var(--amarelo)}
+.etq.spa{background:var(--nevoa);color:var(--uva)}
+.etq.camarim{background:var(--fucsia);color:var(--berinjela)}
+.card h3{font-family:var(--f-titulo);font-variation-settings:"SOFT" 100;font-weight:800;font-size:26px;line-height:1.08;color:var(--uva)}
+.card p{font-size:15.5px;line-height:1.5}
+.card-acoes{margin-top:auto;padding-top:8px;display:flex;gap:8px;align-items:center}
+.card-acoes .btn{flex:1;font-size:16px;padding:0 16px}
+.add{
+  flex:none;width:46px;height:46px;border-radius:999px;border:2px solid var(--linha);background:var(--branco);color:var(--uva);
+  display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .18s, border-color .18s, transform .18s;
+}
+.add:hover{border-color:var(--lavanda)}
+.add[aria-pressed="true"]{background:var(--amarelo);border-color:var(--amarelo);color:var(--berinjela)}
+.add[aria-pressed="true"] .mais{display:none}
+.add[aria-pressed="false"] .ok{display:none}
+
+/* Tons das fotos (áreas reservadas para fotos reais) */
+.t-recreacao{background:linear-gradient(135deg,#FDE9B4,#F5CE57)}
+.t-arte{background:linear-gradient(135deg,#FBD3FC,#F117F4)}
+.t-oficinas{background:linear-gradient(135deg,#CBEEFF,#09B0FF)}
+.t-premium{background:linear-gradient(135deg,#EEE8FB,#A08AE8)}
+.t-empresas{background:linear-gradient(135deg,#FFE3BD,#FDB657)}
+.t-neon{background:radial-gradient(70% 90% at 30% 20%,rgba(9,176,255,.55),transparent 70%),radial-gradient(70% 90% at 80% 90%,rgba(241,23,244,.6),transparent 70%),#1A0B26}
+
+/* Bandeja do pacote */
+.bandeja{
+  position:fixed;z-index:55;left:50%;transform:translate(-50%,0);
+  bottom:calc(16px + env(safe-area-inset-bottom,0px));
+  width:min(560px, calc(100% - 32px - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px)));
+  background:var(--berinjela);color:var(--branco);border-radius:999px;padding:8px 8px 8px 22px;
+  display:flex;align-items:center;gap:12px;box-shadow:0 18px 40px rgba(20,4,30,.45);
+  transition:transform .3s cubic-bezier(.2,.8,.2,1), opacity .3s;
+}
+.bandeja[hidden]{display:none!important}
+.bandeja .qtd{font-family:var(--f-chamada);font-weight:600;font-size:16px;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bandeja .qtd b{color:var(--amarelo);font-variant-numeric:tabular-nums}
+.bandeja .limpar{background:transparent;border:0;color:var(--texto-claro);font:600 14px var(--f-chamada);cursor:pointer;min-height:44px;padding:0 8px;text-decoration:underline}
+.bandeja .btn{min-height:46px;font-size:16px;padding:0 18px}
+@media (max-width:520px){.bandeja{border-radius:24px;flex-wrap:wrap;padding:12px}.bandeja .qtd{flex:1 1 100%}.bandeja .btn{flex:1}}
+
+/* WhatsApp flutuante */
+.zap{
+  position:fixed;z-index:56;
+  right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));
+  width:60px;height:60px;border-radius:50%;background:var(--uva);color:var(--branco);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(46,10,64,.45), 0 0 0 4px rgba(253,252,241,.9);
+  transition:transform .2s ease;
+}
+.zap:hover{transform:scale(1.07);color:var(--branco)}
+body.tem-pacote .zap{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+@media (max-width:520px){body.tem-pacote .zap{bottom:calc(136px + env(safe-area-inset-bottom,0px))}}
+
+/* ---------- Experiências ---------- */
+.exps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+@media (max-width:900px){.exps{grid-template-columns:1fr}}
+.exp{
+  border-radius:var(--r-placa);padding:28px;display:flex;flex-direction:column;gap:14px;align-items:flex-start;
+  background:var(--creme);color:var(--berinjela);min-width:0;
+}
+.exp .selo{width:min(220px,70%);height:auto;align-self:center;margin-bottom:6px;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.exp:hover .selo{transform:rotate(-8deg) scale(1.03)}
+.exp h3{font-family:var(--f-titulo);font-variation-settings:"SOFT" 100;font-weight:900;font-size:32px;line-height:1;color:var(--uva)}
+.exp ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:15.5px}
+.exp li{display:flex;gap:10px;align-items:flex-start}
+.exp li svg{flex:none;margin-top:4px}
+.exp .btn{margin-top:auto}
+.exp.escura{background:linear-gradient(170deg,#1A0B26,var(--berinjela));color:var(--branco);box-shadow:inset 0 0 0 2px rgba(9,176,255,.5), 0 0 40px rgba(241,23,244,.25)}
+.exp.escura h3{color:var(--branco);text-shadow:0 0 18px rgba(241,23,244,.65)}
+.exp.escura .tag-linha{color:var(--azul)}
+.tag-linha{font-family:var(--f-chamada);font-weight:600;font-size:15px;color:var(--roxo)}
+
+/* ---------- Empresas ---------- */
+.empresas .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
+@media (max-width:860px){.empresas .wrap{grid-template-columns:1fr}}
+.lista-emp{display:grid;gap:14px}
+.item-emp{background:rgba(253,252,241,.08);border:1px solid rgba(253,252,241,.18);border-radius:var(--r-card);padding:20px 22px;display:flex;gap:16px;align-items:flex-start}
+.item-emp .ico{flex:none;width:48px;height:48px;border-radius:14px;background:var(--creme);color:var(--uva);display:flex;align-items:center;justify-content:center}
+.item-emp b{font-family:var(--f-chamada);font-weight:600;font-size:19px;display:block;margin-bottom:2px}
+.item-emp span{color:var(--texto-claro);font-size:15.5px}
+
+/* ---------- Quem somos ---------- */
+.quem .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:center}
+@media (max-width:860px){.quem .wrap{grid-template-columns:1fr}}
+.polas{position:relative;min-height:360px}
+.pola{
+  position:absolute;background:var(--branco);padding:12px 12px 44px;box-shadow:0 14px 34px rgba(46,10,64,.2);width:min(62%,250px);
+}
+.pola .f{aspect-ratio:1/1;border-radius:3px;display:flex;align-items:center;justify-content:center}
+.pola figcaption{position:absolute;left:0;right:0;bottom:12px;text-align:center;font-family:var(--f-chamada);font-weight:600;font-size:15px;color:var(--uva)}
+.pola:nth-child(1){left:2%;top:4%;transform:rotate(-6deg)}
+.pola:nth-child(2){right:4%;top:18%;transform:rotate(5deg)}
+.pola:nth-child(3){left:22%;bottom:0;transform:rotate(-2deg)}
+.quem-txt{display:flex;flex-direction:column;gap:18px;min-width:0}
+.valores{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.valor{border-radius:20px;padding:16px 18px}
+.valor b{font-family:var(--f-chamada);font-weight:600;font-size:19px;display:block}
+.valor span{font-size:14.5px;line-height:1.45}
+@media (max-width:480px){.valores{grid-template-columns:1fr}.polas{min-height:300px}}
+
+/* ---------- FAQ ---------- */
+.faq{display:grid;gap:12px;max-width:860px}
+.faq details{background:var(--branco);border-radius:20px;border:1px solid var(--linha)}
+.faq summary{list-style:none;cursor:pointer;padding:18px 22px;display:flex;justify-content:space-between;gap:16px;align-items:center;font-family:var(--f-chamada);font-weight:600;font-size:18px;color:var(--uva);min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .seta{flex:none;transition:transform .25s ease}
+.faq details[open] .seta{transform:rotate(45deg)}
+.faq .resp{padding:0 22px 20px;font-size:16px;max-width:68ch}
+
+/* ---------- Orçamento ---------- */
+.orc .wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,5vw,64px);align-items:start}
+@media (max-width:860px){.orc .wrap{grid-template-columns:1fr}}
+.form{background:var(--creme);color:var(--berinjela);border-radius:var(--r-placa);padding:clamp(22px,3vw,34px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.campo{display:flex;flex-direction:column;gap:6px;min-width:0}
+.campo.cheio{grid-column:1/-1}
+.campo label{font-family:var(--f-chamada);font-weight:600;font-size:15px;color:var(--uva)}
+.campo input,.campo select,.campo textarea{
+  font:inherit;font-size:16px;color:var(--berinjela);background:var(--branco);border:2px solid var(--linha);border-radius:14px;
+  min-height:48px;padding:10px 14px;width:100%;
+}
+.campo textarea{min-height:96px;resize:vertical}
+.campo input:focus,.campo select:focus,.campo textarea:focus{outline:none;border-color:var(--roxo);box-shadow:0 0 0 4px rgba(151,23,232,.15)}
+.form .btn{grid-column:1/-1}
+.form .aviso{grid-column:1/-1;font-size:14px}
+.form .resultado{grid-column:1/-1;background:var(--nevoa);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;font-size:15px}
+@media (max-width:520px){.form{grid-template-columns:1fr}}
+.contato-lista{display:grid;gap:12px;margin-top:8px}
+.contato-lista .item{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.numero{font-family:var(--f-chamada);font-weight:600;font-size:24px;color:var(--branco);user-select:all;font-variant-numeric:tabular-nums}
+.copiar{background:rgba(253,252,241,.12);color:var(--branco);border:1px solid rgba(253,252,241,.3);border-radius:999px;min-height:40px;padding:0 14px;font:600 14px var(--f-chamada);cursor:pointer}
+.copiar:hover{background:rgba(253,252,241,.22)}
+
+/* ---------- Manual da marca ---------- */
+.manual-nav{position:sticky;top:calc(68px + env(safe-area-inset-top,0px));z-index:20;margin-bottom:36px}
+.manual-nav .trilho{display:flex;gap:6px;overflow-x:auto;padding:6px;border-radius:999px;background:rgba(253,252,241,.92);box-shadow:0 8px 24px rgba(46,10,64,.12);scrollbar-width:none;width:max-content;max-width:100%}
+.manual-nav .trilho::-webkit-scrollbar{display:none}
+.manual-nav a{flex:none;font-family:var(--f-chamada);font-weight:600;font-size:15px;text-decoration:none;color:var(--uva);padding:8px 14px;border-radius:999px;min-height:40px;display:inline-flex;align-items:center}
+.manual-nav a:hover,.manual-nav a.ativo{background:var(--uva);color:var(--branco)}
+.mbloco{padding-block:clamp(36px,5vw,56px);border-top:2px dashed rgba(110,26,146,.18)}
+.mbloco:first-of-type{border-top:0;padding-top:0}
+.mbloco > .sec-head{margin-bottom:28px}
+.h-man{font-family:var(--f-titulo);font-variation-settings:"SOFT" 100;font-weight:900;font-size:clamp(30px,4.2vw,46px);line-height:1;color:var(--uva)}
+
+.logo-usos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:900px){.logo-usos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.uso{display:flex;flex-direction:column;gap:10px}
+.uso .fundo{aspect-ratio:1/1.05;border-radius:var(--r-card);display:flex;align-items:center;justify-content:center;border:2px solid var(--linha)}
+.uso .fundo img{width:58%;height:auto}
+.uso b{font-weight:800;font-size:15px}
+.uso .placinha{width:72%;aspect-ratio:220/240;border-radius:999px;background:var(--creme);display:flex;align-items:center;justify-content:center}
+.uso .placinha img{width:70%}
+.regras{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:20px;margin-top:20px}
+@media (max-width:900px){.regras{grid-template-columns:1fr}}
+.medida{background:var(--uva);color:var(--branco);border-radius:var(--r-card);padding:24px 26px;display:flex;flex-direction:column;gap:12px}
+.medida h4,.evite h4{margin:0;font-family:var(--f-chamada);font-weight:600;font-size:20px}
+.medida h4{color:var(--amarelo)}
+.evite{display:flex;flex-direction:column;gap:12px}
+.evite .g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:560px){.evite .g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.erro{display:flex;flex-direction:column;gap:8px}
+.erro .fundo{position:relative;height:104px;border-radius:18px;background:var(--branco);border:2px solid var(--linha);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.erro .fundo::after{content:"";position:absolute;top:8px;right:8px;width:22px;height:22px;border-radius:50%;background:var(--pink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round'%3E%3Cpath d='M7 7l10 10M17 7L7 17'/%3E%3C/svg%3E") center/14px no-repeat}
+.erro span{font-size:14px;font-weight:700}
+
+.cores-a{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.cores-b{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:18px}
+.cores-c{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:18px}
+@media (max-width:900px){.cores-a{grid-template-columns:1fr}.cores-b{grid-template-columns:repeat(3,minmax(0,1fr))}.cores-c{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.cores-b{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cor{display:flex;flex-direction:column;gap:6px;background:transparent;border:0;padding:0;text-align:left;font:inherit;color:inherit;cursor:pointer}
+.cor .amostra{border-radius:20px;height:84px;position:relative;transition:transform .18s ease}
+.cores-a .cor .amostra{height:150px;border-radius:24px}
+.cores-c .cor .amostra{height:64px;border:2px solid var(--linha)}
+.cor:hover .amostra{transform:translateY(-3px)}
+.cor .nm{font-family:var(--f-chamada);font-weight:600;font-size:17px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.cor .hex{font-weight:800;font-size:13.5px;font-variant-numeric:tabular-nums}
+.cor .uso-cor{font-size:14px;line-height:1.4}
+.cor .copiado{position:absolute;left:12px;bottom:10px;font:600 13px var(--f-chamada);background:var(--berinjela);color:var(--branco);padding:3px 10px;border-radius:999px;opacity:0;transition:opacity .2s}
+.cor.ok .copiado{opacity:1}
+.proporcao{margin-top:22px;display:flex;flex-direction:column;gap:10px}
+.proporcao .barra{display:flex;height:36px;border-radius:18px;overflow:hidden}
+
+.tipos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:900px){.tipos{grid-template-columns:1fr}}
+.tipo{border-radius:28px;padding:26px;display:flex;flex-direction:column;gap:12px;min-height:320px}
+.tipo .aa{font-size:clamp(84px,9vw,118px);line-height:.9}
+.tipo .rot{font-family:var(--f-chamada);font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+.tipo .meta{margin-top:auto;font-size:14px;line-height:1.45}
+.hierarquia{display:flex;flex-wrap:wrap;gap:12px 36px;align-items:baseline;border-top:2px solid var(--linha);padding-top:20px;margin-top:22px}
+
+.grafs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+@media (max-width:1000px){.grafs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:520px){.grafs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.graf{display:flex;flex-direction:column;gap:8px}
+.graf .q{height:150px;border-radius:var(--r-card);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.graf b{font-family:var(--f-chamada);font-weight:600;font-size:16px}
+.graf span{font-size:13.5px;line-height:1.4}
+.juntos{position:relative;margin-top:20px;border-radius:var(--r-placa);overflow:hidden;padding:clamp(28px,4vw,48px);min-height:220px;display:flex;align-items:center}
+.juntos svg{position:absolute;right:0;bottom:0;height:100%;width:auto;max-width:70%}
+.juntos .t{position:relative;max-width:560px;display:flex;flex-direction:column;gap:10px}
+
+.selos-man{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+@media (max-width:820px){.selos-man{grid-template-columns:1fr}}
+.selo-man{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.selo-man svg{width:min(240px,80%);height:auto}
+.selo-man p{font-size:14.5px;max-width:32ch}
+.nota{margin-top:22px;background:var(--nevoa);border-radius:20px;padding:16px 22px;font-size:15px}
+
+.vozes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media (max-width:900px){.vozes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.vozes{grid-template-columns:1fr}}
+.voz{border-radius:var(--r-card);padding:20px 22px;display:flex;flex-direction:column;gap:8px}
+.voz b{font-family:var(--f-chamada);font-weight:600;font-size:22px}
+.voz span{font-size:15px}
+.comparar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:20px}
+@media (max-width:760px){.comparar{grid-template-columns:1fr}}
+.comparar h4{margin:0 0 10px;font-family:var(--f-chamada);font-weight:600;font-size:19px;display:flex;align-items:center;gap:8px}
+.balao{border-radius:20px;padding:14px 18px;font-size:15px;margin-bottom:10px}
+.balao.sim{background:var(--branco);border:2px solid var(--linha)}
+.balao.nao{background:var(--nao-assim);color:#5b4566;text-decoration:line-through;text-decoration-color:rgba(253,1,120,.55)}
+.regras-voz{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;border-top:2px solid var(--linha);padding-top:18px;margin-top:20px;font-size:15px}
+@media (max-width:760px){.regras-voz{grid-template-columns:1fr}}
+.regras-voz strong{font-family:var(--f-chamada);font-weight:600;color:var(--uva);font-size:17px;display:block}
+
+.emuso{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:860px){.emuso{grid-template-columns:1fr}}
+.post{position:relative;aspect-ratio:4/5;max-width:100%;border-radius:var(--r-card);overflow:hidden;background:var(--uva);color:var(--branco);padding:24px;display:flex;flex-direction:column;gap:12px}
+.post .deco{position:absolute;inset:0;width:100%;height:100%}
+.post .k{position:relative;font-family:var(--f-chamada);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--amarelo)}
+.post .tt{position:relative;font-family:var(--f-titulo);font-variation-settings:"SOFT" 100;font-weight:900;font-size:44px;line-height:.95}
+.post .ft{position:relative;flex:1;border-radius:18px;background:var(--nevoa);display:flex;align-items:center;justify-content:center;color:var(--uva);font:600 14px var(--f-chamada)}
+.post .rod{position:relative;display:flex;justify-content:space-between;align-items:center;gap:8px;font:600 13px var(--f-chamada)}
+.post .rod span:first-child{background:var(--creme);color:var(--uva);padding:6px 12px;border-radius:999px}
+.destaques{display:flex;flex-wrap:wrap;gap:14px 18px}
+.dest{display:flex;flex-direction:column;align-items:center;gap:6px;width:76px}
+.dest .c{width:72px;height:72px;border-radius:50%;background:var(--nevoa);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px var(--creme), 0 0 0 5px var(--lavanda)}
+.dest .c.esc{background:var(--berinjela)}
+.dest span{font-size:12.5px;font-weight:700;text-align:center}
+.emuso-dir{display:flex;flex-direction:column;gap:20px;min-width:0}
+.legenda{font-size:14px;font-weight:700;color:var(--uva)}
+
+/* ---------- Rodapé ---------- */
+.rodape{padding-block:56px calc(110px + env(safe-area-inset-bottom,0px))}
+.rodape .wrap{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:32px;align-items:center}
+@media (max-width:820px){.rodape .wrap{grid-template-columns:1fr;text-align:left}}
+.rodape .placa-mini{width:150px;aspect-ratio:220/240;border-radius:999px;background:var(--creme);display:flex;align-items:center;justify-content:center}
+.rodape .placa-mini img{width:122px;height:auto}
+.rodape p{color:var(--texto-claro);font-size:15px}
+.rodape .slogan{font-family:var(--f-titulo);font-variation-settings:"SOFT" 100;font-weight:800;font-size:28px;line-height:1.1;color:var(--branco);margin-bottom:8px}
+.rodape nav{display:flex;flex-direction:column;gap:6px}
+.rodape nav a{color:var(--branco);font:600 16px var(--f-chamada);text-decoration:none;min-height:32px;display:inline-flex;align-items:center}
+.rodape nav a:hover{color:var(--amarelo)}
+
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- Sprite de ícones de traço (manual: ícones de traço no lugar da borboleta repetida) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-balao" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="9" rx="6" ry="7"/><path d="M12 16v2c0 2-2 2-2 4"/></g></symbol>
+    <symbol id="i-paleta" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0 0 18c1.5 0 2-1 2-2s-1-1.5-1-2.5 1-1.5 2-1.5h2a4 4 0 0 0 4-4c0-4.5-4-8-9-8z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="15" cy="7" r="1"/></g></symbol>
+    <symbol id="i-bolhas" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="13" r="6"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="17" r="2"/></g></symbol>
+    <symbol id="i-musica" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></g></symbol>
+    <symbol id="i-coracao" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+    <symbol id="i-equipe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2c3 .2 5.5 2.3 5.5 5.8"/></g></symbol>
+    <symbol id="i-mao" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12V6.5a1.5 1.5 0 0 1 3 0V11"/><path d="M9 10V4.5a1.5 1.5 0 0 1 3 0V10"/><path d="M12 10V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M15 11V8.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-1a6 6 0 0 1-5-2.7L3.3 15a1.5 1.5 0 0 1 2.4-1.8L6 13.6"/></g></symbol>
+    <symbol id="i-brilho" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></g></symbol>
+    <symbol id="i-raio" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
+    <symbol id="i-predio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="11" height="18" rx="1.5"/><path d="M15 9h4a1 1 0 0 1 1 1v11H15"/><path d="M8 7h3M8 11h3M8 15h3"/></g></symbol>
+    <symbol id="i-calendario" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></g></symbol>
+    <symbol id="i-trofeu" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 21h8M9.5 17h5"/></g></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-mais" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-whats" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.2A9.7 9.7 0 0 0 3.6 16.8L2.3 21.7l5-1.3A9.7 9.7 0 1 0 12 2.2zm0 17.7a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 19.9zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2c0 1.2.9 2.3 1 2.5.1.2 1.7 2.7 4.2 3.8 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2l-.5-.2z"/></symbol>
+    <symbol id="i-insta" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></g></symbol>
+    <symbol id="estrela" viewBox="0 0 100 100"><polygon points="50,6 62,38 96,38 69,58 79,92 50,72 21,92 31,58 4,38 38,38" stroke-width="10" stroke-linejoin="round"/></symbol>
+    <symbol id="borboleta" viewBox="0 0 32 32"><g fill="currentColor"><path d="M15 9c-2-4-7-6-10-5-3 1-2 6 0 8 1.4 1.4 4 2 6 2-3 .6-5 2.6-4.6 5 .5 3 4 3.5 6 1.5 1.3-1.3 2.2-3.5 2.6-5.5z"/><path d="M17 9c2-4 7-6 10-5 3 1 2 6 0 8-1.4 1.4-4 2-6 2 3 .6 5 2.6 4.6 5-.5 3-4 3.5-6 1.5-1.3-1.3-2.2-3.5-2.6-5.5z"/><rect x="15" y="8" width="2" height="16" rx="1"/></g><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M15.5 8.5C15 6 13.5 4.5 12 4M16.5 8.5C17 6 18.5 4.5 20 4"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="#inicio" aria-label="Turma da Tati, início">
+      <svg width="30" height="30" style="color:var(--fucsia)" aria-hidden="true"><use href="#borboleta"/></svg>
+      Turma da Tati
+    </a>
+    <nav class="menu" id="menu" aria-label="Seções">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#experiencias">Experiências</a>
+      <a href="#empresas">Empresas</a>
+      <a href="#quem-somos">Quem somos</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a href="#manual">Manual da marca</a>
+    </nav>
+    <div style="display:flex;gap:8px;align-items:center">
+      <a class="btn btn-uva cta-topo" data-zap="Olá! Vi o site da Turma da Tati e quero consultar uma data." href="#orcamento">
+        <svg width="20" height="20" aria-hidden="true"><use href="#i-whats"/></svg>Consultar minha data
+      </a>
+      <button class="abrir-menu" id="abrirMenu" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="band bg-uva hero" id="inicio">
+  <div class="wrap">
+    <div class="hero-txt">
+      <div class="eyebrow">Recreação infantil · Curitiba e região</div>
+      <h1>Diversão que encanta, <em>momentos que ficam!</em></h1>
+      <p class="lead">Recreadoras uniformizadas, oficinas com materiais inclusos e experiências com nome próprio, como Spa Kids, Camarim Fashion Kids e Baladinha Kids. Escolha as atividades e fale com a Tia Tati pelo WhatsApp.</p>
+      <div class="hero-acoes">
+        <a class="btn btn-creme" data-zap="Olá! Vi o site da Turma da Tati e quero consultar uma data." href="#orcamento">
+          <svg width="20" height="20" aria-hidden="true"><use href="#i-whats"/></svg>Consultar minha data
+        </a>
+        <a class="btn btn-linha" href="#catalogo">Ver o catálogo</a>
+      </div>
+      <div class="hero-fatos">
+        <span><i style="background:var(--amarelo)"></i>31 atividades</span>
+        <span><i style="background:var(--azul)"></i>Aniversários e empresas</span>
+        <span><i style="background:var(--fucsia)"></i>Linha Neon com luz negra</span>
+      </div>
+    </div>
+    <div class="hero-logo">
+      <svg class="enfeites" viewBox="0 0 400 480" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <use href="#estrela" class="cintila" x="-6" y="40" width="58" height="58" fill="#F5CE57" stroke="#F5CE57"/>
+        <use href="#estrela" class="cintila d2" x="346" y="70" width="42" height="42" fill="#09B0FF" stroke="#09B0FF"/>
+        <use href="#estrela" class="cintila d3" x="340" y="400" width="52" height="52" fill="#FD0178" stroke="#FD0178"/>
+        <use href="#estrela" class="cintila d2" x="10" y="410" width="34" height="34" fill="#A08AE8" stroke="#A08AE8"/>
+        <circle cx="120" cy="14" r="7" fill="#FDB657"/>
+        <circle cx="300" cy="22" r="6" fill="#F117F4"/>
+        <circle cx="4" cy="250" r="8" fill="#09B0FF"/>
+        <circle cx="396" cy="260" r="7" fill="#F5CE57"/>
+        <circle cx="180" cy="474" r="6" fill="#FDFCF1"/>
+        <circle cx="280" cy="466" r="5" fill="#FD0178"/>
+      </svg>
+      <div class="placa">
+        <img src="assets/logo-turma-da-tati.webp" alt="Logo da Turma da Tati: borboleta roxa e fúcsia com estrelas e o letreiro Turma da Tati" width="461" height="541">
+      </div>
+    </div>
+  </div>
+  <svg class="onda" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 Q 90 4 180 34 T 360 34 T 540 34 T 720 34 T 900 34 T 1080 34 T 1260 34 T 1440 34 V 70 H 0 Z" fill="#FDFCF1"/></svg>
+</section>
+
+<!-- ============ CATÁLOGO ============ -->
+<section class="band bg-claro" id="catalogo">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Catálogo de atividades</div>
+        <h2 class="h-sec">Monte a festa do seu jeito</h2>
+      </div>
+      <p class="lead">Toque em “Quero na minha festa” para chamar no WhatsApp, ou use o <b>+</b> para juntar várias atividades num pacote e mandar tudo de uma vez.</p>
+    </div>
+
+    <div class="linhas" id="linhas"></div>
+
+    <div class="filtros" role="group" aria-label="Filtrar atividades" id="filtros"></div>
+    <div class="grade" id="grade" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ============ EXPERIÊNCIAS ============ -->
+<section class="band bg-uva" id="experiencias">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Experiências assinatura</div>
+        <h2 class="h-sec">Um selo para cada experiência</h2>
+      </div>
+      <p class="lead">Três experiências completas, com cenário, materiais e equipe próprios. São o que a Turma da Tati tem de mais especial.</p>
+    </div>
+    <div class="exps">
+      <article class="exp">
+        <svg class="selo" role="img" aria-label="Selo Spa Kids" viewBox="0 0 280 280">
+          <defs><path id="ringSpa" d="M140,140 m-112,0 a112,112 0 1,1 224,0 a112,112 0 1,1 -224,0"/></defs>
+          <circle cx="140" cy="140" r="136" fill="#EEE8FB"/><circle cx="140" cy="140" r="96" fill="#FFFFFF"/>
+          <text font-family="Fredoka, sans-serif" font-weight="600" font-size="15" letter-spacing="3" fill="#6E1A92"><textPath href="#ringSpa">TURMA DA TATI · AUTOCUIDADO E DIVERSÃO · </textPath></text>
+          <circle cx="104" cy="96" r="10" fill="#A08AE8"/><circle cx="122" cy="80" r="6" fill="#09B0FF"/><circle cx="178" cy="92" r="8" fill="#F117F4"/>
+          <text x="140" y="146" text-anchor="middle" font-family="Fraunces, serif" font-weight="900" font-size="46" fill="#6E1A92">Spa</text>
+          <text x="140" y="184" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="26" fill="#9717E8">Kids</text>
+        </svg>
+        <span class="tag-linha">Calma e cuidado</span>
+        <h3>Spa Kids</h3>
+        <ul>
+          <li><svg width="16" height="16" style="color:var(--roxo)" aria-hidden="true"><use href="#i-check"/></svg>Skincare infantil com produtos seguros</li>
+          <li><svg width="16" height="16" style="color:var(--roxo)" aria-hidden="true"><use href="#i-check"/></svg>Escalda-pés e esmaltação</li>
+          <li><svg width="16" height="16" style="color:var(--roxo)" aria-hidden="true"><use href="#i-check"/></svg>Robes para as convidadas</li>
+        </ul>
+        <a class="btn btn-uva" data-zap="Olá! Vi o Spa Kids no site e quero consultar uma data." href="#orcamento">Reservar Spa Kids</a>
+      </article>
+
+      <article class="exp">
+        <svg class="selo" role="img" aria-label="Selo Camarim Fashion Kids" viewBox="0 0 280 280">
+          <defs><path id="ringCam" d="M140,140 m-112,0 a112,112 0 1,1 224,0 a112,112 0 1,1 -224,0"/></defs>
+          <circle cx="140" cy="140" r="136" fill="#F117F4"/><circle cx="140" cy="140" r="96" fill="#FFFFFF"/>
+          <text font-family="Fredoka, sans-serif" font-weight="600" font-size="15" letter-spacing="3" fill="#2E0A40"><textPath href="#ringCam">TURMA DA TATI · BRILHO E ESTILO · TURMA DA TATI · </textPath></text>
+          <use href="#estrela" x="126" y="64" width="28" height="28" fill="#F5CE57" stroke="#F5CE57"/>
+          <text x="140" y="140" text-anchor="middle" font-family="Fraunces, serif" font-weight="900" font-size="38" fill="#6E1A92">Camarim</text>
+          <text x="140" y="174" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="22" fill="#9717E8">Fashion Kids</text>
+        </svg>
+        <span class="tag-linha">Passarela, brilho e autoestima</span>
+        <h3>Camarim Fashion Kids</h3>
+        <ul>
+          <li><svg width="16" height="16" style="color:var(--roxo)" aria-hidden="true"><use href="#i-check"/></svg>Maquiagem e penteados</li>
+          <li><svg width="16" height="16" style="color:var(--roxo)" aria-hidden="true"><use href="#i-check"/></svg>Apliques, manicure e tererê</li>
+          <li><svg width="16" height="16" style="color:var(--roxo)" aria-hidden="true"><use href="#i-check"/></svg>Momento de passarela no fim</li>
+        </ul>
+        <a class="btn btn-uva" data-zap="Olá! Vi o Camarim Fashion Kids no site e quero consultar uma data." href="#orcamento">Reservar Camarim</a>
+      </article>
+
+      <article class="exp escura">
+        <svg class="selo" role="img" aria-label="Selo Baladinha Kids" viewBox="0 0 280 280">
+          <defs><path id="ringBal" d="M140,140 m-112,0 a112,112 0 1,1 224,0 a112,112 0 1,1 -224,0"/></defs>
+          <circle cx="140" cy="140" r="136" fill="#2E0A40"/>
+          <circle cx="140" cy="140" r="96" fill="none" stroke="#09B0FF" stroke-width="4"/>
+          <circle cx="140" cy="140" r="86" fill="none" stroke="#F117F4" stroke-width="3"/>
+          <text font-family="Fredoka, sans-serif" font-weight="600" font-size="15" letter-spacing="3" fill="#F5CE57"><textPath href="#ringBal">TURMA DA TATI · LUZ, NEON E DANÇA · </textPath></text>
+          <text x="140" y="142" text-anchor="middle" font-family="Fraunces, serif" font-weight="900" font-size="38" fill="#FFFFFF">Baladinha</text>
+          <text x="140" y="178" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="26" fill="#09B0FF">Kids</text>
+        </svg>
+        <span class="tag-linha">Luz, neon e dança</span>
+        <h3>Baladinha Kids</h3>
+        <ul>
+          <li><svg width="16" height="16" style="color:var(--azul)" aria-hidden="true"><use href="#i-check"/></svg>Luz negra e acessórios neon</li>
+          <li><svg width="16" height="16" style="color:var(--azul)" aria-hidden="true"><use href="#i-check"/></svg>Pintura facial e slime neon</li>
+          <li><svg width="16" height="16" style="color:var(--azul)" aria-hidden="true"><use href="#i-check"/></svg>Pista de dança com a equipe</li>
+        </ul>
+        <a class="btn btn-creme" data-zap="Olá! Vi a Baladinha Kids no site e quero consultar uma data." href="#orcamento">Reservar Baladinha</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EMPRESAS ============ -->
+<section class="band bg-neon empresas" id="empresas">
+  <div class="wrap">
+    <div style="display:flex;flex-direction:column;gap:18px;min-width:0">
+      <div class="eyebrow" style="color:var(--azul)">Para empresas</div>
+      <h2 class="h-sec" style="color:var(--branco)">Seu evento merece muito mais do que entretenimento.</h2>
+      <p class="lead" style="color:var(--texto-claro)">Dia das Crianças para os filhos dos colaboradores, festas de fim de ano e eventos de família, com cronograma temático montado junto com a sua equipe.</p>
+      <div><a class="btn btn-creme" data-zap="Olá! Sou de uma empresa e quero uma proposta da Turma da Tati para um evento." href="#orcamento">Solicitar proposta</a></div>
+    </div>
+    <div class="lista-emp">
+      <div class="item-emp"><div class="ico"><svg width="26" height="26" aria-hidden="true"><use href="#i-calendario"/></svg></div><div><b>Dia das Crianças corporativo</b><span>Recreação, oficinas e pintura facial num dia inteiro de evento.</span></div></div>
+      <div class="item-emp"><div class="ico"><svg width="26" height="26" aria-hidden="true"><use href="#i-escudo"/></svg></div><div><b>Cronograma temático</b><span>Atividades ligadas a um tema da empresa, como segurança.</span></div></div>
+      <div class="item-emp"><div class="ico"><svg width="26" height="26" aria-hidden="true"><use href="#i-trofeu"/></svg></div><div><b>Gincanas para adultos</b><span>Brincadeiras em equipe para integração e festas de família.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUEM SOMOS ============ -->
+<section class="band bg-claro quem" id="quem-somos">
+  <div class="wrap">
+    <div class="polas" aria-hidden="true">
+      <figure class="pola" style="margin:0"><div class="f" style="background:linear-gradient(135deg,#A08AE8,#9717E8)"><svg width="72" height="72" style="color:#FDFCF1"><use href="#borboleta"/></svg></div><figcaption>Tia Tati</figcaption></figure>
+      <figure class="pola" style="margin:0"><div class="f" style="background:linear-gradient(135deg,#FBD3FC,#F117F4)"><svg width="64" height="64" style="color:#FFFFFF"><use href="#i-equipe"/></svg></div><figcaption>A equipe</figcaption></figure>
+      <figure class="pola" style="margin:0"><div class="f" style="background:linear-gradient(135deg,#FDE9B4,#F5CE57)"><svg width="64" height="64" style="color:#6E1A92"><use href="#i-coracao"/></svg></div><figcaption>Chicoleta</figcaption></figure>
+    </div>
+    <div class="quem-txt">
+      <div class="eyebrow">Quem somos</div>
+      <h2 class="h-sec">Feita com carinho pela Tia Tati</h2>
+      <p class="lead">A Turma da Tati Recreações nasceu do carinho da Tia Tati pelas crianças. Hoje é uma equipe de recreadoras treinadas e uniformizadas de roxo e pink, que leva brincadeiras, oficinas e experiências temáticas a aniversários e eventos em Curitiba e região. E tem mascote: o cachorro Chicoleta.</p>
+      <div class="valores">
+        <div class="valor" style="background:var(--uva);color:var(--branco)"><b style="color:var(--amarelo)">Acolhedora</b><span>Uma equipe preparada para acolher cada criança com carinho.</span></div>
+        <div class="valor" style="background:var(--roxo);color:var(--branco)"><b>Encantadora</b><span>Cada encontro vira uma experiência leve e inesquecível.</span></div>
+        <div class="valor" style="background:var(--nevoa)"><b style="color:var(--uva)">Segura</b><span>Materiais inclusos, produtos hipoalergênicos e recreadoras treinadas.</span></div>
+        <div class="valor" style="background:var(--amarelo)"><b>Leve</b><span>Enquanto as crianças se divertem, os adultos aproveitam cada instante.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DÚVIDAS ============ -->
+<section class="band bg-claro" id="duvidas" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Dúvidas frequentes</div>
+        <h2 class="h-sec">Antes de chamar no WhatsApp</h2>
+      </div>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Quais cidades vocês atendem?<svg class="seta" width="22" height="22" aria-hidden="true"><use href="#i-mais"/></svg></summary>
+        <div class="resp">Curitiba e região, incluindo São José dos Pinhais. Para outras cidades, chame no WhatsApp com o bairro e a data que a gente confere.</div>
+      </details>
+      <details>
+        <summary>A partir de que idade as crianças participam?<svg class="seta" width="22" height="22" aria-hidden="true"><use href="#i-mais"/></svg></summary>
+        <div class="resp">Cada atividade tem a sua idade indicada. Para crianças menores de 4 anos, indicamos a companhia de um responsável ou uma recreadora extra.</div>
+      </details>
+      <details>
+        <summary>Os materiais estão inclusos? São seguros?<svg class="seta" width="22" height="22" aria-hidden="true"><use href="#i-mais"/></svg></summary>
+        <div class="resp">Sim. Os materiais das oficinas vão com a equipe, e os produtos de pele, como os do Spa Kids e da pintura facial, são hipoalergênicos e próprios para crianças.</div>
+      </details>
+      <details>
+        <summary>Dá para juntar várias atividades na mesma festa?<svg class="seta" width="22" height="22" aria-hidden="true"><use href="#i-mais"/></svg></summary>
+        <div class="resp">Dá, e é o mais comum. No catálogo, toque no <b>+</b> de cada atividade e envie o pacote pelo WhatsApp. A gente monta o cronograma com você.</div>
+      </details>
+      <details>
+        <summary>O que preciso informar para pedir um orçamento?<svg class="seta" width="22" height="22" aria-hidden="true"><use href="#i-mais"/></svg></summary>
+        <div class="resp">A data, o bairro ou local da festa, o número de crianças, a faixa de idade e as atividades que interessam. O formulário logo abaixo já monta essa mensagem.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ORÇAMENTO ============ -->
+<section class="band bg-uva orc" id="orcamento">
+  <div class="wrap">
+    <div style="display:flex;flex-direction:column;gap:18px;min-width:0">
+      <div class="eyebrow">Orçamento</div>
+      <h2 class="h-sec">Consultar minha data</h2>
+      <p class="lead">Preencha o que souber. A mensagem abre pronta no WhatsApp da Turma da Tati.</p>
+      <div class="contato-lista">
+        <div class="item">
+          <span class="numero" id="numero">(41) 99827-0875</span>
+          <button class="copiar" type="button" id="copiarNumero">Copiar número</button>
+        </div>
+        <div class="item"><a class="btn btn-linha" href="https://www.instagram.com/turmadatati/" target="_blank" rel="noopener"><svg width="20" height="20" aria-hidden="true"><use href="#i-insta"/></svg>@turmadatati</a></div>
+      </div>
+    </div>
+    <form class="form" id="formOrc" novalidate>
+      <div class="campo"><label for="f-data">Data da festa</label><input id="f-data" name="data" type="date"></div>
+      <div class="campo"><label for="f-bairro">Bairro ou cidade</label><input id="f-bairro" name="bairro" type="text" placeholder="Ex.: Água Verde" autocomplete="address-level2"></div>
+      <div class="campo"><label for="f-qtd">Número de crianças</label><input id="f-qtd" name="qtd" type="number" min="1" inputmode="numeric" placeholder="Ex.: 20"></div>
+      <div class="campo"><label for="f-idade">Faixa de idade</label>
+        <select id="f-idade" name="idade">
+          <option value="">Escolha</option>
+          <option>Até 3 anos</option>
+          <option>4 a 6 anos</option>
+          <option>7 a 10 anos</option>
+          <option>11 anos ou mais</option>
+          <option>Idades variadas</option>
+          <option>Adultos</option>
+        </select>
+      </div>
+      <div class="campo cheio"><label for="f-ativ">Atividades de interesse</label><textarea id="f-ativ" name="ativ" placeholder="Use o + no catálogo ou escreva aqui"></textarea></div>
+      <button class="btn btn-uva" type="submit"><svg width="20" height="20" aria-hidden="true"><use href="#i-whats"/></svg>Enviar pelo WhatsApp</button>
+      <div class="resultado" id="resultado" hidden>
+        <span>Se o WhatsApp não abriu sozinho, use o botão abaixo ou mande a mensagem para (41) 99827-0875.</span>
+        <a class="btn btn-uva" id="linkZap" href="#" target="_blank" rel="noopener">Abrir o WhatsApp</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ MANUAL DA MARCA ============ -->
+<section class="band bg-claro" id="manual">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Manual da marca · 2026</div>
+        <h2 class="h-sec">Como a Turma da Tati aparece</h2>
+      </div>
+      <p class="lead">As regras que valem para o Instagram, o site, os uniformes e tudo o que chega às famílias. Toque numa cor para copiar o código.</p>
+    </div>
+
+    <nav class="manual-nav" aria-label="Partes do manual">
+      <div class="trilho">
+        <a href="#m-logo">Logo</a><a href="#m-cores">Cores</a><a href="#m-tipografia">Tipografia</a><a href="#m-grafismos">Grafismos</a><a href="#m-selos">Selos</a><a href="#m-voz">Tom de voz</a><a href="#m-uso">Em uso</a>
+      </div>
+    </nav>
+
+    <!-- Logo -->
+    <div class="mbloco" id="m-logo">
+      <div class="sec-head">
+        <div><div class="eyebrow">Logo</div><h3 class="h-man">O logo é intocável</h3></div>
+        <p class="lead">A borboleta e o letreiro aparecem sempre juntos, nas cores originais e sem alterações. O que muda de peça para peça é só o fundo e o tamanho.</p>
+      </div>
+      <div class="logo-usos">
+        <div class="uso"><div class="fundo" style="background:var(--creme)"><img src="assets/logo-turma-da-tati.webp" alt="Logo sobre creme" loading="lazy"></div><b>Creme · fundo preferido</b></div>
+        <div class="uso"><div class="fundo" style="background:var(--branco)"><img src="assets/logo-turma-da-tati.webp" alt="Logo sobre branco" loading="lazy"></div><b>Branco</b></div>
+        <div class="uso"><div class="fundo" style="background:var(--nevoa);border-color:var(--nevoa)"><img src="assets/logo-turma-da-tati.webp" alt="Logo sobre lilás névoa" loading="lazy"></div><b>Lilás névoa · capas e destaques</b></div>
+        <div class="uso"><div class="fundo" style="background:var(--uva);border-color:var(--uva)"><div class="placinha"><img src="assets/logo-turma-da-tati.webp" alt="Logo sobre placa creme em fundo uva" loading="lazy"></div></div><b>Fundo escuro · sempre com placa creme</b></div>
+      </div>
+      <div class="regras">
+        <div class="medida">
+          <h4>Regras de medida</h4>
+          <div style="font-size:15.5px"><strong>Respiro:</strong> deixe em volta do logo um espaço livre igual à altura do “T” de Turma.</div>
+          <div style="font-size:15.5px"><strong>Tamanho mínimo:</strong> 120 px de largura nas telas e 3 cm no impresso. Menor que isso, a borboleta vira borrão.</div>
+        </div>
+        <div class="evite">
+          <h4>Evite</h4>
+          <div class="g">
+            <div class="erro"><div class="fundo"><img src="assets/logo-turma-da-tati.webp" alt="Errado: logo esticado" style="width:120px;height:72px" loading="lazy"></div><span>Esticar ou achatar</span></div>
+            <div class="erro"><div class="fundo"><img src="assets/logo-turma-da-tati.webp" alt="Errado: logo recolorido" style="width:62px;filter:hue-rotate(120deg)" loading="lazy"></div><span>Trocar as cores</span></div>
+            <div class="erro"><div class="fundo"><img src="assets/logo-turma-da-tati.webp" alt="Errado: logo girado" style="width:62px;transform:rotate(-18deg)" loading="lazy"></div><span>Girar ou inclinar</span></div>
+            <div class="erro"><div class="fundo" style="background:var(--roxo);border-color:var(--roxo)"><img src="assets/logo-turma-da-tati.webp" alt="Errado: logo direto sobre roxo" style="width:62px" loading="lazy"></div><span>Pôr direto sobre roxo</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cores -->
+    <div class="mbloco" id="m-cores">
+      <div class="sec-head">
+        <div><div class="eyebrow">Cores</div><h3 class="h-man">A paleta vem da borboleta</h3></div>
+        <p class="lead">Roxos e fúcsia tirados do logo, a base creme e uva do catálogo. As cores de alegria entram em pouca quantidade, como confete.</p>
+      </div>
+      <div class="cores-a" id="coresA"></div>
+      <div class="cores-b" id="coresB"></div>
+      <div class="cores-c" id="coresC"></div>
+      <div class="proporcao">
+        <b style="font-family:var(--f-chamada);font-weight:600;font-size:17px">Proporção numa peça</b>
+        <div class="barra" aria-hidden="true">
+          <div style="flex:60;background:var(--nevoa)"></div><div style="flex:25;background:var(--uva)"></div><div style="flex:10;background:var(--fucsia)"></div>
+          <div style="flex:2;background:var(--amarelo)"></div><div style="flex:2;background:var(--azul)"></div><div style="flex:1;background:var(--pink)"></div>
+        </div>
+        <span style="font-size:15px">60% base clara · 25% uva e roxo · 10% fúcsia · 5% cores de alegria. Texto corrido sempre em Berinjela ou Uva; branco só sobre Uva e Roxo Tati.</span>
+      </div>
+    </div>
+
+    <!-- Tipografia -->
+    <div class="mbloco" id="m-tipografia">
+      <div class="sec-head">
+        <div><div class="eyebrow">Tipografia</div><h3 class="h-man">Três letras, três papéis</h3></div>
+        <p class="lead">A serifada macia segue o clima do catálogo, a arredondada conversa com o letreiro do logo e a Nunito deixa os textos fáceis de ler no celular. O letreiro do logo não vira fonte: ele vive só no logo.</p>
+      </div>
+      <div class="tipos">
+        <div class="tipo" style="background:var(--uva);color:var(--branco)">
+          <span class="rot" style="color:var(--amarelo)">Títulos</span>
+          <span class="aa" style="font-family:var(--f-titulo);font-variation-settings:'SOFT' 100;font-weight:900">Aa</span>
+          <span style="font-family:var(--f-titulo);font-variation-settings:'SOFT' 100;font-weight:800;font-size:28px;line-height:1.1">A magia começa aqui</span>
+          <span class="meta" style="color:var(--texto-claro)">Fraunces, versão Soft · Black 900 e ExtraBold 800 · títulos de página, capas e frases de efeito</span>
+        </div>
+        <div class="tipo" style="background:var(--nevoa)">
+          <span class="rot" style="color:var(--uva)">Chamadas</span>
+          <span class="aa" style="font-family:var(--f-chamada);font-weight:600;color:var(--roxo)">Aa</span>
+          <span style="font-family:var(--f-chamada);font-weight:600;font-size:26px;line-height:1.15;color:var(--uva)">Consultar minha data</span>
+          <span class="meta">Fredoka · SemiBold 600 e Medium 500 · subtítulos, botões, selos, etiquetas e preços</span>
+        </div>
+        <div class="tipo" style="background:var(--branco);border:2px solid var(--linha)">
+          <span class="rot" style="color:var(--uva)">Texto</span>
+          <span class="aa" style="font-family:var(--f-texto);font-weight:800">Aa</span>
+          <span style="font-size:16.5px;line-height:1.5">Cada atividade é planejada para estimular a criatividade, a coordenação motora e a interação entre as crianças.</span>
+          <span class="meta">Nunito · Regular 400, Bold 700 e ExtraBold 800 · descrições, legendas, FAQ e contratos</span>
+        </div>
+      </div>
+      <div class="hierarquia">
+        <span style="font-family:var(--f-chamada);font-weight:600;font-size:15px;color:var(--roxo)">Hierarquia</span>
+        <span style="font-family:var(--f-titulo);font-variation-settings:'SOFT' 100;font-weight:900;font-size:clamp(32px,4vw,44px);color:var(--uva)">Spa Kids</span>
+        <span style="font-family:var(--f-chamada);font-weight:600;font-size:22px;color:var(--roxo)">A partir de 10 crianças</span>
+        <span style="font-size:16px">2 recreadoras · 2 horas de experiência</span>
+        <span style="font-size:13px;font-weight:700;color:var(--uva)">Mínimo 13 px</span>
+      </div>
+    </div>
+
+    <!-- Grafismos -->
+    <div class="mbloco" id="m-grafismos">
+      <div class="sec-head">
+        <div><div class="eyebrow">Grafismos</div><h3 class="h-man">Os enfeites da festa</h3></div>
+        <p class="lead">Estrelas e confetes saem do próprio logo; nuvens, arco-íris e polaroides vêm do catálogo. Formas sempre chapadas e arredondadas, sem o contorno preto, que é exclusivo da borboleta.</p>
+      </div>
+      <div class="grafs">
+        <div class="graf"><div class="q" style="background:var(--nevoa)"><svg width="100" height="100" aria-hidden="true"><use href="#estrela" fill="#F5CE57" stroke="#F5CE57"/></svg></div><b>Estrela macia</b><span>Pontas arredondadas. Até 4 por peça.</span></div>
+        <div class="graf"><div class="q" style="background:var(--nevoa)"><svg width="130" height="112" viewBox="0 0 140 120" aria-hidden="true"><circle cx="20" cy="22" r="8" fill="#FD0178"/><circle cx="70" cy="14" r="6" fill="#09B0FF"/><circle cx="118" cy="30" r="9" fill="#F5CE57"/><circle cx="44" cy="62" r="6" fill="#9717E8"/><circle cx="96" cy="70" r="8" fill="#F117F4"/><circle cx="22" cy="100" r="6" fill="#FDB657"/><circle cx="72" cy="104" r="9" fill="#09B0FF"/><circle cx="124" cy="104" r="6" fill="#FD0178"/></svg></div><b>Confete</b><span>Pontos espalhados nas bordas, nunca sobre texto.</span></div>
+        <div class="graf"><div class="q" style="background:var(--azul)"><svg width="140" height="82" viewBox="0 0 190 110" aria-hidden="true"><path d="M44 100 Q14 100 14 76 Q14 52 42 52 Q48 22 80 24 Q102 4 128 28 Q160 24 164 56 Q184 60 182 82 Q180 100 158 100 Z" fill="#FFFFFF"/></svg></div><b>Nuvem</b><span>Moldura para avisos e textos curtos.</span></div>
+        <div class="graf"><div class="q" style="background:var(--nevoa);align-items:flex-end"><svg width="150" height="100" viewBox="0 0 200 120" aria-hidden="true"><path d="M16 130 A84 84 0 0 1 184 130" fill="none" stroke="#6E1A92" stroke-width="18"/><path d="M36 130 A64 64 0 0 1 164 130" fill="none" stroke="#F117F4" stroke-width="18"/><path d="M56 130 A44 44 0 0 1 144 130" fill="none" stroke="#F5CE57" stroke-width="18"/><path d="M76 130 A24 24 0 0 1 124 130" fill="none" stroke="#09B0FF" stroke-width="18"/></svg></div><b>Arco-íris da Tati</b><span>Quatro faixas nas cores da marca.</span></div>
+        <div class="graf"><div class="q" style="background:var(--creme);border:2px solid var(--linha)"><div style="width:96px;height:116px;background:#fff;box-shadow:0 6px 16px rgba(46,10,64,.16);transform:rotate(-5deg);padding:8px 8px 26px"><div style="width:100%;height:100%;background:var(--lavanda);border-radius:2px"></div></div></div><b>Polaroide</b><span>Moldura das fotos de festas, levemente girada.</span></div>
+        <div class="graf"><div class="q" style="background:var(--uva);align-items:flex-end"><svg width="100%" height="64" viewBox="0 0 180 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 Q 22 10 45 30 T 90 30 T 135 30 T 180 30 L 180 70 L 0 70 Z" fill="#FDFCF1"/></svg></div><b>Onda</b><span>Divisor entre seções no site e no catálogo.</span></div>
+      </div>
+      <div class="juntos bg-uva">
+        <svg viewBox="0 0 520 250" aria-hidden="true">
+          <path d="M130 280 A190 190 0 0 1 510 280" fill="none" stroke="#9717E8" stroke-width="34"/>
+          <path d="M170 280 A150 150 0 0 1 470 280" fill="none" stroke="#F117F4" stroke-width="34"/>
+          <path d="M210 280 A110 110 0 0 1 430 280" fill="none" stroke="#F5CE57" stroke-width="34"/>
+          <path d="M250 280 A70 70 0 0 1 390 280" fill="none" stroke="#09B0FF" stroke-width="34"/>
+          <use href="#estrela" x="60" y="40" width="42" height="42" fill="#F5CE57" stroke="#F5CE57"/>
+          <use href="#estrela" x="450" y="30" width="30" height="30" fill="#FD0178" stroke="#FD0178"/>
+          <circle cx="20" cy="200" r="7" fill="#09B0FF"/><circle cx="130" cy="150" r="6" fill="#FDB657"/><circle cx="370" cy="60" r="7" fill="#F117F4"/>
+        </svg>
+        <div class="t">
+          <div class="eyebrow">Juntos numa peça</div>
+          <div style="font-family:var(--f-titulo);font-variation-settings:'SOFT' 100;font-weight:900;font-size:clamp(28px,3.6vw,42px);line-height:1.04">Seu evento merece muito mais do que entretenimento.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Selos -->
+    <div class="mbloco" id="m-selos">
+      <div class="sec-head">
+        <div><div class="eyebrow">Experiências</div><h3 class="h-man">Selos e etiquetas</h3></div>
+        <p class="lead">As experiências com nome próprio ganham um selo que lembra “isto é da Turma da Tati”. O logo continua sendo a assinatura principal; o selo marca a experiência.</p>
+      </div>
+      <div class="selos-man">
+        <div class="selo-man"><svg viewBox="0 0 280 280" role="img" aria-label="Selo Spa Kids"><circle cx="140" cy="140" r="136" fill="#EEE8FB"/><circle cx="140" cy="140" r="96" fill="#FFFFFF"/><text font-family="Fredoka, sans-serif" font-weight="600" font-size="15" letter-spacing="3" fill="#6E1A92"><textPath href="#ringSpa">TURMA DA TATI · AUTOCUIDADO E DIVERSÃO · </textPath></text><circle cx="104" cy="96" r="10" fill="#A08AE8"/><circle cx="122" cy="80" r="6" fill="#09B0FF"/><circle cx="178" cy="92" r="8" fill="#F117F4"/><text x="140" y="146" text-anchor="middle" font-family="Fraunces, serif" font-weight="900" font-size="46" fill="#6E1A92">Spa</text><text x="140" y="184" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="26" fill="#9717E8">Kids</text></svg>
+          <span class="etq spa">Spa Kids</span><p>Lilás e lavanda, bolhas no lugar das estrelas. Calma e cuidado.</p></div>
+        <div class="selo-man"><svg viewBox="0 0 280 280" role="img" aria-label="Selo Camarim Fashion Kids"><circle cx="140" cy="140" r="136" fill="#F117F4"/><circle cx="140" cy="140" r="96" fill="#FFFFFF"/><text font-family="Fredoka, sans-serif" font-weight="600" font-size="15" letter-spacing="3" fill="#2E0A40"><textPath href="#ringCam">TURMA DA TATI · BRILHO E ESTILO · TURMA DA TATI · </textPath></text><use href="#estrela" x="126" y="64" width="28" height="28" fill="#F5CE57" stroke="#F5CE57"/><text x="140" y="140" text-anchor="middle" font-family="Fraunces, serif" font-weight="900" font-size="38" fill="#6E1A92">Camarim</text><text x="140" y="174" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="22" fill="#9717E8">Fashion Kids</text></svg>
+          <span class="etq camarim">Camarim Fashion</span><p>Fúcsia e estrela amarela. Passarela, brilho e autoestima.</p></div>
+        <div class="selo-man"><svg viewBox="0 0 280 280" role="img" aria-label="Selo Baladinha Kids"><circle cx="140" cy="140" r="136" fill="#2E0A40"/><circle cx="140" cy="140" r="96" fill="none" stroke="#09B0FF" stroke-width="4"/><circle cx="140" cy="140" r="86" fill="none" stroke="#F117F4" stroke-width="3"/><text font-family="Fredoka, sans-serif" font-weight="600" font-size="15" letter-spacing="3" fill="#F5CE57"><textPath href="#ringBal">TURMA DA TATI · LUZ, NEON E DANÇA · </textPath></text><text x="140" y="142" text-anchor="middle" font-family="Fraunces, serif" font-weight="900" font-size="38" fill="#FFFFFF">Baladinha</text><text x="140" y="178" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="600" font-size="26" fill="#09B0FF">Kids</text></svg>
+          <span class="etq neon">Baladinha Neon</span><p>Fundo berinjela com traços neon. Única peça escura do sistema.</p></div>
+      </div>
+      <div class="nota">Pintura facial, oficinas e pacotes não têm selo: usam etiqueta simples em Lilás Névoa com texto Uva. Assim os três selos continuam sendo especiais.</div>
+    </div>
+
+    <!-- Tom de voz -->
+    <div class="mbloco" id="m-voz">
+      <div class="sec-head">
+        <div><div class="eyebrow">Tom de voz</div><h3 class="h-man">Carinho de quem cuida</h3></div>
+        <p class="lead">Carinho de quem cuida, organização de quem trabalha sério. A gente conversa com a família que quer uma festa alegre e tranquila.</p>
+      </div>
+      <div class="vozes">
+        <div class="voz" style="background:var(--uva);color:var(--branco)"><b style="color:var(--amarelo)">Acolhedora</b><span>“Uma equipe preparada para acolher cada criança com carinho.”</span></div>
+        <div class="voz" style="background:var(--roxo);color:var(--branco)"><b>Encantadora</b><span>“Transformamos cada encontro em uma experiência leve e inesquecível.”</span></div>
+        <div class="voz" style="background:var(--nevoa)"><b style="color:var(--uva)">Segura</b><span>“Materiais inclusos, produtos hipoalergênicos e recreadoras treinadas.”</span></div>
+        <div class="voz" style="background:var(--amarelo)"><b>Leve</b><span>“Enquanto as crianças se divertem, os adultos aproveitam cada instante.”</span></div>
+      </div>
+      <div class="comparar">
+        <div>
+          <h4><svg width="20" height="20" style="color:var(--roxo)" aria-hidden="true"><use href="#i-check"/></svg>Assim</h4>
+          <div class="balao sim">Sábado tem Spa Kids da Helena! Robes, escalda-pés e skincare com produtos seguros. Quer na sua festa? Consulte sua data.</div>
+          <div class="balao sim">Para crianças menores de 4 anos, indicamos a companhia de um responsável ou uma recreadora extra.</div>
+        </div>
+        <div>
+          <h4><svg width="20" height="20" style="color:var(--pink);transform:rotate(45deg)" aria-hidden="true"><use href="#i-mais"/></svg>Não assim</h4>
+          <div class="balao nao">SPA KIDS!!!! 🦋💖✨🎉💅 Garanta já a melhor festa de TODAS 😍😍 chama no direct!!!</div>
+          <div class="balao nao">Crianças com idade inferior a 4 anos deverão obrigatoriamente estar acompanhadas por responsável legal.</div>
+        </div>
+      </div>
+      <div class="regras-voz">
+        <div><strong>Nome</strong>Sempre “Turma da Tati”. A fundadora é a “Tia Tati”.</div>
+        <div><strong>Emojis</strong>Até 2 por legenda; no site, nenhum. A borboleta vira ícone gráfico.</div>
+        <div><strong>Chamadas</strong>“Consultar minha data” · “Quero na minha festa” · “Montar meu pacote”</div>
+      </div>
+    </div>
+
+    <!-- Em uso -->
+    <div class="mbloco" id="m-uso">
+      <div class="sec-head">
+        <div><div class="eyebrow">Em uso</div><h3 class="h-man">A marca no dia a dia</h3></div>
+        <p class="lead">Post, destaques e o card de atividade do site seguindo as mesmas regras. As áreas lilás são para fotos reais das festas.</p>
+      </div>
+      <div class="emuso">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div class="post">
+            <svg class="deco" viewBox="0 0 340 425" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="320" cy="20" r="80" fill="#9717E8"/><use href="#estrela" x="272" y="168" width="30" height="30" fill="#F5CE57" stroke="#F5CE57"/><circle cx="40" cy="240" r="5" fill="#09B0FF"/><circle cx="300" cy="250" r="5" fill="#F117F4"/></svg>
+            <div class="k">Experiência</div>
+            <div class="tt">Spa Kids</div>
+            <div class="ft">Foto da festa</div>
+            <div class="rod"><span>Consulte sua data</span><span>@turmadatati</span></div>
+          </div>
+          <span class="legenda">Post de feed 4:5</span>
+        </div>
+        <div class="emuso-dir">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div class="destaques">
+              <div class="dest"><div class="c" style="color:var(--uva)"><svg width="32" height="32" aria-hidden="true"><use href="#i-balao"/></svg></div><span>Brincadeiras</span></div>
+              <div class="dest"><div class="c" style="color:var(--uva)"><svg width="32" height="32" aria-hidden="true"><use href="#i-bolhas"/></svg></div><span>Spa Kids</span></div>
+              <div class="dest"><div class="c" style="color:var(--uva)"><svg width="32" height="32" aria-hidden="true"><use href="#i-paleta"/></svg></div><span>Oficinas</span></div>
+              <div class="dest"><div class="c esc" style="color:var(--amarelo)"><svg width="32" height="32" aria-hidden="true"><use href="#i-musica"/></svg></div><span>Baladinha</span></div>
+              <div class="dest"><div class="c" style="color:var(--uva)"><svg width="32" height="32" aria-hidden="true"><use href="#i-coracao"/></svg></div><span>Feedback</span></div>
+              <div class="dest"><div class="c" style="color:var(--uva)"><svg width="32" height="32" aria-hidden="true"><use href="#i-equipe"/></svg></div><span>Equipe</span></div>
+            </div>
+            <span class="legenda">Capas de destaque · ícones de traço no lugar da borboleta repetida</span>
+          </div>
+          <div style="background:var(--nevoa);border-radius:var(--r-card);padding:20px 22px;display:flex;flex-direction:column;gap:8px">
+            <b style="font-family:var(--f-chamada);font-weight:600;font-size:19px;color:var(--uva)">Card de atividade do site</b>
+            <span style="font-size:15px">Foto real no topo, etiqueta da linha, nome em Fraunces e botão Uva que abre o WhatsApp com a mensagem pronta. Cantos de 24 px nos cards e botões em pílula com 46 px de altura, bons para o dedo no celular. Os cards do <a href="#catalogo">catálogo</a> acima seguem exatamente esse modelo.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="band bg-uva rodape">
+  <div class="wrap">
+    <div class="placa-mini"><img src="assets/logo-turma-da-tati.webp" alt="Logo da Turma da Tati" loading="lazy"></div>
+    <div>
+      <p class="slogan">Diversão que encanta, momentos que ficam!</p>
+      <p>Turma da Tati Recreações · Recreação infantil em Curitiba e região · WhatsApp (41) 99827-0875</p>
+      <p style="margin-top:6px">© 2026 Turma da Tati</p>
+    </div>
+    <nav aria-label="Links">
+      <a href="https://www.instagram.com/turmadatati/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://linktr.ee/turmadatati" target="_blank" rel="noopener">Linktree</a>
+      <a href="#manual">Manual da marca</a>
+    </nav>
+  </div>
+</footer>
+
+<a class="zap" id="zapFlutuante" href="https://wa.me/5541998270875" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+  <svg width="30" height="30" aria-hidden="true"><use href="#i-whats"/></svg>
+</a>
+
+<div class="bandeja" id="bandeja" hidden>
+  <span class="qtd" id="bandejaTxt">Meu pacote: <b>0</b> atividades</span>
+  <button class="limpar" type="button" id="limpar">Limpar</button>
+  <a class="btn btn-creme" id="enviarPacote" href="#" target="_blank" rel="noopener">Montar meu pacote</a>
+</div>
+
+<script>
+(function(){
+  var ZAP = "5541998270875";
+  function zapUrl(msg){ return "https://wa.me/" + ZAP + "?text=" + encodeURIComponent(msg); }
+
+  // Links de WhatsApp com mensagem pronta
+  document.querySelectorAll("[data-zap]").forEach(function(a){
+    a.href = zapUrl(a.getAttribute("data-zap"));
+    a.target = "_blank"; a.rel = "noopener";
+  });
+
+  // Menu mobile
+  var menu = document.getElementById("menu"), bt = document.getElementById("abrirMenu");
+  bt.addEventListener("click", function(){
+    var ab = menu.classList.toggle("aberto");
+    bt.setAttribute("aria-expanded", ab ? "true" : "false");
+  });
+  menu.addEventListener("click", function(e){ if(e.target.tagName === "A"){ menu.classList.remove("aberto"); bt.setAttribute("aria-expanded","false"); } });
+
+  // ---------- Catálogo ----------
+  var LINHAS = {
+    recreacao:{nome:"Recreação e brincadeiras", curto:"Brincadeiras", ico:"i-balao", desc:"Brincadeiras dirigidas, torta na cara, bolhas gigantes e água."},
+    arte:{nome:"Arte e beleza", curto:"Arte e beleza", ico:"i-paleta", desc:"Pintura facial, tatuagem, cabelo colorido, tererê e balões."},
+    oficinas:{nome:"Oficinas", curto:"Oficinas", ico:"i-mao", desc:"Slime, massinha, miçangas, pizza, pintura em tela e mais."},
+    premium:{nome:"Experiências premium", curto:"Premium", ico:"i-brilho", desc:"Spa Kids, Camarim Fashion Kids e Baladinha Kids."},
+    empresas:{nome:"Empresas e adultos", curto:"Empresas", ico:"i-predio", desc:"Dia das Crianças corporativo e gincanas para adultos."}
+  };
+  var ATIV = [
+    ["Brincadeiras","recreacao","Brincadeiras dirigidas pelas recreadoras, pensadas para a idade da turma."],
+    ["Torta na Cara","recreacao","O clássico das gargalhadas, com perguntas, desafios e muita espuma."],
+    ["Chuva de Cores","recreacao","Pó colorido no ar para um momento de festa e fotos lindas."],
+    ["Parabéns Animado","recreacao","A equipe puxa a música, as palmas e a animação na hora do bolo."],
+    ["Monitores de Brinquedos","recreacao","Recreadoras cuidando de pula-pula e outros brinquedos da festa."],
+    ["Bolhas de Sabão Gigantes","recreacao","Bolhas enormes para correr atrás, estourar e se encantar."],
+    ["Brincadeiras com Água","recreacao","Skibunda, guerra de bexigas e outras brincadeiras para dias de calor."],
+    ["Pintura Facial","arte","Personagens, bichinhos e brilhos com tintas próprias para a pele."],
+    ["Pintura Facial Neon","arte","Pintura que brilha na luz negra. Perfeita para a Baladinha.","neon"],
+    ["Tatuagem Temporária","arte","Desenhos que saem com água e duram o resto da festa."],
+    ["Cabelo Colorido","arte","Mechas coloridas temporárias para entrar no clima."],
+    ["Camarim de Tererê","arte","Trancinhas com linhas coloridas e miçangas."],
+    ["Esculturas de Balões","arte","Espadas, bichinhos e flores feitos na hora."],
+    ["Oficina de Slime","oficinas","Cada criança faz e leva para casa o seu slime."],
+    ["Slime Neon","oficinas","A versão que brilha no escuro, com pigmentos neon.","neon"],
+    ["Massinha","oficinas","Massinha caseira para brincar, misturar cores e modelar."],
+    ["Modelagem de Massinhas","oficinas","Personagens e bichinhos modelados passo a passo."],
+    ["Almofadinhas","oficinas","Cada criança monta e decora a sua almofadinha."],
+    ["Miçangas","oficinas","Pulseiras e colares montados com miçangas coloridas."],
+    ["Oficina de Pizza","oficinas","Cada criança monta e decora a sua própria pizza."],
+    ["Balangandã","oficinas","Brinquedo de fitas coloridas para girar e dançar."],
+    ["Colorir Desenho","oficinas","Desenhos temáticos para colorir com calma."],
+    ["Pintura em Tela","oficinas","Uma tela de verdade para pintar e levar como lembrança."],
+    ["Pintura em Tela Neon","oficinas","Pintura com tintas neon que ganham vida na luz negra.","neon"],
+    ["Pintura em Metro","oficinas","Um painel longo pintado por toda a turma junta."],
+    ["Foguetinho","oficinas","Montagem de foguetinhos para lançar e brincar."],
+    ["Spa Kids","premium","Skincare infantil, escalda-pés, esmaltação e robes.","spa"],
+    ["Camarim Fashion Kids","premium","Apliques, maquiagem, penteados, manicure e tererê.","camarim"],
+    ["Baladinha Kids","premium","Luz negra, neon e pista de dança com a equipe.","neon"],
+    ["Dia das Crianças na Empresa","empresas","Cronograma temático para os filhos dos colaboradores."],
+    ["Gincanas para Adultos","empresas","Brincadeiras em equipe para festas de família e integração."]
+  ];
+  var ROT_EXTRA = {neon:"Neon", spa:"Spa Kids", camarim:"Camarim Fashion"};
+
+  var grade = document.getElementById("grade");
+  var filtros = document.getElementById("filtros");
+  var linhasEl = document.getElementById("linhas");
+  var pacote = [];
+  var filtroAtual = "todas";
+
+  function el(html){ var t=document.createElement("template"); t.innerHTML=html.trim(); return t.content.firstChild; }
+  function esc(s){ return s.replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+
+  Object.keys(LINHAS).forEach(function(k){
+    var L = LINHAS[k];
+    var b = el('<button class="linha" type="button"><span class="ico"><svg width="28" height="28" aria-hidden="true"><use href="#'+L.ico+'"/></svg></span><b>'+L.nome+'</b><small>'+L.desc+'</small></button>');
+    b.addEventListener("click", function(){ setFiltro(k); grade.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto":"smooth", block:"start"}); });
+    linhasEl.appendChild(b);
+  });
+
+  var FILTROS = [["todas","Todas"],["recreacao","Brincadeiras"],["arte","Arte e beleza"],["oficinas","Oficinas"],["premium","Premium"],["neon","Neon"],["empresas","Empresas"]];
+  function conta(k){ return ATIV.filter(function(a){ return k==="todas" || a[1]===k || a[3]===k; }).length; }
+  FILTROS.forEach(function(f){
+    var b = el('<button class="chip" type="button" aria-pressed="false" data-f="'+f[0]+'">'+f[1]+'<span class="n">'+conta(f[0])+'</span></button>');
+    b.addEventListener("click", function(){ setFiltro(f[0]); });
+    filtros.appendChild(b);
+  });
+
+  function card(a){
+    var nome=a[0], linha=a[1], extra=a[3];
+    var tom = extra==="neon" ? "t-neon" : "t-"+linha;
+    var corIco = extra==="neon" ? "#F5CE57" : (linha==="arte"||linha==="oficinas" ? "#FFFFFF" : "#6E1A92");
+    var ico = extra==="neon" ? "i-raio" : LINHAS[linha].ico;
+    var etqs = '<span class="etq">'+LINHAS[linha].curto+'</span>' + (extra ? '<span class="etq '+extra+'">'+ROT_EXTRA[extra]+'</span>' : "");
+    var msg = "Olá! Vi " + nome + " no site da Turma da Tati e quero consultar uma data.";
+    var noPac = pacote.indexOf(nome) > -1;
+    var c = el(
+      '<article class="card">'+
+        '<div class="card-foto '+tom+'">'+
+          '<svg class="bolhas" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="40" cy="36" r="6" fill="rgba(255,255,255,.7)"/><circle cx="286" cy="52" r="9" fill="rgba(255,255,255,.55)"/><circle cx="262" cy="170" r="5" fill="rgba(255,255,255,.7)"/><circle cx="64" cy="160" r="40" fill="rgba(255,255,255,.14)"/><circle cx="270" cy="20" r="56" fill="rgba(255,255,255,.12)"/></svg>'+
+          '<svg class="ico-g" style="color:'+corIco+'" aria-hidden="true"><use href="#'+ico+'"/></svg>'+
+        '</div>'+
+        '<div class="card-corpo">'+
+          '<div class="etiquetas">'+etqs+'</div>'+
+          '<h3>'+esc(nome)+'</h3>'+
+          '<p>'+esc(a[2])+'</p>'+
+          '<div class="card-acoes">'+
+            '<a class="btn btn-uva" href="'+zapUrl(msg)+'" target="_blank" rel="noopener">Quero na minha festa</a>'+
+            '<button class="add" type="button" aria-pressed="'+(noPac?"true":"false")+'" aria-label="Adicionar '+esc(nome)+' ao meu pacote">'+
+              '<svg class="mais" width="22" height="22" aria-hidden="true"><use href="#i-mais"/></svg><svg class="ok" width="22" height="22" aria-hidden="true"><use href="#i-check"/></svg>'+
+            '</button>'+
+          '</div>'+
+        '</div>'+
+      '</article>');
+    c.querySelector(".add").addEventListener("click", function(){
+      var i = pacote.indexOf(nome);
+      if(i>-1) pacote.splice(i,1); else pacote.push(nome);
+      this.setAttribute("aria-pressed", i>-1 ? "false" : "true");
+      atualizaPacote();
+    });
+    return c;
+  }
+
+  function render(){
+    grade.innerHTML = "";
+    ATIV.filter(function(a){ return filtroAtual==="todas" || a[1]===filtroAtual || a[3]===filtroAtual; })
+        .forEach(function(a){ grade.appendChild(card(a)); });
+  }
+  function setFiltro(k){
+    filtroAtual = k;
+    filtros.querySelectorAll(".chip").forEach(function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-f")===k ? "true":"false"); });
+    render();
+    try{ localStorage.setItem("tati-filtro", k); }catch(e){}
+  }
+
+  // Pacote
+  var bandeja = document.getElementById("bandeja"), bTxt = document.getElementById("bandejaTxt"), enviar = document.getElementById("enviarPacote");
+  function atualizaPacote(){
+    var n = pacote.length;
+    bandeja.hidden = n===0;
+    document.body.classList.toggle("tem-pacote", n>0);
+    bTxt.innerHTML = 'Meu pacote: <b>'+n+'</b> '+(n===1?"atividade":"atividades");
+    enviar.href = zapUrl("Olá! Montei um pacote no site da Turma da Tati e quero consultar uma data:\n\n" + pacote.map(function(p){return "• "+p;}).join("\n"));
+    var ta = document.getElementById("f-ativ");
+    if(ta && (ta.dataset.auto==="1" || !ta.value)){ ta.value = pacote.join(", "); ta.dataset.auto = "1"; }
+    try{ localStorage.setItem("tati-pacote", JSON.stringify(pacote)); }catch(e){}
+  }
+  document.getElementById("f-ativ").addEventListener("input", function(){ this.dataset.auto = "0"; });
+  document.getElementById("limpar").addEventListener("click", function(){
+    pacote = []; atualizaPacote(); render();
+  });
+
+  try{ var p = JSON.parse(localStorage.getItem("tati-pacote")||"[]"); if(Array.isArray(p)) pacote = p.filter(function(x){ return ATIV.some(function(a){return a[0]===x;}); }); }catch(e){}
+  var f0 = "todas"; try{ var s = localStorage.getItem("tati-filtro"); if(s && FILTROS.some(function(f){return f[0]===s;})) f0 = s; }catch(e){}
+  setFiltro(f0);
+  atualizaPacote();
+
+  // Formulário de orçamento → WhatsApp
+  var form = document.getElementById("formOrc");
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var d = form.data.value, dataBR = d ? d.split("-").reverse().join("/") : "";
+    var linhas = ["Olá! Quero consultar uma data com a Turma da Tati."];
+    if(dataBR) linhas.push("Data: " + dataBR);
+    if(form.bairro.value.trim()) linhas.push("Local: " + form.bairro.value.trim());
+    if(form.qtd.value) linhas.push("Crianças: " + form.qtd.value);
+    if(form.idade.value) linhas.push("Idades: " + form.idade.value);
+    if(form.ativ.value.trim()) linhas.push("Atividades: " + form.ativ.value.trim());
+    var url = zapUrl(linhas.join("\n"));
+    var link = document.getElementById("linkZap");
+    link.href = url;
+    document.getElementById("resultado").hidden = false;
+    var w = null; try{ w = window.open(url, "_blank", "noopener"); }catch(err){}
+    link.focus();
+  });
+
+  // Copiar número
+  document.getElementById("copiarNumero").addEventListener("click", function(){
+    var b = this, num = "+55 41 99827-0875";
+    function ok(){ b.textContent = "Número copiado"; setTimeout(function(){ b.textContent = "Copiar número"; }, 2000); }
+    function selecionar(){ var r=document.createRange(); r.selectNodeContents(document.getElementById("numero")); var s=getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent="Selecionado"; }
+    try{ navigator.clipboard.writeText(num).then(ok, selecionar); }catch(e){ selecionar(); }
+  });
+
+  // ---------- Manual: cores (toque para copiar) ----------
+  var CORES_A = [["Uva","#6E1A92","Fundos fortes, títulos, botões. Texto branco por cima."],["Roxo Tati","#9717E8","A cor do letreiro. Destaques, ícones, links e formas."],["Fúcsia Borboleta","#F117F4","Asas do logo. Formas e palavras grandes, nunca texto miúdo."]];
+  var CORES_B = [["Pink Estrela","#FD0178"],["Azul Céu","#09B0FF"],["Amarelo Estrela","#F5CE57"],["Laranja Festa","#FDB657"],["Lavanda","#A08AE8"]];
+  var CORES_C = [["Creme","#FDFCF1"],["Lilás Névoa","#EEE8FB"],["Berinjela","#2E0A40"],["Branco","#FFFFFF"]];
+  function corBtn(c){
+    var b = el('<button class="cor" type="button" aria-label="Copiar '+c[0]+' '+c[1]+'"><span class="amostra" style="background:'+c[1]+'"><span class="copiado">Copiado</span></span><span class="nm"><span>'+c[0]+'</span><span class="hex">'+c[1]+'</span></span>'+(c[2]?'<span class="uso-cor">'+c[2]+'</span>':'')+'</button>');
+    b.addEventListener("click", function(){
+      try{ navigator.clipboard.writeText(c[1]).then(function(){ b.classList.add("ok"); setTimeout(function(){ b.classList.remove("ok"); },1400); }, function(){}); }catch(e){}
+    });
+    return b;
+  }
+  CORES_A.forEach(function(c){ document.getElementById("coresA").appendChild(corBtn(c)); });
+  CORES_B.forEach(function(c){ document.getElementById("coresB").appendChild(corBtn(c)); });
+  CORES_C.forEach(function(c){ document.getElementById("coresC").appendChild(corBtn(c)); });
+
+  // Destaque do item do manual visível
+  if("IntersectionObserver" in window){
+    var links = document.querySelectorAll(".manual-nav a");
+    var io = new IntersectionObserver(function(ents){
+      ents.forEach(function(en){
+        if(en.isIntersecting){
+          links.forEach(function(l){ l.classList.toggle("ativo", l.getAttribute("href")==="#"+en.target.id); });
+        }
+      });
+    }, {rootMargin:"-40% 0px -55% 0px"});
+    document.querySelectorAll(".mbloco").forEach(function(s){ io.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>
