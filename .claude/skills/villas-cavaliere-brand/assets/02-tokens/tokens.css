@@ -1,0 +1,177 @@
+/* Villas Cavaliere · Identidade Visual 2.0 · tokens
+   Fonte da verdade para site, link da bio e templates.
+   Fontes: carregue antes deste arquivo
+   <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200;300&family=Hanken+Grotesk:wght@300;400&display=swap" rel="stylesheet"> */
+
+:root {
+  /* Cores · bases */
+  --vc-noite: #0F1E25;          /* base escura · 40% */
+  --vc-marinho: #1B2A4A;        /* base · 15% */
+  --vc-azul-cavaliere: #5394A9; /* assinatura e luz · 10% */
+  --vc-black-tie: #121417;      /* contraste, fundo de post */
+  --vc-linho: #EFEBE5;          /* fundo claro · 25% */
+  --vc-areia: #D6D1CA;          /* neutro · 6% */
+
+  /* Cores · acentos (4% somados) */
+  --vc-tiffany: #81D8D0;
+  --vc-cinza: #8E9196;
+  --vc-off-white: #F7F5F0;
+
+  /* Papéis */
+  --vc-fundo-escuro: var(--vc-black-tie);
+  --vc-fundo-claro: var(--vc-linho);
+  --vc-texto-no-escuro: var(--vc-linho);
+  --vc-texto-no-claro: var(--vc-noite);
+  --vc-sobretitulo-no-escuro: var(--vc-tiffany);
+  --vc-sobretitulo-no-claro: var(--vc-marinho);         /* abaixo de 24 px */
+  --vc-sobretitulo-no-claro-grande: var(--vc-azul-cavaliere); /* 24 px ou mais */
+  --vc-fio-no-escuro: var(--vc-azul-cavaliere);
+  --vc-fio-no-claro: var(--vc-azul-cavaliere);
+  --vc-foco: var(--vc-tiffany);
+
+  /* Tipografia */
+  --vc-font-display: 'Yanone Kaffeesatz', 'Arial Narrow', sans-serif;
+  --vc-font-texto: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif;
+
+  --vc-titulo-peso: 200;          /* 300 abaixo de 40 px */
+  --vc-titulo-peso-pequeno: 300;
+  --vc-titulo-espacamento: 0.06em;
+  --vc-titulo-entrelinha: 0.95;
+  --vc-subtitulo-peso: 300;
+  --vc-sobretitulo-peso: 400;
+  --vc-sobretitulo-espacamento: 0.32em;
+  --vc-corpo-peso: 300;
+  --vc-corpo-entrelinha: 1.6;
+
+  /* Tamanhos · web */
+  --vc-web-titulo: clamp(48px, 6vw + 16px, 84px);
+  --vc-web-subtitulo: clamp(26px, 2vw + 16px, 34px);
+  --vc-web-sobretitulo: 12px;     /* 12 a 13 px */
+  --vc-web-corpo: 16px;           /* 16 a 17 px */
+  --vc-web-rodape: 12px;          /* 12 a 13 px */
+
+  /* Tamanhos · post 1080 px */
+  --vc-post-titulo: 132px;        /* 120 a 150 px */
+  --vc-post-subtitulo: 70px;      /* 64 a 76 px */
+  --vc-post-sobretitulo: 24px;    /* 22 a 28 px */
+  --vc-post-corpo: 34px;          /* 32 a 36 px */
+  --vc-post-rodape: 22px;         /* 20 a 26 px */
+
+  /* Componentes */
+  --vc-botao-altura: 44px;
+  --vc-botao-raio: 999px;
+  --vc-botao-borda: 1px;
+  --vc-botao-transicao: 200ms ease-out;
+  --vc-botao-desativado: 0.4;
+  --vc-foco-largura: 2px;
+  --vc-foco-afastamento: 3px;
+  --vc-fio-espessura: 1px;
+  --vc-fio-largura: 64px;         /* 56 a 80 px */
+
+  /* Formatos Instagram */
+  --vc-ig-margem: 96px;
+  --vc-ig-story-topo-livre: 250px;
+  --vc-ig-story-base-livre: 340px;
+
+  /* Gradientes · sempre radiais, luz vindo de um canto */
+  --vc-grad-lapela: radial-gradient(120% 120% at 0% 0%, #5394A9 0%, #1B2A4A 42%, #0F1E25 100%);
+  --vc-grad-black-tie: radial-gradient(90% 90% at 0% 0%, rgba(83, 148, 169, 0.32) 0%, rgba(83, 148, 169, 0) 60%), #121417;
+  --vc-grad-neblina: radial-gradient(120% 120% at 100% 100%, #F7F5F0 0%, #8E9196 16%, #1B2A4A 58%, #0F1E25 100%);
+  --vc-grad-linho: radial-gradient(130% 120% at 15% 0%, #F7F5F0 0%, #EFEBE5 40%, #D6D1CA 70%, #81D8D0 100%);
+
+  /* Grão (ver .vc-grao) */
+  --vc-grao-escuro-opacidade: 0.30;
+  --vc-grao-claro-opacidade: 0.45;
+}
+
+/* Grão como fundo CSS: alternativa ao SVG inline do manual.
+   Use em um container com position: relative. */
+.vc-grao { position: relative; isolation: isolate; }
+.vc-grao::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: var(--vc-grao-escuro-opacidade);
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+.vc-grao--claro::after {
+  opacity: var(--vc-grao-claro-opacidade);
+  mix-blend-mode: multiply;
+}
+
+/* Estilos de texto */
+.vc-titulo {
+  font-family: var(--vc-font-display);
+  font-weight: var(--vc-titulo-peso);
+  text-transform: uppercase;
+  letter-spacing: var(--vc-titulo-espacamento);
+  line-height: var(--vc-titulo-entrelinha);
+}
+.vc-subtitulo {
+  font-family: var(--vc-font-display);
+  font-weight: var(--vc-subtitulo-peso);
+  text-transform: uppercase;
+  letter-spacing: var(--vc-titulo-espacamento);
+  line-height: 1.05;
+}
+.vc-sobretitulo {
+  font-family: var(--vc-font-texto);
+  font-weight: var(--vc-sobretitulo-peso);
+  text-transform: uppercase;
+  letter-spacing: var(--vc-sobretitulo-espacamento);
+}
+.vc-corpo {
+  font-family: var(--vc-font-texto);
+  font-weight: var(--vc-corpo-peso);
+  line-height: var(--vc-corpo-entrelinha);
+}
+
+/* Botão contornado */
+.vc-botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--vc-botao-altura);
+  padding: 0 28px;
+  border: var(--vc-botao-borda) solid currentColor;
+  border-radius: var(--vc-botao-raio);
+  background: transparent;
+  color: var(--vc-linho);
+  font-family: var(--vc-font-texto);
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: var(--vc-sobretitulo-espacamento);
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--vc-botao-transicao), color var(--vc-botao-transicao), border-color var(--vc-botao-transicao);
+}
+.vc-botao:hover {
+  background: var(--vc-linho);
+  border-color: var(--vc-linho);
+  color: var(--vc-noite);
+}
+.vc-botao:focus-visible {
+  outline: var(--vc-foco-largura) solid var(--vc-foco);
+  outline-offset: var(--vc-foco-afastamento);
+}
+.vc-botao:disabled,
+.vc-botao[aria-disabled="true"] {
+  opacity: var(--vc-botao-desativado);
+  pointer-events: none;
+}
+.vc-botao--tiffany { color: var(--vc-tiffany); }
+.vc-botao--tiffany:hover { background: var(--vc-tiffany); border-color: var(--vc-tiffany); color: var(--vc-noite); }
+.vc-botao--claro { color: var(--vc-noite); }
+.vc-botao--claro:hover { background: var(--vc-noite); border-color: var(--vc-noite); color: var(--vc-linho); }
+
+/* Fio decorativo abaixo do título */
+.vc-fio {
+  display: block;
+  width: var(--vc-fio-largura);
+  height: var(--vc-fio-espessura);
+  border: 0;
+  background: var(--vc-azul-cavaliere);
+}

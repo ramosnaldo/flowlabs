@@ -1,0 +1,263 @@
+/* Base comum dos templates de Instagram.
+   Cada .peca tem o tamanho real do formato. Na tela ela é reduzida para caber;
+   abra com ?exportar na URL para ver em 100% e capturar. */
+@import url('../03-fontes/fontes.css');
+@import url('../02-tokens/tokens.css');
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: #2A2D31;
+  color: var(--vc-linho);
+  font-family: var(--vc-font-texto);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Barra de ajuda (não sai na exportação) */
+.ajuda {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 24px;
+  padding: 14px 24px;
+  background: var(--vc-black-tie);
+  border-bottom: 1px solid #2A2D31;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--vc-areia);
+}
+.ajuda strong { font-weight: 400; color: var(--vc-linho); letter-spacing: 0.2em; text-transform: uppercase; font-size: 12px; }
+.ajuda a { color: var(--vc-tiffany); }
+.ajuda label { display: inline-flex; gap: 8px; align-items: center; cursor: pointer; }
+.ajuda input { accent-color: var(--vc-tiffany); }
+
+.mesa {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  padding: 32px 24px 64px;
+  justify-content: center;
+}
+.moldura {
+  width: calc(var(--w) * var(--escala));
+  height: calc(var(--h) * var(--escala));
+  flex: none;
+}
+.moldura > .peca {
+  transform: scale(var(--escala));
+  transform-origin: 0 0;
+}
+.rotulo {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--vc-cinza);
+  letter-spacing: 0.08em;
+}
+
+html.exportar body { background: none; }
+html.exportar .ajuda, html.exportar .rotulo { display: none; }
+html.exportar .mesa { display: block; padding: 0; }
+html.exportar .moldura { width: auto; height: auto; }
+html.exportar .moldura > .peca { transform: none; }
+
+/* ---------------------------------------------------------------- peça */
+.peca {
+  --m: var(--vc-ig-margem);
+  position: relative;
+  width: calc(var(--w) * 1px);
+  height: calc(var(--h) * 1px);
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  padding: var(--m);
+  background: var(--vc-grad-black-tie);
+  color: var(--vc-linho);
+}
+.peca [contenteditable]:focus { outline: 2px dashed rgba(129, 216, 208, 0.6); outline-offset: 6px; }
+
+.fundo-lapela { background: var(--vc-grad-lapela); }
+.fundo-neblina { background: var(--vc-grad-neblina); }
+.fundo-linho { background: var(--vc-grad-linho); color: var(--vc-noite); }
+
+/* Grão: último filho da peça */
+.grao {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: var(--vc-grao-escuro-opacidade);
+  mix-blend-mode: overlay;
+  z-index: 5;
+}
+.fundo-linho .grao { opacity: var(--vc-grao-claro-opacidade); mix-blend-mode: multiply; }
+
+/* Topo: categoria à esquerda, contagem à direita */
+.topo {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: var(--vc-post-sobretitulo);
+  font-weight: 400;
+  letter-spacing: var(--vc-sobretitulo-espacamento);
+  text-transform: uppercase;
+  color: var(--vc-areia);
+}
+.fundo-linho .topo { color: var(--vc-marinho); }
+
+/* Bloco de título */
+.bloco {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+}
+.sobretitulo {
+  margin: 0 0 32px;
+  font-size: var(--vc-post-sobretitulo);
+  font-weight: 400;
+  letter-spacing: var(--vc-sobretitulo-espacamento);
+  text-transform: uppercase;
+  color: var(--vc-tiffany);
+}
+.fundo-linho .sobretitulo { color: var(--vc-azul-cavaliere); } /* 24 px ou mais */
+.titulo {
+  margin: 0;
+  font-family: var(--vc-font-display);
+  font-weight: 200;
+  font-size: var(--vc-post-titulo);
+  line-height: var(--vc-titulo-entrelinha);
+  letter-spacing: var(--vc-titulo-espacamento);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.subtitulo {
+  margin: 0;
+  font-family: var(--vc-font-display);
+  font-weight: 300;
+  font-size: var(--vc-post-subtitulo);
+  line-height: 1.02;
+  letter-spacing: var(--vc-titulo-espacamento);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.fio {
+  display: block;
+  width: 72px;
+  height: 1px;
+  margin: 48px 0 0;
+  border: 0;
+  background: var(--vc-azul-cavaliere);
+}
+.corpo {
+  margin: 40px 0 0;
+  max-width: 22em;
+  font-size: var(--vc-post-corpo);
+  font-weight: 300;
+  line-height: var(--vc-corpo-entrelinha);
+  color: var(--vc-areia);
+  text-wrap: pretty;
+}
+.fundo-linho .corpo { color: var(--vc-noite); }
+
+/* Rodapé: assinatura à esquerda, @ à direita, alinhados pelo centro */
+.rodape {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 72px;
+  font-size: var(--vc-post-rodape);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--vc-areia);
+}
+.rodape img { height: 88px; width: auto; display: block; }
+.fundo-linho .rodape { color: var(--vc-noite); }
+
+/* Botão contornado em escala de post */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 104px;
+  padding: 0 64px;
+  margin-top: 56px;
+  border: 2px solid var(--vc-tiffany);
+  border-radius: 999px;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: var(--vc-sobretitulo-espacamento);
+  text-transform: uppercase;
+  color: var(--vc-tiffany);
+}
+
+/* Foto: metade de baixo, escurecendo até o Black Tie onde fica o título */
+.foto {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 58%;
+  z-index: 1;
+  background: var(--foto, radial-gradient(80% 70% at 60% 70%, #3a4a5c 0%, #1B2A4A 45%, #0F1E25 100%));
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(1) contrast(1.05);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.6) 30%, #000 60%);
+  mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.6) 30%, #000 60%);
+}
+.foto::after {
+  content: attr(data-rotulo);
+  position: absolute;
+  right: var(--m);
+  bottom: 40px;
+  font-size: 18px;
+  letter-spacing: 0.3em;
+  color: rgba(239, 235, 229, 0.35);
+}
+.foto[style*="--foto"]::after { content: none; }
+
+/* Símbolo tom sobre tom como textura */
+.padrao {
+  position: absolute;
+  inset: -40px;
+  z-index: 0;
+  opacity: 0.10;
+  background-image: var(--padrao);
+  background-size: 120px auto;
+  background-repeat: repeat;
+}
+
+/* Guias de margem e de área segura do story */
+.guias .peca::before {
+  content: "";
+  position: absolute;
+  inset: var(--m);
+  border: 2px dashed rgba(129, 216, 208, 0.55);
+  z-index: 20;
+  pointer-events: none;
+}
+.faixa-app {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 19;
+  background: repeating-linear-gradient(-45deg, rgba(255, 90, 90, 0.18) 0 14px, rgba(255, 90, 90, 0.06) 14px 28px);
+  border: 2px dashed rgba(255, 120, 120, 0.6);
+  pointer-events: none;
+  color: rgba(255, 180, 180, 0.9);
+  font-size: 22px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.guias .faixa-app { display: flex; }

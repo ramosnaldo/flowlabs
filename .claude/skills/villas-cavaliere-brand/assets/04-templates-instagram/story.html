@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Story · Villas Cavaliere</title>
+<link rel="stylesheet" href="templates.css">
+<style>
+  /* No story o conteúdo fica entre as faixas da interface do app */
+  .story {
+    padding-top: var(--vc-ig-story-topo-livre);
+    padding-bottom: var(--vc-ig-story-base-livre);
+  }
+  .story .topo { margin-top: 0; }
+  .story .rodape { margin-top: 64px; }
+  .faixa-app.cima { top: 0; height: var(--vc-ig-story-topo-livre); }
+  .faixa-app.baixo { bottom: 0; height: var(--vc-ig-story-base-livre); }
+  .simbolo-story { width: 168px; height: auto; display: block; margin-bottom: 72px; }
+  .story .titulo { font-size: 150px; }
+</style>
+</head>
+<body>
+<div class="ajuda">
+  <strong>Story e Reels 1080 × 1920</strong>
+  <span>Nada importante nos 250 px do topo nem nos 340 px de baixo.</span>
+  <label><input type="checkbox" id="guias"> Mostrar margem e faixas do app</label>
+  <a href="?exportar">Abrir em 100% para exportar</a>
+</div>
+
+<main class="mesa">
+  <div>
+    <div class="moldura" style="--w:1080;--h:1920" data-escala="0.32">
+      <article class="peca story fundo-neblina" style="--w:1080;--h:1920">
+        <div class="faixa-app cima">Interface do app · 250 px</div>
+        <div class="faixa-app baixo">Interface do app · 340 px</div>
+        <div class="topo"><span contenteditable>Evento</span><span contenteditable>Nov 2027</span></div>
+        <div class="bloco">
+          <img class="simbolo-story" src="../01-logos/svg/vc-simbolo-negativa.svg" alt="">
+          <p class="sobretitulo" contenteditable>Noite do noivo</p>
+          <h1 class="titulo" contenteditable>Uma noite para provar sem pressa</h1>
+          <hr class="fio">
+          <p class="corpo" contenteditable>Atendimento só com hora marcada. Vagas limitadas.</p>
+          <span class="cta" contenteditable>Falar com um consultor</span>
+        </div>
+        <footer class="rodape">
+          <img src="../01-logos/svg/vc-assinatura-negativa.svg" alt="Villas Cavaliere">
+          <span>@villascavaliere</span>
+        </footer>
+      </article>
+    </div>
+    <p class="rotulo">Story · fundo Neblina</p>
+  </div>
+
+  <div>
+    <div class="moldura" style="--w:1080;--h:1920" data-escala="0.32">
+      <article class="peca story" style="--w:1080;--h:1920">
+        <div class="faixa-app cima">Interface do app · 250 px</div>
+        <div class="faixa-app baixo">Interface do app · 340 px</div>
+        <div class="foto" style="height:62%" data-rotulo="FOTO P&amp;B FRIA"></div>
+        <div class="topo"><span contenteditable>Atelier</span><span contenteditable>Bastidor</span></div>
+        <div class="bloco" style="margin-top:120px">
+          <p class="sobretitulo" contenteditable>Giz e fita métrica</p>
+          <h1 class="titulo" contenteditable>Cada medida, anotada à mão</h1>
+          <hr class="fio">
+        </div>
+        <footer class="rodape" style="margin-top:auto">
+          <img src="../01-logos/svg/vc-assinatura-negativa.svg" alt="Villas Cavaliere">
+          <span>@villascavaliere</span>
+        </footer>
+      </article>
+    </div>
+    <p class="rotulo">Story com foto · fundo Black Tie</p>
+  </div>
+</main>
+<script src="templates.js"></script>
+</body>
+</html>

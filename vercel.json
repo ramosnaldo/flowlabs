@@ -1,8 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": "",
+  "buildCommand": "sh scripts/build-vercel.sh",
   "installCommand": "",
-  "outputDirectory": "turma-da-tati",
+  "outputDirectory": "public",
   "cleanUrls": true
 }

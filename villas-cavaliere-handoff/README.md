@@ -1,6 +1,8 @@
 # Villas Cavaliere · Handoff de marca
 
-Identidade Visual 2.0 (outubro 2026), FLOW Labs. Abra `guia-handoff.html` no navegador: é o manual em formato web, com os arquivos para baixar.
+Identidade Visual 2.0 (outubro 2026), FLOW Labs. Abra `guia-handoff.html` no navegador: é o manual em formato web, com os arquivos para baixar. No Vercel ele fica publicado em `/villas-cavaliere/` (montado por `scripts/build-vercel.sh`).
+
+Para o Claude aplicar a marca sozinho, use a skill `villas-cavaliere-brand` em `.claude/skills/`.
 
 | Pasta | Conteúdo |
 | --- | --- |
@@ -27,6 +29,7 @@ pip install fonttools uharfbuzz
 python3 _fonte/gerar_logos.py      # SVGs, a partir do símbolo original e das fontes
 node _fonte/exportar.mjs           # PNG, PDF vetorial e avatar (precisa do playwright)
 node _fonte/exportar-templates.mjs # PNGs dos templates
+sh _fonte/sincronizar-skill.sh     # copia logos, tokens, fontes e templates para a skill
 ```
 
 O símbolo vem do vetor do manual (`_fonte/simbolo-original.d`). Mude cores e proporções no topo de `gerar_logos.py`.
