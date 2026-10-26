@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carrossel · Villas Cavaliere</title>
+<link rel="stylesheet" href="templates.css">
+<style>
+  .lista { list-style: none; margin: 56px 0 0; padding: 0; counter-reset: item; }
+  .lista li {
+    counter-increment: item;
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    align-items: baseline;
+    padding: 28px 0;
+    border-top: 1px solid rgba(83, 148, 169, 0.45);
+    font-size: var(--vc-post-corpo);
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--vc-linho);
+  }
+  .lista li::before {
+    content: counter(item, decimal-leading-zero);
+    font-size: var(--vc-post-sobretitulo);
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: var(--vc-tiffany);
+  }
+  .citacao {
+    margin: 0;
+    font-family: var(--vc-font-display);
+    font-weight: 300;
+    font-size: 84px;
+    line-height: 1.05;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+  .assinatura-citacao {
+    margin: 40px 0 0;
+    font-size: var(--vc-post-sobretitulo);
+    letter-spacing: var(--vc-sobretitulo-espacamento);
+    text-transform: uppercase;
+    color: var(--vc-tiffany);
+  }
+  .simbolo-cta { width: 132px; height: auto; display: block; margin-bottom: 64px; }
+</style>
+</head>
+<body>
+<div class="ajuda">
+  <strong>Carrossel 1080 × 1350 · 6 lâminas</strong>
+  <span>Topo: categoria à esquerda, contagem à direita. Título em até 3 linhas: se passar, reduza a fonte.</span>
+  <label><input type="checkbox" id="guias"> Mostrar margem de 96 px</label>
+  <a href="?exportar">Abrir em 100% para exportar</a>
+</div>
+
+<main class="mesa">
+  <!-- 01 · Capa com foto -->
+  <div>
+    <div class="moldura" style="--w:1080;--h:1350" data-escala="0.3">
+      <article class="peca" style="--w:1080;--h:1350">
+        <div class="foto" data-rotulo="FOTO P&amp;B FRIA"></div>
+        <div class="topo"><span>Guia do noivo</span><span>01 / 06</span></div>
+        <div class="bloco" style="margin-top:96px">
+          <p class="sobretitulo" contenteditable>Antes da prova</p>
+          <h1 class="titulo" contenteditable>Cinco escolhas que fazem o traje</h1>
+          <hr class="fio">
+        </div>
+        <footer class="rodape" style="margin-top:auto">
+          <img src="../01-logos/svg/vc-assinatura-negativa.svg" alt="Villas Cavaliere">
+          <span>Arraste →</span>
+        </footer>
+      </article>
+    </div>
+    <p class="rotulo">01 · Capa</p>
+  </div>
+
+  <!-- 02 · Texto -->
+  <div>
+    <div class="moldura" style="--w:1080;--h:1350" data-escala="0.3">
+      <article class="peca" style="--w:1080;--h:1350">
+        <div class="topo"><span>Guia do noivo</span><span>02 / 06</span></div>
+        <div class="bloco">
+          <p class="sobretitulo" contenteditable>01 · Tecido</p>
+          <h2 class="subtitulo" contenteditable>Comece pela estação, não pela cor</h2>
+          <hr class="fio">
+          <p class="corpo" contenteditable>Lã fria para o dia e para o calor, flanela e veludo para a noite de inverno. O tecido decide o caimento antes de qualquer corte.</p>
+        </div>
+        <footer class="rodape">
+          <img src="../01-logos/svg/vc-assinatura-negativa.svg" alt="Villas Cavaliere">
+          <span>@villascavaliere</span>
+        </footer>
+      </article>
+    </div>
+    <p class="rotulo">02 · Texto</p>
+  </div>
+
+  <!-- 03 · Lista -->
+  <div>
+    <div class="moldura" style="--w:1080;--h:1350" data-escala="0.3">
+      <article class="peca" style="--w:1080;--h:1350">
+        <div class="topo"><span>Guia do noivo</span><span>03 / 06</span></div>
+        <div class="bloco">
+          <p class="sobretitulo" contenteditable>02 · Caimento</p>
+          <h2 class="subtitulo" contenteditable>O que conferir no espelho</h2>
+          <ol class="lista">
+            <li contenteditable>Ombro sem degrau na costura</li>
+            <li contenteditable>Lapela deitada, sem abrir</li>
+            <li contenteditable>Manga mostrando 1 cm do punho</li>
+            <li contenteditable>Barra tocando o sapato, uma quebra</li>
+          </ol>
+        </div>
+        <footer class="rodape">
+          <img src="../01-logos/svg/vc-assinatura-negativa.svg" alt="Villas Cavaliere">
+          <span>@villascavaliere</span>
+        </footer>
+      </article>
+    </div>
+    <p class="rotulo">03 · Lista</p>
+  </div>
+
+  <!-- 04 · Citação em Lapela -->
+  <div>
+    <div class="moldura" style="--w:1080;--h:1350" data-escala="0.3">
+      <article class="peca fundo-lapela" style="--w:1080;--h:1350">
+        <div class="topo"><span>Guia do noivo</span><span>04 / 06</span></div>
+        <div class="bloco">
+          <p class="citacao" contenteditable>“O traje certo não chama atenção. Ele deixa você à vontade para viver o dia.”</p>
+          <p class="assinatura-citacao" contenteditable>Consultor Villas Cavaliere</p>
+        </div>
+        <footer class="rodape">
+          <img src="../01-logos/svg/vc-assinatura-negativa.svg" alt="Villas Cavaliere">
+          <span>@villascavaliere</span>
+        </footer>
+      </article>
+    </div>
+    <p class="rotulo">04 · Citação · fundo Lapela</p>
+  </div>
+
+  <!-- 05 · Claro -->
+  <div>
+    <div class="moldura" style="--w:1080;--h:1350" data-escala="0.3">
+      <article class="peca fundo-linho" style="--w:1080;--h:1350">
+        <div class="topo"><span>Guia do noivo</span><span>05 / 06</span></div>
+        <div class="bloco">
+          <p class="sobretitulo" contenteditable>03 · Detalhe</p>
+          <h2 class="subtitulo" contenteditable>Abotoadura, lenço e lapela conversam entre si</h2>
+          <hr class="fio">
+          <p class="corpo" contenteditable>Escolha um protagonista. Se a gravata tem desenho, o lenço fica liso. Se a lapela é de cetim, a abotoadura é discreta.</p>
+        </div>
+        <footer class="rodape">
+          <img src="../01-logos/svg/vc-assinatura-principal.svg" alt="Villas Cavaliere">
+          <span>@villascavaliere</span>
+        </footer>
+      </article>
+    </div>
+    <p class="rotulo">05 · Texto claro · fundo Linho</p>
+  </div>
+
+  <!-- 06 · CTA -->
+  <div>
+    <div class="moldura" style="--w:1080;--h:1350" data-escala="0.3">
+      <article class="peca" style="--w:1080;--h:1350">
+        <div class="topo"><span>Guia do noivo</span><span>06 / 06</span></div>
+        <div class="bloco">
+          <img class="simbolo-cta" src="../01-logos/svg/vc-simbolo-negativa.svg" alt="">
+          <p class="sobretitulo" contenteditable>Próximo passo</p>
+          <h2 class="titulo" contenteditable>Vamos conversar sobre o seu traje</h2>
+          <span class="cta" contenteditable>Agendar horário exclusivo</span>
+        </div>
+        <footer class="rodape">
+          <img src="../01-logos/svg/vc-assinatura-negativa.svg" alt="Villas Cavaliere">
+          <span>@villascavaliere</span>
+        </footer>
+      </article>
+    </div>
+    <p class="rotulo">06 · Chamada</p>
+  </div>
+</main>
+<script src="templates.js"></script>
+</body>
+</html>

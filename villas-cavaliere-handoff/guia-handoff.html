@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Handoff de marca · Villas Cavaliere</title>
+<meta name="description" content="Identidade Visual 2.0 da Villas Cavaliere: logos, cores, tipografia, gradientes, componentes e formatos de Instagram.">
+<link rel="icon" href="01-logos/svg/vc-simbolo-principal.svg" type="image/svg+xml">
+<link rel="stylesheet" href="03-fontes/fontes.css">
+<link rel="stylesheet" href="02-tokens/tokens.css">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body {
+    margin: 0;
+    background: var(--vc-black-tie);
+    color: var(--vc-linho);
+    font-family: var(--vc-font-texto);
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--vc-tiffany); }
+  code, pre { font-family: ui-monospace, 'JetBrains Mono', Consolas, monospace; font-size: 13px; font-variant-ligatures: none; }
+  img { max-width: 100%; }
+
+  .nav {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; align-items: center; gap: 24px;
+    padding: 14px clamp(16px, 4vw, 48px);
+    background: rgba(18, 20, 23, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #22262b;
+  }
+  .nav img { height: 28px; width: auto; display: block; }
+  .nav ul { display: flex; gap: 20px; margin: 0 0 0 auto; padding: 0; list-style: none; overflow-x: auto; scrollbar-width: none; }
+  .nav a { color: var(--vc-areia); text-decoration: none; font-size: 12px; font-weight: 400; letter-spacing: 0.24em; text-transform: uppercase; white-space: nowrap; }
+  .nav a:hover { color: var(--vc-tiffany); }
+
+  .capa {
+    position: relative;
+    padding: clamp(72px, 12vw, 160px) clamp(16px, 4vw, 48px) clamp(56px, 8vw, 96px);
+    background: var(--vc-grad-lapela);
+    overflow: hidden;
+  }
+  .capa .assinatura { width: min(420px, 80%); display: block; margin-bottom: clamp(48px, 8vw, 96px); }
+  .capa .meta { display: flex; flex-wrap: wrap; gap: 8px 32px; margin-top: 40px; font-size: 13px; color: var(--vc-areia); }
+  .capa .meta b { font-weight: 400; color: var(--vc-linho); }
+
+  section { padding: clamp(56px, 8vw, 104px) clamp(16px, 4vw, 48px); border-top: 1px solid #1e2226; }
+  .largura { max-width: 1120px; margin: 0 auto; }
+
+  .sobre { margin: 0 0 16px; font-size: 12px; font-weight: 400; letter-spacing: 0.32em; text-transform: uppercase; color: var(--vc-tiffany); }
+  h1, h2, h3 { font-family: var(--vc-font-display); text-transform: uppercase; letter-spacing: 0.06em; margin: 0; }
+  h1 { font-weight: 200; font-size: var(--vc-web-titulo); line-height: 0.95; max-width: 16ch; }
+  h2 { font-weight: 200; font-size: clamp(40px, 5vw, 64px); line-height: 0.95; }
+  h3 { font-weight: 300; font-size: 24px; line-height: 1.1; margin-bottom: 10px; }
+  .intro { max-width: 40em; margin: 20px 0 48px; color: var(--vc-areia); font-size: 17px; }
+  .capa .intro { margin-bottom: 0; color: var(--vc-linho); }
+
+  .grade { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+  .grade-2 { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+  .cartao { background: #171a1e; border: 1px solid #23272c; border-radius: 6px; padding: 24px; }
+  .cartao p { margin: 0; color: var(--vc-areia); font-size: 15px; }
+  .cartao ul { margin: 0; padding-left: 18px; color: var(--vc-areia); font-size: 15px; }
+
+  /* Logos */
+  .logo { border: 1px solid #23272c; border-radius: 6px; overflow: hidden; background: #171a1e; }
+  .logo .palco { height: 220px; padding: 32px; }
+  .logo .palco img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .logo .legenda { padding: 16px 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; align-items: baseline; }
+  .logo .legenda b { font-weight: 400; font-size: 14px; }
+  .logo .legenda span { color: var(--vc-cinza); font-size: 13px; }
+  .baixar { display: flex; gap: 10px; font-size: 12px; letter-spacing: 0.1em; }
+  .baixar a { text-decoration: none; }
+
+  .protecao { position: relative; display: inline-block; padding: 50px; outline: 1px dashed rgba(129, 216, 208, 0.6); outline-offset: -1px; background: var(--vc-linho); border-radius: 4px; }
+  .protecao img { height: 100px; display: block; outline: 1px solid rgba(83, 148, 169, 0.35); }
+
+  .naofazer { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); margin-top: 16px; }
+  .naofazer figure { margin: 0; }
+  .naofazer .x { position: relative; height: 140px; display: grid; place-items: center; border-radius: 6px; overflow: hidden; background: var(--vc-linho); }
+  .naofazer .x::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top right, transparent calc(50% - 1px), #c9524a calc(50% - 1px), #c9524a calc(50% + 1px), transparent calc(50% + 1px)); }
+  .naofazer img { height: 80px; }
+  .naofazer figcaption { margin-top: 10px; font-size: 13px; color: var(--vc-cinza); }
+
+  /* Cores */
+  .cor { border-radius: 6px; overflow: hidden; border: 1px solid #23272c; background: #171a1e; }
+  .cor .amostra { height: 120px; padding: 16px; display: flex; flex-direction: column; justify-content: flex-end; }
+  .cor .amostra b { font-family: var(--vc-font-display); font-weight: 300; font-size: 28px; letter-spacing: 0.04em; line-height: 1; }
+  .cor .amostra small { font-size: 11px; font-weight: 400; letter-spacing: 0.24em; text-transform: uppercase; opacity: 0.8; margin-top: 6px; }
+  .cor dl { margin: 0; padding: 14px 16px; display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; font-size: 13px; }
+  .cor dt { color: var(--vc-cinza); font-size: 11px; letter-spacing: 0.2em; padding-top: 2px; }
+  .cor dd { margin: 0; font-variant-numeric: tabular-nums; }
+  .copiar { all: unset; cursor: pointer; border-bottom: 1px dotted var(--vc-cinza); }
+  .copiar:hover { color: var(--vc-tiffany); }
+  .copiar:focus-visible { outline: 2px solid var(--vc-tiffany); outline-offset: 3px; }
+
+  .proporcao { display: flex; height: 64px; border-radius: 6px; overflow: hidden; margin: 24px 0 8px; }
+  .proporcao div { display: flex; align-items: flex-end; padding: 8px 10px; font-size: 12px; white-space: nowrap; overflow: hidden; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; font-weight: 400; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--vc-cinza); padding: 0 16px 12px 0; }
+  td { padding: 14px 16px 14px 0; border-top: 1px solid #23272c; vertical-align: top; color: var(--vc-areia); }
+  td:first-child { color: var(--vc-linho); }
+  .tabela { overflow-x: auto; }
+
+  /* Gradientes */
+  .grad { aspect-ratio: 3 / 4; border-radius: 6px; overflow: hidden; }
+  .grad-nome { margin-top: 14px; }
+  pre { margin: 0; padding: 20px; overflow-x: auto; background: #0d0f11; border: 1px solid #23272c; border-radius: 6px; color: var(--vc-areia); line-height: 1.6; }
+
+  /* Tipografia */
+  .amostra-tipo { padding: 32px; background: #171a1e; border: 1px solid #23272c; border-radius: 6px; }
+  .amostra-tipo .grande { font-family: var(--vc-font-display); font-weight: 200; font-size: clamp(64px, 10vw, 128px); line-height: 0.9; letter-spacing: 0.06em; text-transform: uppercase; }
+  .amostra-tipo .texto { font-size: 20px; max-width: 32em; line-height: 1.6; }
+
+  /* Componentes */
+  .demo { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; padding: 32px; background: var(--vc-noite); border-radius: 6px; }
+  .demo-claro { background: var(--vc-linho); }
+  .bloco-titulo .sobretitulo { font-size: 12px; font-weight: 400; letter-spacing: 0.32em; text-transform: uppercase; color: var(--vc-tiffany); margin: 0 0 16px; }
+  .bloco-titulo .t { font-family: var(--vc-font-display); font-weight: 200; font-size: 56px; line-height: 0.95; letter-spacing: 0.06em; text-transform: uppercase; margin: 0; }
+  .bloco-titulo .vc-fio { margin: 24px 0 0; }
+  .rodape-peca { display: flex; justify-content: space-between; align-items: center; padding: 24px 32px; background: var(--vc-black-tie); border: 1px solid #23272c; border-radius: 6px; font-size: 14px; color: var(--vc-areia); }
+  .rodape-peca img { height: 40px; }
+
+  /* Formatos */
+  .formatos { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-end; }
+  .formato { flex: 1 1 160px; }
+  .formato .tela { position: relative; background: var(--vc-grad-black-tie); border-radius: 4px; border: 1px solid #2a2f35; overflow: hidden; }
+  .formato .tela::after { content: ""; position: absolute; inset: 8.9%; border: 1px dashed rgba(129, 216, 208, 0.5); }
+  .formato .faixa { position: absolute; left: 0; right: 0; background: rgba(201, 82, 74, 0.25); }
+  .formato p { margin: 12px 0 0; font-size: 13px; color: var(--vc-areia); }
+  .formato b { font-weight: 400; color: var(--vc-linho); display: block; }
+
+  .arvore { font-size: 13px; }
+  .falta li { margin-bottom: 6px; }
+
+  footer.fim { padding: 48px clamp(16px, 4vw, 48px); border-top: 1px solid #1e2226; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; color: var(--vc-cinza); font-size: 13px; }
+  footer.fim img { height: 44px; }
+
+  @media (max-width: 640px) {
+    .nav ul { display: none; }
+    .logo .palco { height: 160px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Seções">
+  <a href="#topo" aria-label="Início"><img src="01-logos/svg/vc-horizontal-negativa.svg" alt="Villas Cavaliere"></a>
+  <ul>
+    <li><a href="#logo">Logo</a></li>
+    <li><a href="#cores">Cores</a></li>
+    <li><a href="#gradientes">Gradientes</a></li>
+    <li><a href="#tipografia">Tipografia</a></li>
+    <li><a href="#componentes">Componentes</a></li>
+    <li><a href="#formatos">Formatos</a></li>
+    <li><a href="#fotografia">Fotografia</a></li>
+    <li><a href="#arquivos">Arquivos</a></li>
+  </ul>
+</nav>
+
+<header class="capa vc-grao" id="topo">
+  <div class="largura">
+    <img class="assinatura" src="01-logos/svg/vc-assinatura-negativa.svg" alt="Villas Cavaliere">
+    <p class="sobre">Handoff de marca · Identidade Visual 2.0</p>
+    <h1>Tudo para aplicar a marca sem adivinhar</h1>
+    <p class="intro">Especificação para designers, desenvolvedores e gráfica. Logos em vetor, cores com valores para tela e impressão, tipografia, gradientes, grão, componentes e formatos de Instagram.</p>
+    <div class="meta">
+      <span>Versão <b>2.0 · outubro 2026</b></span>
+      <span>Responsável <b>FLOW Labs</b></span>
+      <span>Pacote <b>villas-cavaliere-handoff</b></span>
+    </div>
+  </div>
+</header>
+
+<!-- LOGO -->
+<section id="logo">
+  <div class="largura">
+    <p class="sobre">Logo</p>
+    <h2>Assinatura e símbolo</h2>
+    <p class="intro">O símbolo de quatro volutas faz referência à lapela do noivo. Na assinatura, CAVALIERE é o protagonista em peso fino e VILLAS fica pequeno, bem espaçado e colorido.</p>
+
+    <div class="grade-2">
+      <div class="logo">
+        <div class="palco" style="background:var(--vc-linho)"><img src="01-logos/svg/vc-horizontal-principal.svg" alt="Assinatura horizontal principal"></div>
+        <div class="legenda"><div><b>Horizontal principal</b><br><span>Fundos claros: Linho, Off-white, Areia</span></div>
+          <div class="baixar"><a href="01-logos/svg/vc-horizontal-principal.svg" download>SVG</a><a href="01-logos/pdf-vetor/vc-horizontal-principal.pdf" download>PDF</a><a href="01-logos/png/vc-horizontal-principal.png" download>PNG</a></div></div>
+      </div>
+      <div class="logo">
+        <div class="palco" style="background:var(--vc-noite)"><img src="01-logos/svg/vc-horizontal-negativa.svg" alt="Assinatura horizontal negativa"></div>
+        <div class="legenda"><div><b>Horizontal negativa</b><br><span>Fundos escuros: Noite, Black Tie, Marinho</span></div>
+          <div class="baixar"><a href="01-logos/svg/vc-horizontal-negativa.svg" download>SVG</a><a href="01-logos/pdf-vetor/vc-horizontal-negativa.pdf" download>PDF</a><a href="01-logos/png/vc-horizontal-negativa.png" download>PNG</a></div></div>
+      </div>
+      <div class="logo">
+        <div class="palco" style="background:var(--vc-marinho)"><img src="01-logos/svg/vc-vertical-negativa.svg" alt="Assinatura vertical"></div>
+        <div class="legenda"><div><b>Vertical</b><br><span>Espaços estreitos, etiquetas, capas</span></div>
+          <div class="baixar"><a href="01-logos/svg/vc-vertical-negativa.svg" download>SVG</a><a href="01-logos/pdf-vetor/vc-vertical-negativa.pdf" download>PDF</a><a href="01-logos/png/vc-vertical-negativa.png" download>PNG</a></div></div>
+      </div>
+      <div class="logo">
+        <div class="palco" style="background:var(--vc-areia)"><img src="01-logos/svg/vc-simbolo-mono-blacktie.svg" alt="Símbolo isolado"></div>
+        <div class="legenda"><div><b>Símbolo isolado</b><br><span>Avatar, favicon, selo, carimbo</span></div>
+          <div class="baixar"><a href="01-logos/svg/vc-simbolo-mono-blacktie.svg" download>SVG</a><a href="01-logos/pdf-vetor/vc-simbolo-mono-blacktie.pdf" download>PDF</a><a href="01-logos/png/vc-simbolo-mono-blacktie.png" download>PNG</a></div></div>
+      </div>
+    </div>
+
+    <div class="grade" style="margin-top:16px">
+      <div class="cartao">
+        <h3>Área de proteção</h3>
+        <p>Em volta da assinatura, deixe livre no mínimo a metade da altura do símbolo. Nada de texto, borda ou foto dentro dessa margem.</p>
+        <div style="margin-top:20px"><span class="protecao"><img src="01-logos/svg/vc-simbolo-principal.svg" alt="Símbolo com a área de proteção marcada"></span></div>
+      </div>
+      <div class="cartao">
+        <h3>Tamanho mínimo</h3>
+        <ul>
+          <li>Horizontal: 120 px de largura na tela, 30 mm no impresso</li>
+          <li>Vertical: 80 px, 20 mm</li>
+          <li>Símbolo: 16 px, 5 mm. Abaixo disso, use a versão chapada sem gradiente</li>
+        </ul>
+      </div>
+      <div class="cartao">
+        <h3>Uma cor só</h3>
+        <p>Para bordado, carimbo, hot stamping e serigrafia de uma cor, use as versões monocromáticas em Black Tie ou Off-white. O gradiente do símbolo é só para tela e impressão em 4 cores.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:56px">Não fazer</h3>
+    <div class="naofazer">
+      <figure><div class="x"><img src="01-logos/svg/vc-simbolo-principal.svg" alt="" style="transform:scaleX(1.6)"></div><figcaption>Distorcer ou achatar</figcaption></figure>
+      <figure><div class="x"><img src="01-logos/svg/vc-simbolo-mono-blacktie.svg" alt="" style="filter:invert(45%) sepia(40%) saturate(700%) hue-rotate(330deg)"></div><figcaption>Cores fora da paleta, como os terrosos da versão antiga</figcaption></figure>
+      <figure><div class="x"><img src="01-logos/svg/vc-simbolo-principal.svg" alt="" style="filter:drop-shadow(4px 6px 6px rgba(0,0,0,.55))"></div><figcaption>Sombra, brilho ou contorno</figcaption></figure>
+      <figure><div class="x" style="background:var(--vc-azul-cavaliere)"><img src="01-logos/svg/vc-simbolo-principal.svg" alt=""></div><figcaption>Fundo sem contraste</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CORES -->
+<section id="cores">
+  <div class="largura">
+    <p class="sobre">Cores</p>
+    <h2>Paleta</h2>
+    <p class="intro">Bases profundas, um azul de assinatura e acentos frios. Nenhum tom terroso. Os valores CMYK são referência para a gráfica: peça prova de cor antes de imprimir tiragem. Clique no HEX para copiar.</p>
+    <div class="grade" id="paleta"></div>
+
+    <h3 style="margin-top:56px">Proporção de uso</h3>
+    <div class="proporcao" aria-hidden="true">
+      <div style="flex:40;background:var(--vc-noite)">Noite 40%</div>
+      <div style="flex:25;background:var(--vc-linho);color:var(--vc-noite)">Linho 25%</div>
+      <div style="flex:15;background:var(--vc-marinho)">Marinho 15%</div>
+      <div style="flex:10;background:var(--vc-azul-cavaliere);color:var(--vc-noite)">Azul Cavaliere 10%</div>
+      <div style="flex:6;background:var(--vc-areia);color:var(--vc-noite)">Areia 6%</div>
+      <div style="flex:4;background:linear-gradient(90deg,var(--vc-tiffany),var(--vc-cinza),var(--vc-off-white));color:var(--vc-noite)">4%</div>
+    </div>
+    <p style="font-size:13px;color:var(--vc-cinza);margin:0 0 40px">Noite 40% · Linho 25% · Marinho 15% · Azul Cavaliere 10% · Areia 6% · Acentos 4%</p>
+
+    <div class="tabela">
+      <table>
+        <thead><tr><th>Combinação</th><th>Contraste</th><th>Uso</th></tr></thead>
+        <tbody>
+          <tr><td>Linho sobre Black Tie</td><td>15.5 : 1</td><td>Títulos e corpo em fundo escuro</td></tr>
+          <tr><td>Tiffany sobre Black Tie</td><td>11.1 : 1</td><td>Sobretítulo, botão, detalhes</td></tr>
+          <tr><td>Noite sobre Linho</td><td>14.3 : 1</td><td>Texto em fundo claro</td></tr>
+          <tr><td>Azul Cavaliere sobre Linho</td><td>2.9 : 1</td><td>Só elementos grandes e decorativos (VILLAS na assinatura, fios). Nunca texto de leitura</td></tr>
+          <tr><td>Azul Cavaliere sobre Noite</td><td>5.0 : 1</td><td>Fios, ícones, texto de apoio</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- GRADIENTES -->
+<section id="gradientes">
+  <div class="largura">
+    <p class="sobre">Gradientes e grão</p>
+    <h2>Luz de alfaiataria</h2>
+    <p class="intro">Sempre radiais, com a luz vindo de um canto e indo para a sombra, como um terno sob a luz do provador. Nunca gradiente linear chapado. O grão fino vai por cima de tudo, inclusive das fotos.</p>
+    <div class="grade">
+      <div><div class="grad vc-grao" style="background:var(--vc-grad-lapela)"></div><div class="grad-nome"><h3>Lapela</h3><p style="margin:0;color:var(--vc-areia);font-size:14px">Principal. Azul Cavaliere, Marinho, Noite · <code>--vc-grad-lapela</code></p></div></div>
+      <div><div class="grad vc-grao" style="background:var(--vc-grad-black-tie)"></div><div class="grad-nome"><h3>Black Tie</h3><p style="margin:0;color:var(--vc-areia);font-size:14px">Feed e posts. Brilho azul a 32% no canto · <code>--vc-grad-black-tie</code></p></div></div>
+      <div><div class="grad vc-grao" style="background:var(--vc-grad-neblina)"></div><div class="grad-nome"><h3>Neblina</h3><p style="margin:0;color:var(--vc-areia);font-size:14px">Campanhas, eventos, stories · <code>--vc-grad-neblina</code></p></div></div>
+      <div><div class="grad vc-grao vc-grao--claro" style="background:var(--vc-grad-linho)"></div><div class="grad-nome"><h3>Linho</h3><p style="margin:0;color:var(--vc-areia);font-size:14px">Fundos claros, papelaria · <code>--vc-grad-linho</code></p></div></div>
+    </div>
+
+    <h3 style="margin-top:56px">Grão em HTML</h3>
+<pre>&lt;!-- Grão: último filho de um container com position: relative --&gt;
+&lt;svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;
+            opacity:.30;mix-blend-mode:overlay"&gt;   &lt;!-- fundo claro: opacity .45, multiply --&gt;
+  &lt;filter id="vcg"&gt;
+    &lt;feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/&gt;
+    &lt;feColorMatrix type="saturate" values="0"/&gt;
+  &lt;/filter&gt;
+  &lt;rect width="100%" height="100%" filter="url(#vcg)"/&gt;
+&lt;/svg&gt;
+
+&lt;!-- Ou, com tokens.css: --&gt;
+&lt;div class="vc-grao"&gt;…&lt;/div&gt;            &lt;!-- fundo claro: class="vc-grao vc-grao--claro" --&gt;</pre>
+
+    <div class="grade-2" style="margin-top:16px">
+      <div class="cartao"><h3>Grão no Photoshop</h3><p>Filtro Adicionar Ruído, 4 a 8%, Gaussiano, monocromático, em camada cinza 50% no modo Sobrepor. Em fundo claro, Multiplicar.</p></div>
+      <div class="cartao" style="position:relative;overflow:hidden"><div style="position:absolute;inset:0;opacity:.08;background:url(01-logos/svg/vc-simbolo-mono-offwhite.svg) 0 0/56px auto repeat"></div><div style="position:relative"><h3>Padrão tom sobre tom</h3><p>O símbolo repetido como textura, com 8 a 15% de opacidade, na mesma família de cor do fundo. Usos: etiqueta, forro, convite, verso de cartão.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPOGRAFIA -->
+<section id="tipografia">
+  <div class="largura">
+    <p class="sobre">Tipografia</p>
+    <h2>Uma voz, dois tons</h2>
+    <p class="intro">Duas famílias gratuitas do Google Fonts, licença OFL, uso comercial liberado. Os arquivos estão na pasta 03-fontes.</p>
+    <div class="grade-2">
+      <div class="amostra-tipo">
+        <p class="sobre" style="color:var(--vc-cinza)">Yanone Kaffeesatz · 200 e 300</p>
+        <div class="grande">Aa Noivo</div>
+        <p style="color:var(--vc-areia);font-size:14px;margin:20px 0 0">Títulos, sempre em caixa alta, espaçamento +6%. Peso 200 em tamanhos grandes, 300 abaixo de 40 px.</p>
+      </div>
+      <div class="amostra-tipo">
+        <p class="sobre" style="color:var(--vc-cinza)">Hanken Grotesk · 300 e 400</p>
+        <p class="texto" style="margin:0">Cada traje começa numa conversa. Tecido, caimento e detalhe escolhidos com calma, para que no dia você só pense no que importa.</p>
+        <p style="color:var(--vc-areia);font-size:14px;margin:20px 0 0">Corpo em 300, entrelinha 1.6. Sobretítulos em 400, caixa alta, espaçamento +32%.</p>
+      </div>
+    </div>
+
+    <div class="tabela" style="margin-top:40px">
+      <table>
+        <thead><tr><th>Estilo</th><th>Fonte</th><th>Post 1080</th><th>Web</th><th>Impresso</th></tr></thead>
+        <tbody>
+          <tr><td>Título</td><td>Yanone 200, caixa alta, +6%, entrelinha 0.95</td><td>120–150 px</td><td>48–84 px</td><td>40 pt ou mais</td></tr>
+          <tr><td>Subtítulo</td><td>Yanone 300, caixa alta, +6%</td><td>64–76 px</td><td>26–34 px</td><td>18–24 pt</td></tr>
+          <tr><td>Sobretítulo</td><td>Hanken 400, caixa alta, +32%</td><td>22–28 px</td><td>12–13 px</td><td>8–9 pt</td></tr>
+          <tr><td>Corpo</td><td>Hanken 300, entrelinha 1.6</td><td>32–36 px</td><td>16–17 px</td><td>10–12 pt</td></tr>
+          <tr><td>Rodapé e legenda</td><td>Hanken 300 ou 400</td><td>20–26 px</td><td>12–13 px</td><td>7–8 pt</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+<pre style="margin-top:24px">&lt;link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200;300&amp;family=Hanken+Grotesk:wght@300;400&amp;display=swap" rel="stylesheet"&gt;
+
+--vc-font-display: 'Yanone Kaffeesatz', 'Arial Narrow', sans-serif;
+--vc-font-texto:   'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif;</pre>
+  </div>
+</section>
+
+<!-- COMPONENTES -->
+<section id="componentes">
+  <div class="largura">
+    <p class="sobre">Componentes</p>
+    <h2>Peças que se repetem</h2>
+    <p class="intro">O mesmo conjunto aparece no site, no link da bio e nos posts. Todos os valores estão em <code>02-tokens/tokens.css</code>; as classes abaixo já vêm prontas lá.</p>
+
+    <div class="grade-2">
+      <div class="cartao">
+        <h3>Botão contornado</h3>
+        <div class="demo" style="margin:16px 0 20px">
+          <a class="vc-botao" href="#componentes">Agendar</a>
+          <a class="vc-botao vc-botao--tiffany" href="#componentes">Agendar horário exclusivo</a>
+          <button class="vc-botao" disabled>Agendar</button>
+        </div>
+        <div class="demo demo-claro" style="margin:0 0 20px"><a class="vc-botao vc-botao--claro" href="#componentes">Falar com um consultor</a></div>
+        <ul>
+          <li>Altura mínima 44 px, raio total, borda 1 px</li>
+          <li>Hover: preenche com a cor da borda, texto vira Noite, 200 ms ease-out</li>
+          <li>Foco do teclado: contorno Tiffany de 2 px, afastado 3 px</li>
+          <li>Desativado: 40% de opacidade, sem hover</li>
+          <li>Texto do CTA: "Agendar horário exclusivo" ou "Falar com um consultor"</li>
+        </ul>
+<pre style="margin-top:16px">&lt;a class="vc-botao" href="…"&gt;Agendar horário exclusivo&lt;/a&gt;</pre>
+      </div>
+      <div class="cartao">
+        <h3>Bloco de título</h3>
+        <div class="demo bloco-titulo" style="margin:16px 0 20px;display:block">
+          <p class="sobretitulo">Coleção 2027</p>
+          <p class="t">O azul que veste o sim.</p>
+          <hr class="vc-fio">
+        </div>
+        <ul>
+          <li>Sobretítulo Tiffany no escuro. No claro, Azul Cavaliere só a partir de 24 px; abaixo disso, Marinho</li>
+          <li>Título em até 3 linhas. Se passar, reduza a fonte, não corte o texto</li>
+          <li>Fio de 56 a 80 px abaixo, 1 px</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cartao" style="margin-top:16px">
+      <h3>Rodapé de peça</h3>
+      <div class="rodape-peca" style="margin:16px 0 16px"><img src="01-logos/svg/vc-assinatura-negativa.svg" alt="Villas Cavaliere"><span>@villascavaliere</span></div>
+      <p>Assinatura à esquerda, @ à direita, alinhados pelo centro. Topo da peça: categoria à esquerda, contagem 01 / 06 à direita.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATOS -->
+<section id="formatos">
+  <div class="largura">
+    <p class="sobre">Formatos</p>
+    <h2>Instagram</h2>
+    <p class="intro">Margem de segurança de 96 px em todos os formatos. No story, as faixas marcadas ficam atrás da interface do aplicativo: nada importante ali. Templates editáveis em <a href="04-templates-instagram/post.html">post</a>, <a href="04-templates-instagram/carrossel.html">carrossel</a> e <a href="04-templates-instagram/story.html">story</a>.</p>
+    <div class="formatos">
+      <div class="formato"><div class="tela" style="aspect-ratio:1080/1350"></div><p><b>Post e carrossel</b>1080 × 1350 px · 4:5 · margem 96</p></div>
+      <div class="formato"><div class="tela" style="aspect-ratio:1080/1920"><div class="faixa" style="top:0;height:13%"></div><div class="faixa" style="bottom:0;height:17.7%"></div></div><p><b>Story e Reels</b>1080 × 1920 px · livre 250 px no topo e 340 px embaixo</p></div>
+      <div class="formato"><div class="tela" style="aspect-ratio:1"></div><p><b>Quadrado</b>1080 × 1080 px · anúncios e grade antiga</p></div>
+      <div class="formato"><img src="01-logos/png/vc-avatar-instagram-1080.png" alt="Avatar do Instagram" style="border-radius:50%;display:block;aspect-ratio:1"><p><b>Foto de perfil</b>1080 × 1080 px · símbolo centralizado com 40% da altura</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOTOGRAFIA -->
+<section id="fotografia">
+  <div class="largura">
+    <p class="sobre">Fotografia</p>
+    <h2>Direção de imagem</h2>
+    <div class="grade" style="margin-top:40px">
+      <div class="cartao"><h3>Cena</h3><p>Homens de traje, luz baixa, fim de tarde ou noite, fundo escuro ou desfocado. Uma pessoa por imagem. Detalhes que vendem: lapela, abotoadura, mãos ajustando o paletó, giz e fita métrica.</p></div>
+      <div class="cartao"><h3>Tratamento</h3><p>Preto e branco frio ou duotone de Noite para Linho, sempre com o grão por cima. Nas capas, a foto ocupa a metade de baixo e escurece até o Black Tie onde fica o título.</p></div>
+      <div class="cartao"><h3>Evitar</h3><p>Luz chapada de estúdio, fundo branco, filtros quentes, tons de pele alaranjados, sorriso posado para a câmera, montagem com várias pessoas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ARQUIVOS -->
+<section id="arquivos">
+  <div class="largura">
+    <p class="sobre">Arquivos</p>
+    <h2>O que vem no pacote</h2>
+    <p class="intro">Pasta villas-cavaliere-handoff. Os logos têm o texto convertido em curvas, então abrem certo em qualquer programa sem a fonte instalada.</p>
+    <div class="grade-2">
+<pre class="arvore">villas-cavaliere-handoff/
+├─ 01-logos/
+│   ├─ svg/         vetor para web, Figma, Illustrator
+│   ├─ pdf-vetor/   vetor para gráfica e bordado
+│   └─ png/         fundo transparente, 2000 px
+│        horizontal · vertical · assinatura · símbolo
+│        × principal · negativa · mono-blacktie · mono-offwhite
+│        + vc-avatar-instagram-1080.png
+├─ 02-tokens/       tokens.css · tokens.json
+├─ 03-fontes/       Yanone Kaffeesatz · Hanken Grotesk (OFL)
+├─ 04-templates-instagram/   post, carrossel, story em HTML
+├─ _fonte/          scripts que geram logos e PNGs
+└─ guia-handoff.html          esta página</pre>
+      <div class="cartao falta">
+        <h3>Ainda falta</h3>
+        <ul>
+          <li>Referência Pantone das cores: pedir à gráfica a partir da prova de cor CMYK</li>
+          <li>Telefone e link de WhatsApp oficiais para cartão e contracapa</li>
+          <li>Banco de fotos aprovado seguindo a direção de imagem</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="fim">
+  <img src="01-logos/svg/vc-assinatura-negativa.svg" alt="Villas Cavaliere">
+  <span>Identidade Visual 2.0 · @villascavaliere</span>
+</footer>
+
+<script>
+  const cores = [
+    ['Noite', 'Base escura · 40%', '#0F1E25', '15 30 37', '80 55 50 70', true],
+    ['Azul Marinho', 'Base · 15%', '#1B2A4A', '27 42 74', '100 85 35 35', true],
+    ['Azul Cavaliere', 'Assinatura e luz · 10%', '#5394A9', '83 148 169', '68 25 22 2', false],
+    ['Black Tie', 'Contraste, fundo de post', '#121417', '18 20 23', '70 60 55 85', true],
+    ['Linho', 'Fundo claro · 25%', '#EFEBE5', '239 235 229', '5 5 8 0', false],
+    ['Areia', 'Neutro · 6%', '#D6D1CA', '214 209 202', '15 13 17 0', false],
+    ['Azul Tiffany', 'Acento', '#81D8D0', '129 216 208', '47 0 24 0', false],
+    ['Cinza', 'Acento', '#8E9196', '142 145 150', '45 35 30 5', false],
+    ['Off-white', 'Acento claro', '#F7F5F0', '247 245 240', '2 2 5 0', false],
+  ];
+  document.getElementById('paleta').innerHTML = cores.map(([nome, papel, hex, rgb, cmyk, escuro]) => `
+    <div class="cor">
+      <div class="amostra" style="background:${hex};color:${escuro ? '#EFEBE5' : '#0F1E25'}">
+        <b>${nome}</b><small>${papel}</small>
+      </div>
+      <dl>
+        <dt>HEX</dt><dd><button class="copiar" data-v="${hex}">${hex}</button></dd>
+        <dt>RGB</dt><dd>${rgb}</dd>
+        <dt>CMYK</dt><dd>${cmyk}</dd>
+      </dl>
+    </div>`).join('');
+  document.addEventListener('click', async (e) => {
+    const b = e.target.closest('.copiar');
+    if (!b) return;
+    try { await navigator.clipboard.writeText(b.dataset.v); } catch { return; }
+    const t = b.textContent;
+    b.textContent = 'Copiado';
+    setTimeout(() => (b.textContent = t), 1200);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+/* Fontes locais da Villas Cavaliere (OFL). Use quando não puder carregar o Google Fonts,
+   por exemplo para trabalhar offline ou exportar templates. */
+@font-face {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+  src: url('YanoneKaffeesatz-ExtraLight.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url('YanoneKaffeesatz-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url('HankenGrotesk-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('HankenGrotesk-Regular.ttf') format('truetype');
+}
