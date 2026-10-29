@@ -1,0 +1,64 @@
+/* PEREGRINUS Club Esportivo · Brand kit 2.0 · tokens de design
+   Fontes (Google Fonts, licença OFL; arquivos em 03-fontes):
+   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"> */
+
+:root {
+  /* Cores base */
+  --pg-azul: #36BFEC;          /* Azul Peregrino, assinatura · 20% */
+  --pg-preto: #000000;         /* base · 45% */
+  --pg-cinza: #888888;         /* apoio · 10% */
+  --pg-cinza-claro: #D6D6D6;   /* respiro · 25% */
+  --pg-branco: #FFFFFF;        /* texto sobre preto */
+  --pg-azul-apoio: #1A7FA6;    /* só para texto azul sobre fundo claro (contraste) */
+
+  /* Papéis semânticos */
+  --pg-bg-escuro: var(--pg-preto);
+  --pg-bg-claro: var(--pg-cinza-claro);
+  --pg-bg-destaque: var(--pg-azul);
+  --pg-texto-sobre-escuro: var(--pg-branco);
+  --pg-texto-sobre-claro: var(--pg-preto);
+  --pg-texto-sobre-azul: var(--pg-preto);
+  --pg-texto-secundario-escuro: #BDBDBD;
+  --pg-texto-secundario-claro: #3D3D3D;
+  --pg-destaque-escuro: var(--pg-azul);
+  --pg-destaque-claro: var(--pg-azul-apoio);
+  --pg-destaque-sobre-azul: var(--pg-branco);
+  --pg-fio-escuro: rgba(255, 255, 255, 0.16);
+  --pg-fio-claro: rgba(0, 0, 0, 0.14);
+
+  /* Fundos: sempre chapados. Sem gradiente colorido, sem neon, sem brilho. */
+
+  /* Tipografia */
+  --pg-font-titulo: "Anton", "Druk Condensed", "Bebas Neue", Impact, sans-serif;
+  --pg-font-texto: "Inter", system-ui, "Segoe UI", sans-serif;
+  --pg-font-editorial: "Instrument Serif", Georgia, serif;   /* sempre itálico, 1 frase por peça */
+  --pg-font-dados: "Space Mono", ui-monospace, Menlo, monospace;
+
+  --pg-titulo-entrelinha: 0.88;     /* 0,86 a 0,95 */
+  --pg-titulo-tracking: 0.005em;
+  --pg-lettering-tracking: 0.05em;  /* PEREGRINUS na assinatura */
+  --pg-dados-tracking: 0.14em;      /* +100 a +140 */
+  --pg-texto-entrelinha: 1.5;
+
+  /* Escala (post 1080 px de largura) */
+  --pg-post-titulo: 150px;
+  --pg-post-titulo-longo: 110px;
+  --pg-post-numero: 300px;
+  --pg-post-editorial: 54px;
+  --pg-post-corpo: 34px;
+  --pg-post-rotulo: 22px;
+
+  /* Grade */
+  --pg-margem-post: 80px;
+  --pg-zona-segura-story: 250px;    /* em cima e embaixo */
+  --pg-raio: 2px;
+
+  /* Símbolos */
+  --pg-qb-minimo: 32px;             /* abaixo disso, use o falcão em P */
+  --pg-qb-minimo-bordado: 15mm;
+}
+
+/* Corte diagonal do I de PEREGRINUS
+   <span class="pg-wm">PEREGR<span class="i">I</span>NUS</span> */
+.pg-wm { font-family: var(--pg-font-titulo); text-transform: uppercase; letter-spacing: var(--pg-lettering-tracking); line-height: 1; white-space: nowrap; }
+.pg-wm .i { display: inline-block; clip-path: polygon(-10% -10%, 110% -10%, 110% 74%, -10% 92%); }

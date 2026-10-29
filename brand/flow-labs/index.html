@@ -1,0 +1,778 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Manual de Marca FLOW Labs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: manual editorial escuro, índice lateral fixo no desktop, capítulos numerados em grid de 12 colunas */
+:root{
+  --ink:#0A0A0B; --graphite:#0E0F11; --panel:#141517;
+  --line:#1F2024; --line2:#2A2B30; --line3:#3A3B40;
+  --mute:#85868C; --soft:#A6A7AC; --fog:#C9CACE; --paper:#EDEDEC;
+  --c:#3BE1F0; --c-deep:#0B6E78; --no:#F0614B;
+  --display:"Syne","Arial Black",system-ui,sans-serif;
+  --sans:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Geist Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+::selection{background:var(--c);color:#050506}
+:focus-visible{outline:2px solid var(--c);outline-offset:3px}
+a{color:inherit}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.04em;line-height:1;margin:0;text-wrap:balance}
+p{margin:0}
+
+.shell{display:grid;grid-template-columns:1fr;max-width:1440px;margin:0 auto}
+@media(min-width:1100px){.shell{grid-template-columns:240px minmax(0,1fr)}}
+
+/* índice */
+.toc{display:none}
+@media(min-width:1100px){
+  .toc{display:flex;flex-direction:column;gap:28px;position:sticky;top:env(safe-area-inset-top,0px);height:100vh;padding:36px 24px 36px 32px;border-right:1px solid var(--line)}
+}
+.toc .brand{display:flex;align-items:center;gap:10px}
+.toc .brand img{height:20px;width:auto}
+.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.toc a{display:flex;gap:12px;align-items:baseline;padding:7px 0;text-decoration:none;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);transition:color .3s}
+.toc a span{color:var(--line3)}
+.toc a:hover,.toc a.on{color:var(--paper)}
+.toc a.on span{color:var(--c)}
+.toc .ver{margin-top:auto;font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.06em;line-height:1.7}
+
+main{min-width:0;padding-inline:20px}
+@media(min-width:760px){main{padding-inline:48px}}
+@media(min-width:1100px){main{padding-inline:64px}}
+
+section{padding-block:96px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+@media(max-width:759px){section{padding-block:64px}}
+
+.kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--mute)}
+.kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--c)}
+.head{display:grid;gap:24px;margin-bottom:56px}
+@media(min-width:960px){.head{grid-template-columns:repeat(12,minmax(0,1fr));align-items:end;column-gap:24px}.head .t{grid-column:1/9}.head .aside{grid-column:9/13}}
+.head h2{font-size:clamp(40px,6.2vw,80px);line-height:.98;margin-top:22px}
+.aside{color:var(--soft);font-size:17px;line-height:1.6;max-width:44ch}
+.sub{font-family:var(--display);font-size:clamp(24px,2.6vw,32px);letter-spacing:-.03em;margin-bottom:20px}
+.label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.lead{font-size:clamp(19px,1.8vw,23px);line-height:1.5;color:var(--fog);max-width:58ch}
+.cy{color:var(--c)}
+.gap-xl{margin-top:72px}
+
+/* capa */
+.cover{min-height:auto;padding-block:56px 72px;display:grid;gap:56px}
+.cover-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.cover-top .label b{color:var(--paper);font-weight:500}
+.cover-art{display:grid;gap:40px;align-items:center}
+@media(min-width:960px){.cover-art{grid-template-columns:repeat(12,minmax(0,1fr))}.cover-art .txt{grid-column:1/8}.cover-art .fig{grid-column:8/13}}
+.cover h1{font-size:clamp(54px,9.5vw,148px);letter-spacing:-.055em;line-height:.9}
+.cover h1 em{font-style:normal;color:var(--c)}
+.cover .fig{position:relative;aspect-ratio:1/1;max-width:520px;width:100%;justify-self:center;display:grid;place-items:center}
+.cover .fig::before{content:"";position:absolute;inset:8%;border-radius:50%;background:radial-gradient(circle at 50% 45%,rgba(59,225,240,.16),transparent 62%)}
+.cover .fig img{position:relative;width:82%;animation:float 9s var(--ease) infinite alternate}
+@keyframes float{from{transform:translateY(-6px) rotate(-1.5deg)}to{transform:translateY(8px) rotate(1.5deg)}}
+.cover-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;border-top:1px solid var(--line);padding-top:28px}
+.cover-meta div{display:grid;gap:6px}
+.cover-meta p{font-size:15px;color:var(--fog)}
+
+/* essência */
+.statement{font-family:var(--display);font-size:clamp(30px,4.4vw,58px);line-height:1.04;letter-spacing:-.045em;max-width:20ch}
+.grid-2{display:grid;gap:24px}
+@media(min-width:760px){.grid-2{grid-template-columns:1fr 1fr}}
+.grid-4{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+@media(min-width:760px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1200px){.grid-4{grid-template-columns:repeat(4,1fr)}}
+.grid-4>div{background:var(--ink);padding:28px 24px 32px;display:grid;gap:14px;align-content:start}
+.grid-4 h3{font-size:26px;letter-spacing:-.03em}
+.grid-4 p{color:var(--soft);font-size:15px}
+.num{font-family:var(--mono);font-size:12px;color:var(--c);letter-spacing:.08em}
+.facts{display:grid;gap:0;border-top:1px solid var(--line)}
+.facts>div{display:grid;gap:6px;padding:20px 0;border-bottom:1px solid var(--line)}
+@media(min-width:760px){.facts>div{grid-template-columns:220px 1fr;gap:24px}}
+.facts p{color:var(--fog)}
+.values{display:flex;flex-wrap:wrap;gap:10px}
+.values span{border:1px solid var(--line2);border-radius:999px;padding:10px 18px;font-size:15px;color:var(--fog)}
+
+/* logo */
+.logo-hero{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:24px;overflow:hidden}
+@media(min-width:960px){.logo-hero{grid-template-columns:1.4fr 1fr}}
+.tile{background:var(--graphite);display:grid;place-items:center;padding:48px 32px;position:relative;min-height:280px}
+.tile .label{position:absolute;left:20px;top:18px}
+.tile.paper{background:var(--paper)}
+.tile.paper .label{color:#6B6C72}
+.tile.cyan{background:var(--c)}
+.tile.cyan .label{color:#0A3B40}
+.tile.black{background:#000}
+.inv{filter:invert(1)}
+.logo-vers{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:24px;overflow:hidden;margin-top:24px}
+@media(min-width:760px){.logo-vers{grid-template-columns:repeat(3,1fr)}}
+.logo-vers .tile{min-height:220px}
+.anatomy{display:grid;gap:40px;align-items:center}
+@media(min-width:960px){.anatomy{grid-template-columns:1fr 1fr}}
+.anat-fig{position:relative;background:var(--graphite);border:1px solid var(--line);border-radius:24px;padding:40px 24px;display:grid;place-items:center}
+.anat-fig .box{position:relative;padding:34px;border:1px dashed rgba(59,225,240,.55)}
+.anat-fig .box img{width:min(280px,60vw)}
+.anat-fig .x{position:absolute;font-family:var(--mono);font-size:11px;color:var(--c)}
+.anat-fig .x.t{top:8px;left:50%;transform:translateX(-50%)}
+.anat-fig .x.l{left:10px;top:50%;transform:translateY(-50%)}
+.anat-fig .x.r{right:10px;top:50%;transform:translateY(-50%)}
+.anat-fig .x.b{bottom:8px;left:50%;transform:translateX(-50%)}
+.rules{display:grid;gap:0;border-top:1px solid var(--line)}
+.rules>div{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px}
+.rules b{font-family:var(--mono);font-weight:500;font-size:13px;color:var(--paper)}
+.rules span{color:var(--soft)}
+.donts{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.dont{display:grid;gap:12px}
+.dont .stage{aspect-ratio:4/3;background:var(--graphite);border:1px solid var(--line);border-radius:16px;display:grid;place-items:center;overflow:hidden;position:relative}
+.dont .stage img{width:58%}
+.dont .stage::after{content:"";position:absolute;top:12px;right:12px;width:22px;height:22px;border-radius:50%;background:var(--no);-webkit-mask:linear-gradient(45deg,transparent 45%,#000 45% 55%,transparent 55%),linear-gradient(-45deg,transparent 45%,#000 45% 55%,transparent 55%);mask:linear-gradient(45deg,transparent 45%,#000 45% 55%,transparent 55%),linear-gradient(-45deg,transparent 45%,#000 45% 55%,transparent 55%)}
+.dont p{font-size:14px;color:var(--soft)}
+.dont p b{color:var(--paper);font-weight:500}
+
+/* cores */
+.swatches{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.sw{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--graphite);display:flex;flex-direction:column}
+.sw .chip{height:150px;position:relative;display:flex;align-items:flex-end;padding:16px}
+.sw .chip span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.sw .info{padding:16px 18px 18px;display:grid;gap:10px}
+.sw h3{font-family:var(--sans);font-weight:500;font-size:17px;letter-spacing:-.01em}
+.sw dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums}
+.sw dt{color:var(--mute)}
+.sw dd{margin:0;color:var(--fog)}
+.sw .role{font-size:13px;color:var(--soft);line-height:1.5}
+.copy{appearance:none;border:1px solid var(--line2);background:transparent;color:var(--fog);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:8px 14px;min-height:36px;cursor:pointer;transition:border-color .3s,color .3s;justify-self:start}
+.copy:hover{border-color:var(--c);color:var(--c)}
+.copy.ok{border-color:var(--c);color:var(--c)}
+.ratio{display:flex;height:72px;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.ratio div{display:flex;align-items:flex-end;padding:10px 12px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;min-width:0;white-space:nowrap;overflow:hidden}
+.ratio-legend{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:16px;font-size:14px;color:var(--soft)}
+.ratio-legend b{color:var(--paper);font-weight:500;font-family:var(--mono);font-size:13px}
+.pairs{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.pair{border-radius:16px;padding:22px 20px;display:grid;gap:18px;border:1px solid var(--line)}
+.pair .big{font-family:var(--display);font-size:34px;letter-spacing:-.04em;line-height:1}
+.pair .meta{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.06em}
+
+/* tipografia */
+.type-specimen{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:24px;overflow:hidden}
+@media(min-width:960px){.type-specimen{grid-template-columns:repeat(3,1fr)}}
+.spec{background:var(--graphite);padding:32px 28px;display:grid;gap:22px;align-content:start}
+.spec .glyph{font-size:120px;line-height:.9;letter-spacing:-.05em}
+.spec .name{font-size:30px;letter-spacing:-.03em}
+.spec p{color:var(--soft);font-size:15px}
+.spec .chars{font-size:18px;color:var(--fog);line-height:1.5;word-break:break-all}
+.scale{display:grid;border-top:1px solid var(--line)}
+.scale>div{display:grid;gap:8px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline;min-width:0}
+@media(min-width:960px){.scale>div{grid-template-columns:200px minmax(0,1fr)}}
+.scale .sample{min-width:0;overflow-wrap:anywhere}
+.scale .spec-l{display:grid;gap:4px}
+.scale .spec-l span{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.06em}
+
+/* elementos */
+.el-grid{display:grid;gap:16px}
+@media(min-width:960px){.el-grid{grid-template-columns:repeat(2,1fr)}}
+.el{border:1px solid var(--line);border-radius:24px;background:var(--graphite);padding:28px;display:grid;gap:22px;align-content:start}
+.el h3{font-family:var(--sans);font-weight:500;font-size:18px;letter-spacing:-.01em}
+.el p{color:var(--soft);font-size:15px}
+.el .demo{border-radius:16px;background:var(--ink);border:1px solid var(--line);padding:28px 22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;min-height:120px}
+.btn{display:inline-flex;min-height:54px;align-items:center;gap:12px;border-radius:999px;padding:0 26px;font-family:var(--mono);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;border:1px solid transparent;transition:transform .45s var(--ease),background-color .35s,color .35s,border-color .35s;cursor:default;white-space:nowrap}
+.btn-p{background:var(--c);color:#050506}
+.btn-p:hover{background:#fff;transform:translateY(-2px)}
+.btn-g{border-color:var(--line3);color:var(--paper)}
+.btn-g:hover{border-color:var(--c);color:var(--c)}
+.orb{width:84px;height:84px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff 0,#e6e7e9 14%,#8d8f95 48%,#2a2b30 78%,#121315 100%);box-shadow:inset -8px -10px 18px rgba(0,0,0,.5)}
+.orb.c{background:radial-gradient(circle at 32% 28%,#eaffff 0,#9ff3fa 16%,#3be1f0 46%,#0b6e78 82%,#063a40 100%)}
+.capsule{width:150px;height:64px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+.grid12{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;width:100%}
+.grid12 i{height:72px;border-radius:4px;background:rgba(59,225,240,.08);border:1px solid rgba(59,225,240,.22)}
+.grain{width:100%;height:120px;border-radius:12px;background:#0E0F11;position:relative;overflow:hidden}
+.grain::after{content:"";position:absolute;inset:0;opacity:.35;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.6'/></svg>")}
+.grain span{position:absolute;left:18px;bottom:14px;z-index:1}
+
+/* voz */
+.voice-traits{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.trait{border-top:1px solid var(--line3);padding-top:18px;display:grid;gap:10px}
+.trait h3{font-size:28px;letter-spacing:-.03em}
+.trait p{color:var(--soft);font-size:15px}
+.compare{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.compare>div{display:grid;gap:1px}
+@media(min-width:760px){.compare>div{grid-template-columns:1fr 1fr}}
+.compare .cell{background:var(--ink);padding:20px 22px;display:grid;gap:8px;font-size:16px}
+.compare .hd{background:var(--graphite)}
+.compare .no{color:var(--mute);text-decoration:line-through;text-decoration-color:rgba(240,97,75,.6)}
+.compare .yes{color:var(--paper)}
+.tag-no,.tag-yes{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.tag-no{color:var(--no)}
+.tag-yes{color:var(--c)}
+.lexicon{display:grid;gap:24px}
+@media(min-width:760px){.lexicon{grid-template-columns:1fr 1fr}}
+.lexicon ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.lexicon li{border:1px solid var(--line2);border-radius:999px;padding:7px 14px;font-size:14px;color:var(--fog)}
+.lexicon .bad li{color:var(--mute);border-style:dashed}
+.checklist{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.checklist li{padding:16px 0 16px 32px;border-bottom:1px solid var(--line);position:relative;color:var(--fog)}
+.checklist li::before{content:"";position:absolute;left:4px;top:23px;width:10px;height:10px;border-radius:50%;border:1.5px solid var(--c)}
+
+/* aplicações */
+.apps{display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr))}
+.app{display:grid;gap:12px;align-content:start;min-width:0}
+.app p{font-size:14px;color:var(--soft)}
+.app .label{color:var(--fog)}
+.post{aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:var(--ink);border:1px solid var(--line2);padding:8%;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.post .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:8px}
+.post .k::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--c)}
+.post h4{margin:0;font-family:var(--display);font-weight:700;font-size:clamp(26px,2.6vw,34px);letter-spacing:-.045em;line-height:.98}
+.post .ft{display:flex;justify-content:space-between;align-items:center}
+.post .ft img{height:16px;width:auto}
+.post .ft span{font-family:var(--mono);font-size:10px;color:var(--mute);letter-spacing:.08em}
+.post.light{background:var(--paper);border-color:var(--paper);color:var(--ink)}
+.post.light .k{color:#6B6C72}
+.post .orb-deco{position:absolute;right:-12%;top:-10%;width:52%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 32% 28%,#eaffff 0,#9ff3fa 16%,#3be1f0 46%,#0b6e78 82%,#063a40 100%);opacity:.9}
+.story{aspect-ratio:9/16;max-height:520px;justify-self:start;width:100%;max-width:292px;border-radius:22px;background:var(--ink);border:1px solid var(--line2);padding:28px 22px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative}
+.story h4{margin:0;font-family:var(--display);font-size:36px;letter-spacing:-.05em;line-height:.95}
+.story .sym{position:absolute;right:-30%;bottom:22%;width:110%;opacity:.12}
+.story .cta{display:inline-flex;align-self:flex-start;background:var(--c);color:#050506;border-radius:999px;padding:12px 18px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;position:relative}
+.card-stack{display:grid;gap:14px}
+.bcard{aspect-ratio:85/55;border-radius:12px;padding:7%;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line2)}
+.bcard.front{background:var(--ink);align-items:center;justify-content:center}
+.bcard.front img{width:56%}
+.bcard.back{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.bcard.back .n{font-family:var(--display);font-size:22px;letter-spacing:-.03em;line-height:1}
+.bcard.back .r{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#6B6C72;margin-top:6px}
+.bcard.back .c{min-width:0;overflow-wrap:anywhere;font-family:var(--mono);font-size:11px;line-height:1.7;color:#2A2B30}
+.bcard.back .row{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.bcard.back img{height:30px;width:auto}
+.avatars{display:flex;gap:18px;align-items:center;flex-wrap:wrap;background:var(--graphite);border:1px solid var(--line);border-radius:16px;padding:28px 22px}
+.av{width:96px;height:96px;border-radius:50%;background:var(--ink);border:1px solid var(--line2);display:grid;place-items:center;overflow:hidden}
+.av img{width:70%}
+.av.sm{width:56px;height:56px}
+.av.xs{width:32px;height:32px}
+.sig{background:#fff;color:#1a1a1a;border-radius:14px;padding:22px;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.5;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.sig .s-logo{width:64px;height:64px;border-radius:10px;background:var(--ink);display:grid;place-items:center;flex:none}
+.sig .s-logo img{width:78%}
+.sig .s-b{border-left:2px solid var(--c);padding-left:14px;min-width:0}
+.sig b{font-size:15px;display:block}
+.sig span{color:#666}
+.slide{aspect-ratio:16/9;border-radius:14px;background:var(--ink);border:1px solid var(--line2);padding:6%;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative}
+.slide h4{margin:0;font-family:var(--display);font-size:clamp(22px,2.4vw,30px);letter-spacing:-.045em;line-height:1;max-width:14ch}
+.slide .sym{position:absolute;right:-6%;top:50%;transform:translateY(-50%);width:52%;opacity:.9}
+.feed{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;border-radius:14px;overflow:hidden}
+.feed>div{aspect-ratio:4/5;background:var(--ink);display:flex;align-items:flex-end;padding:10%;position:relative;overflow:hidden}
+.feed .f-t{font-family:var(--display);font-size:clamp(11px,1.1vw,14px);letter-spacing:-.03em;line-height:1}
+.feed .f-l{background:var(--paper);color:var(--ink)}
+.feed .f-c{background:var(--c);color:#050506}
+.feed .f-g{background:var(--panel)}
+.feed .f-o::before{content:"";position:absolute;right:-20%;top:-10%;width:80%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff 0,#e6e7e9 14%,#8d8f95 48%,#2a2b30 78%,#121315 100%)}
+.feed img{position:absolute;inset:0;margin:auto;width:60%}
+
+.card-stack{grid-template-columns:minmax(0,1fr)}.bcard{min-width:0;overflow:hidden}.bcard.front img{width:56%;max-width:56%;height:auto;min-width:0}.slide>img:not(.sym){align-self:flex-start}
+.slide h4{position:relative;z-index:1;max-width:11ch}.slide .sym{width:40%;right:-4%;opacity:.55}
+/* kit */
+.code{position:relative;background:var(--graphite);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.code pre{margin:0;padding:24px;overflow-x:auto;font-family:var(--mono);font-size:13px;line-height:1.7;color:var(--fog)}
+.code .copy{position:absolute;top:14px;right:14px;background:var(--graphite)}
+.code .c1{color:var(--mute)}
+.code .c2{color:var(--c)}
+.files{display:grid;border-top:1px solid var(--line)}
+.files>div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);align-items:center}
+.files b{font-family:var(--mono);font-weight:400;font-size:13px;overflow-wrap:anywhere}
+.files span{font-size:14px;color:var(--soft)}
+.files em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+
+footer{padding-block:64px 80px;display:grid;gap:28px}
+footer .statement{max-width:none}
+footer .f-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+
+<div class="shell">
+  <nav class="toc" aria-label="Capítulos">
+    <div class="brand"><img src="logo-simbolo.png" alt="" style="height:22px"><img src="logo-wordmark.png" alt="FLOW Labs" style="height:14px"></div>
+    <ol>
+      <li><a href="#essencia"><span>01</span>Essência</a></li>
+      <li><a href="#logo"><span>02</span>Logotipo</a></li>
+      <li><a href="#cores"><span>03</span>Cores</a></li>
+      <li><a href="#tipografia"><span>04</span>Tipografia</a></li>
+      <li><a href="#elementos"><span>05</span>Elementos</a></li>
+      <li><a href="#voz"><span>06</span>Tom de voz</a></li>
+      <li><a href="#aplicacoes"><span>07</span>Aplicações</a></li>
+      <li><a href="#kit"><span>08</span>Kit técnico</a></li>
+    </ol>
+    <p class="ver">Manual de Marca<br>Versão 1.0 · Out 2026<br>Uso interno e parceiros</p>
+  </nav>
+
+  <main>
+    <!-- CAPA -->
+    <header class="cover">
+      <div class="cover-top">
+        <span class="kicker">Manual de marca · v1.0</span>
+        <span class="label"><b>FLOW Labs</b> · Outubro 2026</span>
+      </div>
+      <div class="cover-art">
+        <div class="txt">
+          <h1>Movimento, estratégia e <em>resultado.</em></h1>
+          <p class="lead" style="margin-top:32px">Este manual reúne tudo que define a FLOW Labs: quem somos, como aparecemos e como falamos. Use como referência para qualquer peça, do post do Instagram à proposta comercial.</p>
+        </div>
+        <div class="fig"><img src="logo-simbolo.png" alt="Símbolo da FLOW Labs: duas formas fluidas e duas esferas"></div>
+      </div>
+      <div class="cover-meta">
+        <div><span class="label">Marca</span><p>FLOW Labs</p></div>
+        <div><span class="label">Descritor</span><p>Laboratório criativo para marcas</p></div>
+        <div><span class="label">Assinatura</span><p>O Marketing 360</p></div>
+        <div><span class="label">Responsável</span><p>Patrick Aranha</p></div>
+      </div>
+    </header>
+
+    <!-- 01 ESSÊNCIA -->
+    <section id="essencia">
+      <div class="head">
+        <div class="t"><span class="kicker">(01) · Essência</span><h2>Transformamos empresas em marcas.</h2></div>
+        <p class="aside">A FLOW Labs combina criatividade, estratégia, tecnologia e performance. Cada decisão visual e de texto parte daqui.</p>
+      </div>
+
+      <p class="statement">Generalista, <span class="cy">nunca genérica.</span> Antes de criar, estudamos o negócio de verdade.</p>
+
+      <div class="facts gap-xl">
+        <div><span class="label">Propósito</span><p>Dar às empresas a clareza e a presença que elas já merecem pela qualidade do que entregam.</p></div>
+        <div><span class="label">O que fazemos</span><p>Branding, identidade visual, conteúdo, social media, audiovisual, tráfego pago, performance, estratégia digital, IA, automação e consultoria.</p></div>
+        <div><span class="label">Para quem</span><p>Empresas com valor real que ainda não conseguem expressá-lo: o perfil parece amador perto do que entregam, o conteúdo sai sem estratégia, o anúncio consome verba sem retorno.</p></div>
+        <div><span class="label">Posicionamento</span><p>Um laboratório: testamos, medimos e evoluímos. Estratégia antes da execução, realidade antes da promessa.</p></div>
+        <div><span class="label">Personalidade</span><p>Direta, provocativa, premium e humana. Confiante sem arrogância, técnica sem jargão.</p></div>
+      </div>
+
+      <div class="gap-xl">
+        <h3 class="sub">Os quatro pilares</h3>
+        <div class="grid-4">
+          <div><span class="num">P.01</span><h3>Criatividade</h3><p>Ideias com propósito, não só estética.</p></div>
+          <div><span class="num">P.02</span><h3>Estratégia</h3><p>Decisões tomadas antes da execução.</p></div>
+          <div><span class="num">P.03</span><h3>Tecnologia</h3><p>IA e automação a serviço do processo.</p></div>
+          <div><span class="num">P.04</span><h3>Performance</h3><p>Dados para aprender, ajustar e evoluir.</p></div>
+        </div>
+      </div>
+
+      <div class="gap-xl grid-2">
+        <div>
+          <h3 class="sub">Valores</h3>
+          <div class="values">
+            <span>Realidade antes da promessa.</span><span>Estratégia antes da execução.</span><span>Criatividade com propósito.</span><span>Proximidade.</span><span>Transparência.</span><span>Evolução constante.</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="sub">Método em seis etapas</h3>
+          <div class="rules">
+            <div><b>01 Imersão</b><span>Negócio, nicho, público, concorrência e objetivos.</span></div>
+            <div><b>02 Diagnóstico</b><span>Gargalos de posicionamento, comunicação e aquisição.</span></div>
+            <div><b>03 Estratégia</b><span>Canais, conteúdo, campanhas e prioridades.</span></div>
+            <div><b>04 Criação</b><span>Identidade, conteúdo, campanhas e experiências.</span></div>
+            <div><b>05 Performance</b><span>Acompanhar dados, testar e otimizar.</span></div>
+            <div><b>06 Evolução</b><span>A estratégia evolui com os dados e o negócio.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 LOGO -->
+    <section id="logo">
+      <div class="head">
+        <div class="t"><span class="kicker">(02) · Logotipo</span><h2>Um símbolo em movimento.</h2></div>
+        <p class="aside">Duas formas fluidas que se encontram e duas esferas que avançam juntas: a marca e o cliente no mesmo fluxo. O acabamento cromado dá o tom premium e tecnológico.</p>
+      </div>
+
+      <div class="logo-hero">
+        <div class="tile" style="min-height:400px"><span class="label">Versão principal · vertical</span><img src="logo-completo.png" alt="Logotipo completo FLOW Labs, O Marketing 360" style="width:min(340px,80%)"></div>
+        <div style="display:grid;gap:1px;background:var(--line)">
+          <div class="tile"><span class="label">Símbolo</span><img src="logo-simbolo.png" alt="Símbolo" style="width:min(200px,60%)"></div>
+          <div class="tile"><span class="label">Wordmark</span><img src="logo-wordmark.png" alt="Wordmark Flow Labs" style="width:min(240px,70%)"></div>
+        </div>
+      </div>
+
+      <div class="logo-vers">
+        <div class="tile black"><span class="label">Sobre preto</span><div style="display:flex;gap:14px;align-items:center"><img src="logo-simbolo.png" alt="" style="height:44px;width:auto"><img src="logo-wordmark.png" alt="" style="height:22px;width:auto"></div></div>
+        <div class="tile paper"><span class="label">Sobre papel</span><div style="display:flex;gap:14px;align-items:center" class="inv"><img src="logo-simbolo.png" alt="" style="height:44px;width:auto"><img src="logo-wordmark.png" alt="" style="height:22px;width:auto"></div></div>
+        <div class="tile cyan"><span class="label">Sobre ciano · uso pontual</span><div style="display:flex;gap:14px;align-items:center" class="inv"><img src="logo-simbolo.png" alt="" style="height:44px;width:auto"><img src="logo-wordmark.png" alt="" style="height:22px;width:auto"></div></div>
+      </div>
+
+      <div class="anatomy gap-xl">
+        <div class="anat-fig">
+          <div class="box"><img src="logo-completo.png" alt="Logotipo com área de proteção"><span class="x t">x</span><span class="x l">x</span><span class="x r">x</span><span class="x b">x</span></div>
+        </div>
+        <div>
+          <h3 class="sub">Área de proteção e tamanho mínimo</h3>
+          <p class="lead" style="font-size:17px;margin-bottom:24px">A medida <span class="cy">x</span> é o diâmetro da esfera maior do símbolo. Nada entra nesse respiro: texto, borda de tela, outra marca.</p>
+          <div class="rules">
+            <div><b>Completo</b><span>Mínimo 120 px de largura no digital, 30 mm no impresso.</span></div>
+            <div><b>Horizontal</b><span>Símbolo + wordmark lado a lado. Mínimo 96 px, 25 mm.</span></div>
+            <div><b>Símbolo</b><span>Mínimo 24 px, 8 mm. Usar sozinho só onde a marca já está presente (avatar, favicon, selo).</span></div>
+            <div><b>Assinatura</b><span>"O Marketing 360" sai quando o logo fica menor que 160 px.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gap-xl">
+        <h3 class="sub">Usos incorretos</h3>
+        <div class="donts">
+          <div class="dont"><div class="stage"><img src="logo-simbolo.png" alt="" style="transform:scaleX(1.5)"></div><p><b>Distorcer.</b> Nunca esticar ou achatar. Escale sempre proporcional.</p></div>
+          <div class="dont"><div class="stage"><img src="logo-simbolo.png" alt="" style="transform:rotate(-24deg)"></div><p><b>Girar.</b> O símbolo trabalha sempre na horizontal.</p></div>
+          <div class="dont"><div class="stage"><img src="logo-simbolo.png" alt="" style="filter:sepia(1) saturate(6) hue-rotate(140deg)"></div><p><b>Recolorir.</b> Nada de ciano, gradiente ou cores de cliente no logo.</p></div>
+          <div class="dont"><div class="stage"><img src="logo-simbolo.png" alt="" style="filter:drop-shadow(0 0 14px #3BE1F0) drop-shadow(6px 8px 0 #F0614B)"></div><p><b>Aplicar efeitos.</b> Sem sombra, brilho, contorno ou neon.</p></div>
+          <div class="dont"><div class="stage" style="background:repeating-linear-gradient(45deg,#3a3b40 0 14px,#85868c 14px 28px)"><img src="logo-simbolo.png" alt=""></div><p><b>Fundo poluído.</b> Sobre foto ou textura, garanta área escura e calma.</p></div>
+          <div class="dont"><div class="stage"><div style="display:flex;gap:8px;align-items:center;flex-direction:row-reverse"><img src="logo-simbolo.png" alt="" style="width:70px"><img src="logo-wordmark.png" alt="" style="width:96px"></div></div><p><b>Reorganizar.</b> Não inverter, separar ou recompor as partes.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 CORES -->
+    <section id="cores">
+      <div class="head">
+        <div class="t"><span class="kicker">(03) · Cores</span><h2>Preto como palco. Ciano como faísca.</h2></div>
+        <p class="aside">A paleta é quase toda neutra. O ciano aparece só para marcar o que importa: um ponto, um botão, uma palavra. Nunca como cor dominante.</p>
+      </div>
+
+      <h3 class="sub">Proporção de uso</h3>
+      <div class="ratio" role="img" aria-label="Proporção: 70% preto e grafite, 18% cinzas, 10% papel, 2% ciano">
+        <div style="flex:70;background:#0A0A0B;color:#85868C;border-right:1px solid #1F2024">Ink · Graphite 70%</div>
+        <div style="flex:18;background:#3A3B40;color:#C9CACE">Cinzas 18%</div>
+        <div style="flex:10;background:#EDEDEC;color:#0A0A0B">Paper 10%</div>
+        <div style="flex:2.4;background:#3BE1F0;color:#050506;padding:10px 4px">2</div>
+      </div>
+      <div class="ratio-legend">
+        <p><b>70%</b> fundos em Ink e Graphite</p>
+        <p><b>18%</b> linhas, textos secundários, painéis</p>
+        <p><b>10%</b> títulos e respiros em Paper</p>
+        <p><b>2%</b> Ciano: destaque, CTA, ponto</p>
+      </div>
+
+      <h3 class="sub gap-xl">Cores principais</h3>
+      <div class="swatches" id="sw-main"></div>
+
+      <h3 class="sub gap-xl">Neutros de apoio</h3>
+      <div class="swatches" id="sw-support"></div>
+
+      <h3 class="sub gap-xl">Combinações aprovadas</h3>
+      <div class="pairs" id="pairs"></div>
+      <p class="label" style="margin-top:16px">Contraste calculado pela fórmula WCAG 2.1. AA pede 4,5:1 em texto corrido e 3:1 em títulos grandes.</p>
+    </section>
+
+    <!-- 04 TIPOGRAFIA -->
+    <section id="tipografia">
+      <div class="head">
+        <div class="t"><span class="kicker">(04) · Tipografia</span><h2>Grande, editorial e com respiro.</h2></div>
+        <p class="aside">Três famílias, cada uma com um papel. Todas gratuitas no Google Fonts, então funcionam no site, no Canva e no Figma.</p>
+      </div>
+
+      <div class="type-specimen">
+        <div class="spec">
+          <span class="label">Display · títulos</span>
+          <div class="glyph" style="font-family:var(--display);font-weight:800">Aa</div>
+          <div class="name" style="font-family:var(--display);font-weight:700">Syne</div>
+          <p>Bold 700 e ExtraBold 800. Tracking apertado (-4%), entrelinha 0,95 a 1,05. Só em títulos e frases de impacto.</p>
+          <div class="chars" style="font-family:var(--display);font-weight:700">ABCDEFGHIJKLM<br>abcdefghijklm<br>0123456789 ?!&amp;</div>
+        </div>
+        <div class="spec">
+          <span class="label">Texto · corpo</span>
+          <div class="glyph" style="font-family:var(--sans);font-weight:500">Aa</div>
+          <div class="name" style="font-family:var(--sans);font-weight:500">Geist</div>
+          <p>Light 300 a SemiBold 600. Regular 400 para leitura, Medium 500 para ênfase. Entrelinha 1,5 a 1,6.</p>
+          <div class="chars" style="font-family:var(--sans)">ABCDEFGHIJKLM<br>abcdefghijklm<br>0123456789 ?!&amp;</div>
+        </div>
+        <div class="spec">
+          <span class="label">Utilitária · rótulos</span>
+          <div class="glyph" style="font-family:var(--mono);font-weight:400;font-size:96px">Aa</div>
+          <div class="name" style="font-family:var(--mono);font-weight:500;font-size:26px">Geist Mono</div>
+          <p>Regular 400 e Medium 500. Sempre em caixa alta, tracking aberto (+8% a +14%). Botões, rótulos, números, legendas.</p>
+          <div class="chars" style="font-family:var(--mono);font-size:16px">ABCDEFGHIJKLM<br>abcdefghijklm<br>0123456789 ?!&amp;</div>
+        </div>
+      </div>
+
+      <h3 class="sub gap-xl">Escala tipográfica</h3>
+      <div class="scale">
+        <div><div class="spec-l"><b class="label" style="color:var(--paper)">Display XL</b><span>Syne 800 · 72 a 148 px · -5,5%</span></div><div class="sample" style="font-family:var(--display);font-weight:800;font-size:clamp(44px,7vw,96px);letter-spacing:-.055em;line-height:.92">Marca forte.</div></div>
+        <div><div class="spec-l"><b class="label" style="color:var(--paper)">H1</b><span>Syne 700 · 40 a 80 px · -4%</span></div><div class="sample" style="font-family:var(--display);font-weight:700;font-size:clamp(34px,4.6vw,60px);letter-spacing:-.04em;line-height:1">Estratégia antes da execução.</div></div>
+        <div><div class="spec-l"><b class="label" style="color:var(--paper)">H2</b><span>Syne 700 · 24 a 32 px · -3%</span></div><div class="sample" style="font-family:var(--display);font-weight:700;font-size:30px;letter-spacing:-.03em;line-height:1.05">Ideias com propósito, não só estética.</div></div>
+        <div><div class="spec-l"><b class="label" style="color:var(--paper)">Lead</b><span>Geist 400 · 19 a 23 px · 1,5</span></div><div class="sample" style="font-size:21px;line-height:1.5;color:var(--fog);max-width:52ch">Antes de qualquer estratégia, estudamos o nicho, o público, a concorrência e a realidade comercial de cada cliente.</div></div>
+        <div><div class="spec-l"><b class="label" style="color:var(--paper)">Corpo</b><span>Geist 400 · 16 a 17 px · 1,6</span></div><div class="sample" style="font-size:16px;color:var(--soft);max-width:62ch">Conversamos sobre o momento da empresa, os desafios e os objetivos. Sem compromisso e sem proposta pronta.</div></div>
+        <div><div class="spec-l"><b class="label" style="color:var(--paper)">Rótulo</b><span>Geist Mono 400 · 11 a 13 px · +14%</span></div><div class="sample"><span class="kicker">(03) · Como trabalhamos</span></div></div>
+      </div>
+
+      <div class="gap-xl grid-2">
+        <div class="el"><h3>Na falta das fontes</h3><p>Em PowerPoint ou e-mail, onde não dá para instalar: Syne vira <b style="color:var(--paper)">Arial Black</b>, Geist vira <b style="color:var(--paper)">Arial</b>, Geist Mono vira <b style="color:var(--paper)">Consolas</b>. No Canva, as três existem na biblioteca.</p></div>
+        <div class="el"><h3>Regras rápidas</h3><p>No máximo duas famílias por peça (display + texto, ou display + mono). Títulos alinhados à esquerda. Nunca Syne em parágrafo. Nunca mono em frase longa.</p></div>
+      </div>
+    </section>
+
+    <!-- 05 ELEMENTOS -->
+    <section id="elementos">
+      <div class="head">
+        <div class="t"><span class="kicker">(05) · Elementos gráficos</span><h2>Poucos recursos, sempre os mesmos.</h2></div>
+        <p class="aside">A consistência vem da repetição. Estes são os elementos que fazem uma peça parecer FLOW Labs mesmo sem o logo.</p>
+      </div>
+
+      <div class="el-grid">
+        <div class="el">
+          <h3>Rótulo de seção</h3>
+          <div class="demo" style="flex-direction:column;align-items:flex-start;gap:12px"><span class="kicker">(01) · O ponto de partida</span><span class="kicker">(04) · Cases</span></div>
+          <p>Formato <b style="color:var(--paper)">(NN) · Nome</b>, em Geist Mono caixa alta, com o ponto ciano antes. Numere só quando houver sequência real.</p>
+        </div>
+        <div class="el">
+          <h3>Botões em pílula</h3>
+          <div class="demo"><span class="btn btn-p">Fale com a gente <span>→</span></span><span class="btn btn-g">Ver cases</span></div>
+          <p>Primário em ciano com texto preto. Secundário só com contorno. Altura mínima 54 px, texto em mono, seta que anda 5 px no hover.</p>
+        </div>
+        <div class="el">
+          <h3>Objetos 3D</h3>
+          <div class="demo" style="justify-content:center;gap:24px"><div class="orb"></div><div class="orb c" style="width:56px;height:56px"></div><div class="capsule"></div></div>
+          <p>Esferas cromadas, esfera ciano e cápsula de vidro ecoam o símbolo. Um ou dois por peça, como acento. Nunca como padrão repetido.</p>
+        </div>
+        <div class="el">
+          <h3>Grid de 12 colunas</h3>
+          <div class="demo"><div class="grid12"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+          <p>Título ocupa 8 colunas, texto de apoio 3 ou 4 à direita. Margem de 20 px no celular, 64 px no desktop. Muito espaço negativo.</p>
+        </div>
+        <div class="el">
+          <h3>Textura de grão</h3>
+          <div class="demo" style="padding:0;border:0"><div class="grain"><span class="label">Grão a 6% sobre grafite</span></div></div>
+          <p>Ruído sutil sobre fundos escuros tira o aspecto digital chapado. Opacidade entre 4% e 8%, nunca visível como padrão.</p>
+        </div>
+        <div class="el">
+          <h3>O que evitamos</h3>
+          <div class="demo" style="flex-direction:column;align-items:flex-start;gap:8px;color:var(--soft);font-size:15px">
+            <span><span class="tag-no">Não</span> &nbsp;Gradientes coloridos e sombras pesadas</span>
+            <span><span class="tag-no">Não</span> &nbsp;Emoji como ícone ou marcador</span>
+            <span><span class="tag-no">Não</span> &nbsp;Cards em excesso, cara de template</span>
+            <span><span class="tag-no">Não</span> &nbsp;Banco de imagem genérico com pessoas sorrindo</span>
+          </div>
+          <p>Se a peça parece de qualquer agência, ela não é da FLOW Labs.</p>
+        </div>
+      </div>
+
+      <div class="gap-xl grid-2">
+        <div>
+          <h3 class="sub">Fotografia e vídeo</h3>
+          <p style="color:var(--soft);max-width:56ch">Imagens reais de cliente, bastidor e processo. Luz com contraste, tons frios ou neutros, sombras profundas. Pessoas em ação, não posando. Sobre foto, texto sempre em área escura com o logo em branco.</p>
+        </div>
+        <div>
+          <h3 class="sub">Motion</h3>
+          <p style="color:var(--soft);max-width:56ch">Movimento fluido e com intenção, como o nome. Entradas suaves de baixo para cima, curva de desaceleração longa, 400 a 700 ms. Uma animação marcante por peça, não várias competindo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 VOZ -->
+    <section id="voz">
+      <div class="head">
+        <div class="t"><span class="kicker">(06) · Tom de voz</span><h2>Falamos como quem já entendeu o problema.</h2></div>
+        <p class="aside">Frases curtas, afirmações claras, nenhuma promessa que não dá para cumprir. Escrevemos para o dono do negócio, não para outro publicitário.</p>
+      </div>
+
+      <div class="voice-traits">
+        <div class="trait"><span class="num">01</span><h3>Direta</h3><p>Vai ao ponto. Nomeia o problema na primeira frase.</p></div>
+        <div class="trait"><span class="num">02</span><h3>Provocativa</h3><p>Cutuca com respeito. Faz o cliente se reconhecer.</p></div>
+        <div class="trait"><span class="num">03</span><h3>Premium</h3><p>Escolhe bem as palavras. Menos adjetivo, mais precisão.</p></div>
+        <div class="trait"><span class="num">04</span><h3>Humana</h3><p>Próxima e honesta. Fala "a gente", diz quando não pode ajudar.</p></div>
+      </div>
+
+      <h3 class="sub gap-xl">Assim sim, assim não</h3>
+      <div class="compare">
+        <div><div class="cell hd"><span class="tag-no">Evitar</span></div><div class="cell hd"><span class="tag-yes">Preferir</span></div></div>
+        <div><div class="cell no">Somos a agência nº 1 em resultados!</div><div class="cell yes">Estratégia antes da execução. Dados para decidir melhor.</div></div>
+        <div><div class="cell no">Aumente seu faturamento em 300% garantido.</div><div class="cell yes">Não prometemos números antes de entender o contexto.</div></div>
+        <div><div class="cell no">Soluções inovadoras e disruptivas para alavancar sua marca.</div><div class="cell yes">O Instagram existe, mas não traz clientes.</div></div>
+        <div><div class="cell no">🚀🔥 Bora decolar seu negócio?? 💯</div><div class="cell yes">Vamos entender onde a sua empresa está e onde quer chegar.</div></div>
+        <div><div class="cell no">Atendemos todos os nichos com excelência.</div><div class="cell yes">Generalista, nunca genérica.</div></div>
+      </div>
+
+      <div class="lexicon gap-xl">
+        <div><h3 class="sub">Palavras nossas</h3><ul><li>marca</li><li>estratégia</li><li>posicionamento</li><li>clareza</li><li>constância</li><li>diagnóstico</li><li>evolução</li><li>realidade</li><li>dados</li><li>laboratório</li><li>a gente</li></ul></div>
+        <div class="bad"><h3 class="sub">Palavras que não usamos</h3><ul><li>alavancar</li><li>disruptivo</li><li>sinergia</li><li>nº 1</li><li>garantido</li><li>explodir vendas</li><li>bombar</li><li>gatilho mental</li><li>case de sucesso absoluto</li></ul></div>
+      </div>
+
+      <h3 class="sub gap-xl">Regras de texto</h3>
+      <ul class="checklist">
+        <li>Sem travessão em copy, legenda ou anúncio. Use ponto, vírgula ou dois-pontos.</li>
+        <li>Nunca inventar números, clientes, percentuais, depoimentos ou resultados. O que não existe fica entre colchetes: [Nome do cliente].</li>
+        <li>Nunca prometer resultado garantido, faturamento ou se comparar com concorrentes.</li>
+        <li>Sem emoji em peça institucional. Em legenda, no máximo um, e só se fizer sentido.</li>
+        <li>Português do Brasil, segunda pessoa ("você"), voz ativa.</li>
+        <li>Toda chamada termina em um próximo passo claro: falar no WhatsApp, pedir diagnóstico, ver o case.</li>
+        <li>Escrever "FLOW Labs": FLOW em caixa alta, Labs com inicial maiúscula.</li>
+      </ul>
+    </section>
+
+    <!-- 07 APLICAÇÕES -->
+    <section id="aplicacoes">
+      <div class="head">
+        <div class="t"><span class="kicker">(07) · Aplicações</span><h2>A marca no dia a dia.</h2></div>
+        <p class="aside">Modelos de referência para as peças mais comuns. Siga a estrutura, troque só o conteúdo.</p>
+      </div>
+
+      <div class="apps">
+        <div class="app">
+          <span class="label">Post feed · 1080 × 1080</span>
+          <div class="post"><span class="k">(01) · Diagnóstico</span><h4>O perfil parece amador perto do que você <span class="cy">entrega.</span></h4><div class="ft"><img src="logo-wordmark.png" alt=""><span>[@instagram]</span></div></div>
+          <p>Fundo Ink, rótulo mono no topo, título Syne grande, wordmark no rodapé.</p>
+        </div>
+        <div class="app">
+          <span class="label">Post feed claro · 1080 × 1080</span>
+          <div class="post light"><div class="orb-deco"></div><span class="k" style="position:relative">(02) · Método</span><h4 style="position:relative">Estratégia antes da execução.</h4><div class="ft"><img src="logo-wordmark.png" alt="" class="inv"><span style="color:#6B6C72">[@instagram]</span></div></div>
+          <p>Variação em Paper para quebrar o grid. Um objeto 3D como acento.</p>
+        </div>
+        <div class="app">
+          <span class="label">Story · 1080 × 1920</span>
+          <div class="story"><img class="sym" src="logo-simbolo.png" alt=""><span class="kicker" style="position:relative">Diagnóstico gratuito</span><h4 style="position:relative">Sua marca vale mais do que <span class="cy">parece?</span></h4><span class="cta">Fale com a gente →</span></div>
+          <p>Respeitar 250 px livres no topo e na base para a interface do Instagram.</p>
+        </div>
+        <div class="app">
+          <span class="label">Cartão de visita · 85 × 55 mm</span>
+          <div class="card-stack">
+            <div class="bcard front"><img src="logo-completo.png" alt=""></div>
+            <div class="bcard back"><div><div class="n">Patrick Aranha</div><div class="r">FLOW Labs · [Cargo]</div></div><div class="row"><div class="c">+55 41 98523-9610<br>flow-labs-site.vercel.app</div><img src="logo-simbolo.png" alt="" class="inv"></div></div>
+          </div>
+          <p>Frente preta com logo completo. Verso em Paper com dados em mono.</p>
+        </div>
+        <div class="app">
+          <span class="label">Foto de perfil e favicon</span>
+          <div class="avatars"><div class="av"><img src="logo-simbolo.png" alt=""></div><div class="av sm"><img src="logo-simbolo.png" alt=""></div><div class="av xs"><img src="logo-simbolo.png" alt=""></div></div>
+          <p>Só o símbolo, centralizado, ocupando 70% do círculo sobre Ink. Igual em Instagram, WhatsApp e LinkedIn.</p>
+        </div>
+        <div class="app">
+          <span class="label">Assinatura de e-mail</span>
+          <div class="sig"><div class="s-logo"><img src="logo-simbolo.png" alt=""></div><div class="s-b"><b>Patrick Aranha</b><span>FLOW Labs · Laboratório criativo para marcas</span><br><span>+55 41 98523-9610</span></div></div>
+          <p>Arial no corpo (e-mail não carrega fonte). Símbolo em quadrado preto, filete ciano.</p>
+        </div>
+        <div class="app">
+          <span class="label">Capa de apresentação · 16:9</span>
+          <div class="slide"><span class="kicker">Proposta comercial · 2026</span><h4>[Nome do cliente] em <span class="cy">movimento.</span></h4><img class="sym" src="logo-simbolo.png" alt=""><img src="logo-wordmark.png" alt="" style="height:14px;width:auto"></div>
+          <p>Mesma lógica do site: muito preto, título grande à esquerda, símbolo como imagem.</p>
+        </div>
+        <div class="app">
+          <span class="label">Grid do Instagram</span>
+          <div class="feed">
+            <div><span class="f-t">Marca não é logo.</span></div>
+            <div class="f-l"><span class="f-t">Case: Alles</span></div>
+            <div class="f-g f-o"></div>
+            <div class="f-c"><span class="f-t">Diagnóstico grátis</span></div>
+            <div><img src="logo-simbolo.png" alt=""></div>
+            <div class="f-l"><span class="f-t">6 etapas</span></div>
+            <div class="f-g"><span class="f-t">Bastidor</span></div>
+            <div><span class="f-t">Constância vende.</span></div>
+            <div class="f-l"><span class="f-t">Antes e depois</span></div>
+          </div>
+          <p>Ritmo: escuro, claro, imagem. Ciano no máximo 1 a cada 9 posts.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 KIT -->
+    <section id="kit">
+      <div class="head">
+        <div class="t"><span class="kicker">(08) · Kit técnico</span><h2>Tudo pronto para usar.</h2></div>
+        <p class="aside">Tokens para o site e para quem for desenvolver, e a lista dos arquivos oficiais da marca.</p>
+      </div>
+
+      <h3 class="sub">Tokens CSS</h3>
+      <div class="code"><button class="copy" type="button" data-copy-target="tokens">Copiar</button><pre id="tokens"><span class="c1">/* FLOW Labs · tokens de marca v1.0 */</span>
+:root {
+  <span class="c1">/* fundos */</span>
+  --ink: <span class="c2">#0A0A0B</span>;
+  --graphite: <span class="c2">#0E0F11</span>;
+  --panel: <span class="c2">#141517</span>;
+  <span class="c1">/* linhas */</span>
+  --line: <span class="c2">#1F2024</span>;
+  --line-2: <span class="c2">#2A2B30</span>;
+  --line-3: <span class="c2">#3A3B40</span>;
+  <span class="c1">/* texto */</span>
+  --mute: <span class="c2">#85868C</span>;
+  --soft: <span class="c2">#A6A7AC</span>;
+  --fog: <span class="c2">#C9CACE</span>;
+  --paper: <span class="c2">#EDEDEC</span>;
+  <span class="c1">/* destaque */</span>
+  --cyan: <span class="c2">#3BE1F0</span>;
+  --cyan-deep: <span class="c2">#0B6E78</span>;
+  <span class="c1">/* tipografia */</span>
+  --font-display: "Syne", "Arial Black", sans-serif;
+  --font-sans: "Geist", Arial, sans-serif;
+  --font-mono: "Geist Mono", Consolas, monospace;
+  <span class="c1">/* forma e movimento */</span>
+  --radius-pill: 999px;
+  --radius-card: 20px;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}</pre></div>
+
+      <h3 class="sub gap-xl">Arquivos oficiais</h3>
+      <div class="files">
+        <div><div><b>logo-completo.png</b><br><span>Vertical com assinatura "O Marketing 360", versão clara</span></div><em>PNG</em></div>
+        <div><div><b>logo-simbolo.png</b><br><span>Símbolo isolado, versão clara</span></div><em>PNG</em></div>
+        <div><div><b>logo-wordmark.png</b><br><span>"Flow Labs" isolado, versão clara</span></div><em>PNG</em></div>
+        <div><div><b>favicon.png · apple-touch-icon.png</b><br><span>Ícones de site</span></div><em>PNG</em></div>
+        <div><div><b>og-image.jpg</b><br><span>Imagem de compartilhamento de links</span></div><em>JPG</em></div>
+      </div>
+      <p class="label" style="margin-top:16px">Hoje em Documents/flow-labs-site/public. Pendente: versões vetoriais (SVG/PDF) e versão escura nativa para fundo claro.</p>
+
+      <h3 class="sub gap-xl">Checklist antes de publicar</h3>
+      <ul class="checklist">
+        <li>O logo respeita a área de proteção e o tamanho mínimo?</li>
+        <li>O ciano aparece só como destaque, em um ou dois pontos?</li>
+        <li>Títulos em Syne, texto em Geist, rótulos em Geist Mono?</li>
+        <li>O texto tem números ou depoimentos que não são reais?</li>
+        <li>Tem travessão, emoji ou palavra da lista proibida?</li>
+        <li>Existe um próximo passo claro para quem lê?</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p class="statement">Realidade antes da promessa. <span class="cy">Sempre.</span></p>
+      <div class="f-row"><span class="label">FLOW Labs · Manual de Marca v1.0</span><span class="label">+55 41 98523-9610 · flow-labs-site.vercel.app</span></div>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function(){
+  const main=[
+    {n:"Ink",hex:"#0A0A0B",role:"Fundo principal. A cor da marca.",fg:"#85868C"},
+    {n:"Paper",hex:"#EDEDEC",role:"Títulos, texto principal e fundos claros.",fg:"#0A0A0B"},
+    {n:"Ciano FLOW",hex:"#3BE1F0",role:"Destaque, CTA e o ponto do rótulo. Nunca dominante.",fg:"#050506"},
+    {n:"Ciano Deep",hex:"#0B6E78",role:"Sombra do ciano em objetos 3D e gráficos.",fg:"#EDEDEC"}
+  ];
+  const support=[
+    {n:"Graphite",hex:"#0E0F11",role:"Fundo alternativo de seção.",fg:"#85868C"},
+    {n:"Panel",hex:"#141517",role:"Painéis e campos de formulário.",fg:"#85868C"},
+    {n:"Line",hex:"#1F2024",role:"Divisórias sutis.",fg:"#85868C"},
+    {n:"Line 3",hex:"#3A3B40",role:"Contornos e botão secundário.",fg:"#C9CACE"},
+    {n:"Mute",hex:"#85868C",role:"Rótulos e legendas.",fg:"#0A0A0B"},
+    {n:"Soft",hex:"#A6A7AC",role:"Texto de apoio.",fg:"#0A0A0B"},
+    {n:"Fog",hex:"#C9CACE",role:"Texto corrido em destaque.",fg:"#0A0A0B"}
+  ];
+  const rgb=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+  const cmyk=h=>{const [r,g,b]=rgb(h).map(v=>v/255);const k=1-Math.max(r,g,b);if(k>=1)return"0 0 0 100";return [r,g,b].map(v=>Math.round((1-v-k)/(1-k)*100)).concat(Math.round(k*100)).join(" ")};
+  const lum=h=>{const c=rgb(h).map(v=>{v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)});return .2126*c[0]+.7152*c[1]+.0722*c[2]};
+  const ratio=(a,b)=>{const x=lum(a),y=lum(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05)};
+  const card=s=>`<div class="sw"><div class="chip" style="background:${s.hex};${s.hex==='#0A0A0B'||s.hex==='#0E0F11'?'border-bottom:1px solid #1F2024':''}"><span style="color:${s.fg}">${s.n}</span></div><div class="info"><h3>${s.n}</h3><dl><dt>HEX</dt><dd>${s.hex}</dd><dt>RGB</dt><dd>${rgb(s.hex).join(" ")}</dd><dt>CMYK</dt><dd>${cmyk(s.hex)}</dd></dl><p class="role">${s.role}</p><button class="copy" type="button" data-copy="${s.hex}">Copiar HEX</button></div></div>`;
+  document.getElementById("sw-main").innerHTML=main.map(card).join("");
+  document.getElementById("sw-support").innerHTML=support.map(card).join("");
+  const pairs=[["#EDEDEC","#0A0A0B","Paper sobre Ink"],["#3BE1F0","#0A0A0B","Ciano sobre Ink"],["#0A0A0B","#3BE1F0","Ink sobre Ciano"],["#0A0A0B","#EDEDEC","Ink sobre Paper"],["#A6A7AC","#0A0A0B","Soft sobre Ink"],["#85868C","#0A0A0B","Mute sobre Ink"]];
+  document.getElementById("pairs").innerHTML=pairs.map(([fg,bg,n])=>{const r=ratio(fg,bg);const lvl=r>=7?"AAA":r>=4.5?"AA":r>=3?"AA títulos":"Evitar";return `<div class="pair" style="background:${bg};color:${fg};border-color:${bg==='#0A0A0B'?'#2A2B30':bg}"><div class="big">Aa Flow</div><div class="meta"><span>${n}</span><span>${r.toFixed(1).replace('.',',')}:1 · ${lvl}</span></div></div>`}).join("");
+
+  document.addEventListener("click",e=>{
+    const b=e.target.closest(".copy");if(!b)return;
+    const t=b.dataset.copy??document.getElementById(b.dataset.copyTarget)?.innerText??"";
+    const done=()=>{const o=b.textContent;b.textContent="Copiado";b.classList.add("ok");setTimeout(()=>{b.textContent=o;b.classList.remove("ok")},1400)};
+    if(navigator.clipboard?.writeText){navigator.clipboard.writeText(t).then(done).catch(()=>sel(b,t))}else sel(b,t);
+  });
+  function sel(b,t){const tgt=b.dataset.copyTarget&&document.getElementById(b.dataset.copyTarget);if(tgt){const r=document.createRange();r.selectNodeContents(tgt);const s=getSelection();s.removeAllRanges();s.addRange(r)}else{b.textContent=t}}
+
+  const links=[...document.querySelectorAll(".toc a")];
+  const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){links.forEach(l=>l.classList.toggle("on",l.getAttribute("href")==="#"+en.target.id))}})},{rootMargin:"-40% 0px -55% 0px"});
+  document.querySelectorAll("main section[id]").forEach(s=>io.observe(s));
+})();
+</script>
+
+
+
+
+
+</body></html>
