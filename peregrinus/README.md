@@ -137,7 +137,7 @@ Formas tiradas do símbolo e do mundo do esporte. Elas apoiam a marca, nunca com
 ## Instagram
 
 - Post 1080 × 1350 (quadrado 1080 × 1080), margem 80 px. Story 1080 × 1920, 250 px livres em cima e embaixo.
-- Capas de destaque: ver `destaques/` na raiz (falcão em P branco sobre gradiente azul profundo → ciano com grão; exceção aprovada só para destaques).
+- Capas de destaque: ver `destaques/` na raiz (logo ou ícone em branco sobre gradiente azul profundo → ciano com grão; exceção aprovada só para destaques).
 - Grade fixa: símbolo no canto superior esquerdo, rótulo em Space Mono à direita, mensagem no terço inferior, `@peregrinusclub` no rodapé.
 - Fundo pela classe do `<body>`: preto (padrão), `azul` ou `claro`.
 - Troque os textos no HTML e exporte em PNG pelo Chrome. O story precisa do `falcao-voo.jpg` na mesma pasta.

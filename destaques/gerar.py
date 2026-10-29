@@ -6,6 +6,7 @@ recorta um círculo no centro da imagem).
 
 Uso (na raiz do repo):  python3 destaques/gerar.py
 """
+import subprocess
 from pathlib import Path
 
 import numpy as np
@@ -29,6 +30,10 @@ CAPAS = [
     ("destaque-flowlabs.png",
      RAIZ / "brand/flow-labs/logo-simbolo.png", 720),
 ]
+
+# Mesma ordem do render-icones.mjs (só para montar o preview).
+ICONES = ["medalha", "bota-trilha", "cerebro", "jejum", "70km", "50km",
+          "halter", "skate", "voltar", "livro", "cachorro", "festa"]
 
 
 def fundo() -> Image.Image:
@@ -55,19 +60,23 @@ def capa(logo_path: Path, largura: int) -> Image.Image:
     return img
 
 
-def preview(capas: list[Image.Image]) -> Image.Image:
-    """Simula a linha de destaques do perfil (círculos com borda)."""
-    d, gap, pad = 300, 120, 90
-    pv = Image.new("RGB", (pad * 2 + d * len(capas) + gap * (len(capas) - 1), d + pad * 2), (10, 10, 11))
+def preview(capas: list[Image.Image], colunas: int = 5) -> Image.Image:
+    """Simula os destaques do perfil (círculos com borda), em grade."""
+    d, gap, pad = 300, 100, 90
+    linhas = -(-len(capas) // colunas)
+    larg = pad * 2 + d * colunas + gap * (colunas - 1)
+    alt = pad * 2 + d * linhas + gap * (linhas - 1)
+    pv = Image.new("RGB", (larg, alt), (10, 10, 11))
     mask = Image.new("L", (d, d), 0)
     ImageDraw.Draw(mask).ellipse((0, 0, d - 1, d - 1), fill=255)
     draw = ImageDraw.Draw(pv)
+    top = (H - CIRCULO) // 2
     for i, c in enumerate(capas):
-        top = (H - CIRCULO) // 2
         quad = c.crop((0, top, W, top + CIRCULO)).resize((d, d), Image.LANCZOS)
-        x = pad + i * (d + gap)
-        pv.paste(quad, (x, pad), mask)
-        draw.ellipse((x - 10, pad - 10, x + d + 10, pad + d + 10), outline=(58, 59, 64), width=4)
+        x = pad + (i % colunas) * (d + gap)
+        y = pad + (i // colunas) * (d + gap)
+        pv.paste(quad, (x, y), mask)
+        draw.ellipse((x - 10, y - 10, x + d + 10, y + d + 10), outline=(58, 59, 64), width=4)
     return pv
 
 
@@ -78,5 +87,11 @@ if __name__ == "__main__":
         c.save(SAIDA / nome, optimize=True)
         feitas.append(c)
         print("ok", nome)
+    # Capas de ícone e texto: renderizadas no Chromium sobre o mesmo fundo.
+    fundo().save(SAIDA / ".fundo.png")
+    subprocess.run(["node", str(SAIDA / "render-icones.mjs")], check=True)
+    (SAIDA / ".fundo.png").unlink()
+    for nome in ICONES:
+        feitas.append(Image.open(SAIDA / f"destaque-{nome}.png").convert("RGB"))
     preview(feitas).save(SAIDA / "preview-destaques.png", optimize=True)
     print("ok preview-destaques.png")

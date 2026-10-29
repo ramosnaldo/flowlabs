@@ -54,7 +54,7 @@ Evitar: gradientes coloridos, sombras pesadas, emoji como ícone, cara de templa
 Post 1080×1080 (Ink ou Paper), Story 1080×1920 (250 px livres no topo e na base), cartão 85×55 mm, capa de apresentação 16:9, avatar só com o símbolo (70% do círculo sobre Ink).
 
 ## Capas de destaque
-Em `destaques/` na raiz: símbolo claro centralizado sobre gradiente azul profundo `#06164A` → ciano `#3BE1F0` com grão 7%, 1080×1920. Exceção aprovada só para capas de destaque; o resto segue "evitar gradientes coloridos". Gerador: `python3 destaques/gerar.py`.
+Em `destaques/` na raiz: símbolo ou ícone em branco centralizado sobre gradiente azul profundo `#06164A` → ciano `#3BE1F0` com grão 7%, 1080×1920. Exceção aprovada só para capas de destaque; o resto segue "evitar gradientes coloridos". Gerador: `python3 destaques/gerar.py`.
 
 ## Pendências do manual
 Versões vetoriais (SVG/PDF) do logo e versão escura nativa para fundo claro.
