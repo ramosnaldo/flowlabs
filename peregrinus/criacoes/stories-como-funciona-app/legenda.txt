@@ -1,6 +1,7 @@
 STORIES · COMO FUNCIONA O APP (10 telas, 1080x1920)
 
 Ordem: story-01 (capa) > story-02 a story-09 (passos 01 a 08) > story-10 (convite).
+Capa: capa-foto.jpg é provisória (miniatura do Canva ampliada). Trocar pela foto em alta e rodar python gerar.py + renderizar.
 
 Sugestão de sticker por tela (opcional):
 - story-01: nenhum, deixa a capa limpa.

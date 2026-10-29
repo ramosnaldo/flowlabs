@@ -13,12 +13,13 @@ body.azul{background:var(--blue);color:var(--black)}
 .safe{position:absolute;inset:250px 80px 250px 80px;display:flex;flex-direction:column;z-index:3}
 .top{display:flex;justify-content:space-between;align-items:center}
 .lockup{display:flex;align-items:center;gap:18px}
-.lockup svg{height:58px;width:auto;fill:var(--blue)}
+.lockup svg{height:66px;width:auto;fill:var(--blue)}
 body.azul .lockup svg,.capa .lockup svg{fill:var(--black)}
 .wm{font-family:"Anton",sans-serif;text-transform:uppercase;letter-spacing:.05em;line-height:1;font-size:40px;white-space:nowrap}
 .wm .i{display:inline-block;clip-path:polygon(-10% -10%,110% -10%,110% 74%,-10% 92%)}
 .tag{display:flex;align-items:center;gap:16px;font-family:"Space Mono",monospace;font-size:22px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
 body.azul .tag,.capa .tag,.capa .wm{color:var(--black)}
+.capa-foto .tag{color:var(--white)}
 .tag svg{width:34px;height:34px}
 .mid{flex:1;display:flex;flex-direction:column;justify-content:center}
 .step{display:flex;align-items:flex-end;gap:22px;margin-bottom:18px}
@@ -83,8 +84,14 @@ body.azul .foot svg{color:var(--black)}
 <symbol id="fire" viewBox="0 0 24 24"><path d="M12 2c1 3.5 5 6 5 11a5 5 0 0 1-10 0c0-2.4 1.2-4 2.6-5.3.2 1.6 1 2.8 2.2 3.3C11 8.6 11.3 5 12 2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
 <symbol id="msg" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
 </defs></svg>
-<div style="position:absolute;left:0;top:0;width:1080px;height:1060px;background:#36BFEC;overflow:hidden;z-index:0"><img src="falcao-voo.jpg" alt="" style="position:absolute;left:-180px;top:260px;width:1500px;mix-blend-mode:multiply;filter:grayscale(1)"></div>
-<div class="safe"><div class="capa"><div class="top"><div class="lockup"><svg viewBox="0 0 107 100"><use href="#pp"/></svg><span class="wm">PEREGR<span class="i">I</span>NUS</span></div><div class="tag"><span>App do club</span><svg><use href="#xh"/></svg></div></div></div>
+<div style="position:absolute;left:0;top:0;width:1080px;height:1120px;background:#000;overflow:hidden;z-index:0"><img src="capa-foto.jpg" alt="" style="position:absolute;left:-200px;top:-150px;width:1500px;filter:grayscale(1) contrast(1.1)"><div style="position:absolute;left:272px;top:480px;width:210px;height:412px;transform:scale(1.000);transform-origin:0 0;background:#000;border-radius:14px;overflow:hidden;font-family:Inter;color:#fff;padding:22px 14px">
+  <div style="display:flex;align-items:center;gap:6px"><svg viewBox="0 0 690 548" style="height:16px;width:auto;fill:#36BFEC"><use href="#fal"/></svg><span class="wm" style="font-size:11px">PEREGR<span class="i">I</span>NUS</span></div>
+  <div style="font-family:Anton;font-size:30px;line-height:.9;margin-top:22px">TREINOU?<br><span style="color:#36BFEC">POSTA.</span></div>
+  <div style="margin-top:12px;height:96px;background:#222;border-radius:2px;position:relative;overflow:hidden"><img src="falcao-voo.jpg" style="width:100%;height:100%;object-fit:cover;filter:grayscale(1)"><span style="position:absolute;left:5px;bottom:5px;background:#000;font-family:'Space Mono';font-size:7px;letter-spacing:.1em;padding:2px 4px;font-weight:700">JORNADA <b style="color:#36BFEC">047</b></span></div>
+  <div style="display:flex;gap:4px;margin-top:10px;font-family:'Space Mono';font-size:6.5px;letter-spacing:.08em"><span style="background:#36BFEC;color:#000;padding:3px 5px;font-weight:700">CORRIDA</span><span style="border:1px solid #555;padding:2px 5px">PEDAL</span><span style="border:1px solid #555;padding:2px 5px">ACADEMIA</span></div>
+  <div style="margin-top:12px;background:#36BFEC;color:#000;font-family:'Space Mono';font-weight:700;font-size:8px;letter-spacing:.12em;padding:8px 9px">REGISTRAR TREINO &gt;&gt;&gt;</div>
+</div><div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 26%,rgba(0,0,0,0) 72%,#000 100%)"></div></div>
+<div class="safe"><div class="capa-foto"><div class="top"><div class="lockup"><svg viewBox="0 0 690 548"><use href="#fal"/></svg><span class="wm">PEREGR<span class="i">I</span>NUS</span></div><div class="tag"><span>App do club</span><svg><use href="#xh"/></svg></div></div></div>
 <div class="mid" style="justify-content:flex-end;padding-bottom:40px">
   <div class="eyebrow">Passo a passo, em oito telas.</div>
   <div class="title" style="font-size:150px">O club no seu <em>celular.</em></div>

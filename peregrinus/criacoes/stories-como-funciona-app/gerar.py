@@ -24,12 +24,13 @@ body.azul{background:var(--blue);color:var(--black)}
 .safe{position:absolute;inset:250px 80px 250px 80px;display:flex;flex-direction:column;z-index:3}
 .top{display:flex;justify-content:space-between;align-items:center}
 .lockup{display:flex;align-items:center;gap:18px}
-.lockup svg{height:58px;width:auto;fill:var(--blue)}
+.lockup svg{height:66px;width:auto;fill:var(--blue)}
 body.azul .lockup svg,.capa .lockup svg{fill:var(--black)}
 .wm{font-family:"Anton",sans-serif;text-transform:uppercase;letter-spacing:.05em;line-height:1;font-size:40px;white-space:nowrap}
 .wm .i{display:inline-block;clip-path:polygon(-10% -10%,110% -10%,110% 74%,-10% 92%)}
 .tag{display:flex;align-items:center;gap:16px;font-family:"Space Mono",monospace;font-size:22px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
 body.azul .tag,.capa .tag,.capa .wm{color:var(--black)}
+.capa-foto .tag{color:var(--white)}
 .tag svg{width:34px;height:34px}
 .mid{flex:1;display:flex;flex-direction:column;justify-content:center}
 .step{display:flex;align-items:flex-end;gap:22px;margin-bottom:18px}
@@ -90,7 +91,7 @@ ICONS = """
 
 
 def top(rotulo, capa=False):
-    return f"""<div class="top"><div class="lockup"><svg viewBox="0 0 107 100"><use href="#pp"/></svg><span class="wm">PEREGR<span class="i">I</span>NUS</span></div><div class="tag"><span>{rotulo}</span><svg><use href="#xh"/></svg></div></div>"""
+    return f"""<div class="top"><div class="lockup"><svg viewBox="0 0 690 548"><use href="#fal"/></svg><span class="wm">PEREGR<span class="i">I</span>NUS</span></div><div class="tag"><span>{rotulo}</span><svg><use href="#xh"/></svg></div></div>"""
 
 
 FOOT = """<div class="foot"><span>@peregrinusclub</span><svg><use href="#chev"/></svg></div>"""
@@ -123,13 +124,27 @@ DEG = '<span class="deg"><i></i><i></i><i></i></span>'
 STORIES = []
 
 # 01 · capa
-STORIES.append(page(f"""<div class="capa">{top("App do club")}</div>
+# Foto P&B de alguém com o celular (capa-foto.jpg, quadrada) com a tela do app encaixada no celular.
+# Posição da tela medida na foto: x 31,5% a 45,5%, y 42% a 69,5%. Se trocar a foto, ajuste TELA.
+FOTO = dict(w=1500, left=-200, top=-150)
+TELA = dict(x0=.315, x1=.455, y0=.42, y1=.695)
+tx, ty = FOTO["left"] + TELA["x0"] * FOTO["w"], FOTO["top"] + TELA["y0"] * FOTO["w"]
+tw, th = (TELA["x1"] - TELA["x0"]) * FOTO["w"], (TELA["y1"] - TELA["y0"]) * FOTO["w"]
+k = tw / 210
+APP = f"""<div style="position:absolute;left:{tx:.0f}px;top:{ty:.0f}px;width:210px;height:{th / k:.0f}px;transform:scale({k:.3f});transform-origin:0 0;background:#000;border-radius:14px;overflow:hidden;font-family:Inter;color:#fff;padding:22px 14px">
+  <div style="display:flex;align-items:center;gap:6px"><svg viewBox="0 0 690 548" style="height:16px;width:auto;fill:#36BFEC"><use href="#fal"/></svg><span class="wm" style="font-size:11px">PEREGR<span class="i">I</span>NUS</span></div>
+  <div style="font-family:Anton;font-size:30px;line-height:.9;margin-top:22px">TREINOU?<br><span style="color:#36BFEC">POSTA.</span></div>
+  <div style="margin-top:12px;height:96px;background:#222;border-radius:2px;position:relative;overflow:hidden"><img src="falcao-voo.jpg" style="width:100%;height:100%;object-fit:cover;filter:grayscale(1)"><span style="position:absolute;left:5px;bottom:5px;background:#000;font-family:'Space Mono';font-size:7px;letter-spacing:.1em;padding:2px 4px;font-weight:700">JORNADA <b style="color:#36BFEC">047</b></span></div>
+  <div style="display:flex;gap:4px;margin-top:10px;font-family:'Space Mono';font-size:6.5px;letter-spacing:.08em"><span style="background:#36BFEC;color:#000;padding:3px 5px;font-weight:700">CORRIDA</span><span style="border:1px solid #555;padding:2px 5px">PEDAL</span><span style="border:1px solid #555;padding:2px 5px">ACADEMIA</span></div>
+  <div style="margin-top:12px;background:#36BFEC;color:#000;font-family:'Space Mono';font-weight:700;font-size:8px;letter-spacing:.12em;padding:8px 9px">REGISTRAR TREINO &gt;&gt;&gt;</div>
+</div>"""
+STORIES.append(page(f"""<div class="capa-foto">{top("App do club")}</div>
 <div class="mid" style="justify-content:flex-end;padding-bottom:40px">
   <div class="eyebrow">Passo a passo, em oito telas.</div>
   <div class="title" style="font-size:150px">O club no seu <em>celular.</em></div>
   <div class="body">Treino, ranking, comunidade e encontros num lugar só. Segue as próximas telas.</div>
 </div>
-{FOOT}""", extra='<div style="position:absolute;left:0;top:0;width:1080px;height:1060px;background:#36BFEC;overflow:hidden;z-index:0"><img src="falcao-voo.jpg" alt="" style="position:absolute;left:-180px;top:260px;width:1500px;mix-blend-mode:multiply;filter:grayscale(1)"></div>'))
+{FOOT}""", extra=f'<div style="position:absolute;left:0;top:0;width:1080px;height:1120px;background:#000;overflow:hidden;z-index:0"><img src="capa-foto.jpg" alt="" style="position:absolute;left:{FOTO["left"]}px;top:{FOTO["top"]}px;width:{FOTO["w"]}px;filter:grayscale(1) contrast(1.1)">{APP}<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 26%,rgba(0,0,0,0) 72%,#000 100%)"></div></div>'))
 
 # 02 · entrar
 STORIES.append(passo(1, "Entre pelo <em style=\"white-space:nowrap\">e-mail.</em>",
@@ -182,7 +197,7 @@ STORIES.append(passo(6, "O grupo <em>vê tudo.</em>",
     """<div class="ui">
   <div class="chips"><span class="chip on">TODOS</span><span class="chip">SEGUINDO</span></div>
   <div style="display:flex;align-items:center;gap:20px;margin-top:30px">
-    <svg viewBox="0 0 107 100" style="width:74px;height:74px;fill:var(--blue);background:#1c1c1c;border-radius:50%;padding:16px"><use href="#pp"/></svg>
+    <svg viewBox="0 0 690 548" style="width:74px;height:74px;fill:var(--blue);background:#1c1c1c;border-radius:50%;padding:14px"><use href="#fal"/></svg>
     <div><div style="font-weight:600;font-size:32px">Nome do membro</div><div class="mono" style="font-size:20px;color:var(--grey)">CORRIDA · JORNADA 012</div></div>
   </div>
   <div style="display:flex;gap:40px;margin-top:30px;padding-top:24px;border-top:1.5px solid var(--line)">
