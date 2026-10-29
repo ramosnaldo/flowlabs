@@ -154,11 +154,13 @@ STORIES.append(page(f"""<div class="capa">{top("App do club")}</div>
 
 # 02 · entrar
 STORIES.append(passo(1, "Entre pelo <em style=\"white-space:nowrap\">e-mail.</em>",
-    "Abra <b>pgrns.vercel.app</b>, digite seu e-mail e use o código de 6 números que chega na caixa de entrada. No primeiro acesso, coloque o código de convite do grupo e seu nome.",
+    "Abra <b>pgrns.vercel.app</b>, digite seu e-mail e use o código de 6 números que chega na caixa de entrada. No primeiro acesso, coloque o código de convite e seu nome.",
     """<div class="ui">
   <div class="lab">E-mail</div><div class="field">voce@email.com</div>
   <div class="lab" style="margin-top:30px">Código de 6 números</div>
   <div class="code"><span class="on">4</span><span class="on">8</span><span class="on">2</span><span></span><span></span><span></span></div>
+  <div class="lab" style="margin-top:30px">Primeiro acesso</div>
+  <div class="field" style="border-color:var(--blue);font-family:'Space Mono',monospace;font-weight:700;letter-spacing:.14em;color:var(--white)">CÓDIGO: <span style="color:var(--blue)">PEREGRINUS</span></div>
 </div>"""))
 
 # 03 · instalar
