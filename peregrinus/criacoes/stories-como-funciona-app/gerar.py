@@ -124,27 +124,33 @@ DEG = '<span class="deg"><i></i><i></i><i></i></span>'
 STORIES = []
 
 # 01 · capa
-# Foto P&B de alguém com o celular (capa-foto.jpg, quadrada) com a tela do app encaixada no celular.
-# Posição da tela medida na foto: x 31,5% a 45,5%, y 42% a 69,5%. Se trocar a foto, ajuste TELA.
-FOTO = dict(w=1500, left=-200, top=-150)
-TELA = dict(x0=.315, x1=.455, y0=.42, y1=.695)
-tx, ty = FOTO["left"] + TELA["x0"] * FOTO["w"], FOTO["top"] + TELA["y0"] * FOTO["w"]
-tw, th = (TELA["x1"] - TELA["x0"]) * FOTO["w"], (TELA["y1"] - TELA["y0"]) * FOTO["w"]
-k = tw / 210
-APP = f"""<div style="position:absolute;left:{tx:.0f}px;top:{ty:.0f}px;width:210px;height:{th / k:.0f}px;transform:scale({k:.3f});transform-origin:0 0;background:#000;border-radius:14px;overflow:hidden;font-family:Inter;color:#fff;padding:22px 14px">
+# Celular desenhado sobre bloco azul. Se existir print-app.png (print real do app) nesta pasta,
+# ele aparece na tela; senão entra a tela desenhada no padrão da marca.
+PW, PH, PB = 360, 740, 12  # largura, altura e borda do celular
+if os.path.exists(os.path.join(AQUI, "print-app.png")):
+    TELA_APP = '<img src="print-app.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top">'
+else:
+    k = (PW - 2 * PB) / 210
+    TELA_APP = f"""<div style="width:210px;height:{(PH - 2 * PB) / k:.0f}px;transform:scale({k:.3f});transform-origin:0 0;font-family:Inter;color:#fff;padding:30px 14px">
   <div style="display:flex;align-items:center;gap:6px"><svg viewBox="0 0 690 548" style="height:16px;width:auto;fill:#36BFEC"><use href="#fal"/></svg><span class="wm" style="font-size:11px">PEREGR<span class="i">I</span>NUS</span></div>
-  <div style="font-family:Anton;font-size:30px;line-height:.9;margin-top:22px">TREINOU?<br><span style="color:#36BFEC">POSTA.</span></div>
-  <div style="margin-top:12px;height:96px;background:#222;border-radius:2px;position:relative;overflow:hidden"><img src="falcao-voo.jpg" style="width:100%;height:100%;object-fit:cover;filter:grayscale(1)"><span style="position:absolute;left:5px;bottom:5px;background:#000;font-family:'Space Mono';font-size:7px;letter-spacing:.1em;padding:2px 4px;font-weight:700">JORNADA <b style="color:#36BFEC">047</b></span></div>
-  <div style="display:flex;gap:4px;margin-top:10px;font-family:'Space Mono';font-size:6.5px;letter-spacing:.08em"><span style="background:#36BFEC;color:#000;padding:3px 5px;font-weight:700">CORRIDA</span><span style="border:1px solid #555;padding:2px 5px">PEDAL</span><span style="border:1px solid #555;padding:2px 5px">ACADEMIA</span></div>
-  <div style="margin-top:12px;background:#36BFEC;color:#000;font-family:'Space Mono';font-weight:700;font-size:8px;letter-spacing:.12em;padding:8px 9px">REGISTRAR TREINO &gt;&gt;&gt;</div>
+  <div style="font-family:Anton;font-size:30px;line-height:.9;margin-top:24px">TREINOU?<br><span style="color:#36BFEC">POSTA.</span></div>
+  <div style="margin-top:14px;height:110px;background:#222;border-radius:2px;position:relative;overflow:hidden"><img src="falcao-voo.jpg" style="width:100%;height:100%;object-fit:cover;filter:grayscale(1)"><span style="position:absolute;left:5px;bottom:5px;background:#000;font-family:'Space Mono';font-size:7px;letter-spacing:.1em;padding:2px 4px;font-weight:700">JORNADA <b style="color:#36BFEC">047</b></span></div>
+  <div style="display:flex;gap:4px;margin-top:12px;font-family:'Space Mono';font-size:6.5px;letter-spacing:.08em"><span style="background:#36BFEC;color:#000;padding:3px 5px;font-weight:700">CORRIDA</span><span style="border:1px solid #555;padding:2px 5px">PEDAL</span><span style="border:1px solid #555;padding:2px 5px">ACADEMIA</span></div>
+  <div style="margin-top:12px;border-top:1px solid #333;padding-top:10px;display:flex;justify-content:space-between;font-family:'Space Mono';font-size:6.5px;letter-spacing:.1em;color:#888"><span>DURAÇÃO</span><span style="color:#fff">1H 05MIN</span></div>
+  <div style="margin-top:6px;display:flex;justify-content:space-between;font-family:'Space Mono';font-size:6.5px;letter-spacing:.1em;color:#888"><span>DISTÂNCIA</span><span style="color:#fff">10,2 KM</span></div>
+  <div style="margin-top:14px;background:#36BFEC;color:#000;font-family:'Space Mono';font-weight:700;font-size:8px;letter-spacing:.12em;padding:8px 9px">REGISTRAR TREINO &gt;&gt;&gt;</div>
 </div>"""
-STORIES.append(page(f"""<div class="capa-foto">{top("App do club")}</div>
+CELULAR = f"""<div style="position:absolute;left:{(1080 - PW) / 2 + 60:.0f}px;top:330px;width:{PW}px;height:{PH}px;background:#000;border-radius:54px;padding:{PB}px;transform:rotate(-7deg);box-shadow:0 0 0 2px #888">
+  <div style="width:100%;height:100%;border-radius:42px;overflow:hidden;background:#000;position:relative">{TELA_APP}
+    <div style="position:absolute;left:50%;top:12px;width:90px;height:26px;margin-left:-45px;background:#000;border-radius:14px"></div></div>
+</div>"""
+STORIES.append(page(f"""<div class="capa">{top("App do club")}</div>
 <div class="mid" style="justify-content:flex-end;padding-bottom:40px">
   <div class="eyebrow">Passo a passo, em oito telas.</div>
   <div class="title" style="font-size:150px">O club no seu <em>celular.</em></div>
   <div class="body">Treino, ranking, comunidade e encontros num lugar só. Segue as próximas telas.</div>
 </div>
-{FOOT}""", extra=f'<div style="position:absolute;left:0;top:0;width:1080px;height:1120px;background:#000;overflow:hidden;z-index:0"><img src="capa-foto.jpg" alt="" style="position:absolute;left:{FOTO["left"]}px;top:{FOTO["top"]}px;width:{FOTO["w"]}px;filter:grayscale(1) contrast(1.1)">{APP}<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 26%,rgba(0,0,0,0) 72%,#000 100%)"></div></div>'))
+{FOOT}""", extra=f'<div style="position:absolute;left:0;top:0;width:1080px;height:1060px;background:#36BFEC;z-index:0"></div><div style="position:absolute;inset:0;z-index:1">{CELULAR}</div>'))
 
 # 02 · entrar
 STORIES.append(passo(1, "Entre pelo <em style=\"white-space:nowrap\">e-mail.</em>",
