@@ -23,7 +23,7 @@ const CAPAS = [
   ["halter", svg("halter.svg")],
   ["skate", svg("skate.svg")],
   ["voltar", svg("arrow-u-up-left-fill.svg")],
-  ["livro", svg("book-open-fill.svg")],
+  ["livro", svg("livro.svg")],
   ["cachorro", svg("dog-fill.svg")],
   ["festa", svg("confetti-fill.svg")],
 ];
