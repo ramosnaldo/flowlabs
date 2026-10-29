@@ -17,9 +17,10 @@ const CAPAS = [
   ["medalha", svg("medal-fill.svg")],
   ["bota-trilha", svg("bota-trilha.svg")],
   ["cerebro", svg("brain-fill.svg")],
-  ["jejum", svg("jejum.svg")],
+  ["jejum", svg("hourglass-medium-fill.svg")],
   ["70km", { numero: "70" }],
   ["50km", { numero: "50" }],
+  ["ultramaratona", { icone: svg("person-simple-run-fill.svg"), texto: "ULTRA" }],
   ["halter", svg("halter.svg")],
   ["skate", svg("skate.svg")],
   ["voltar", svg("arrow-u-up-left-fill.svg")],
@@ -38,12 +39,16 @@ body { background: url(.fundo.png); display: grid; place-items: center; color: #
 .km { display: flex; flex-direction: column; align-items: center; padding-top: 80px; }
 .km .n { font: 400px/0.8 Picho; transform: rotate(-6deg) scaleY(1.3); }
 .km .u { font: 230px/1 Grafite; margin-top: 40px; letter-spacing: 4px; }
+.ultra { display: flex; flex-direction: column; align-items: center; }
+.ultra .i svg { width: 400px; height: 400px; display: block; }
+.ultra .u { font: 170px/1 Grafite; margin-top: -10px; letter-spacing: 4px; }
 `;
 
-const corpo = (c) =>
-  typeof c === "string"
-    ? `<div class="icone">${c}</div>`
-    : `<div class="km"><div class="n">${c.numero}</div><div class="u">KM</div></div>`;
+const corpo = (c) => {
+  if (typeof c === "string") return `<div class="icone">${c}</div>`;
+  if (c.icone) return `<div class="ultra"><div class="i">${c.icone}</div><div class="u">${c.texto}</div></div>`;
+  return `<div class="km"><div class="n">${c.numero}</div><div class="u">KM</div></div>`;
+};
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1080, height: 1920 } });

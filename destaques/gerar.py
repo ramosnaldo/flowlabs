@@ -32,7 +32,7 @@ CAPAS = [
 ]
 
 # Mesma ordem do render-icones.mjs (só para montar o preview).
-ICONES = ["medalha", "bota-trilha", "cerebro", "jejum", "70km", "50km",
+ICONES = ["medalha", "bota-trilha", "cerebro", "jejum", "70km", "50km", "ultramaratona",
           "halter", "skate", "voltar", "livro", "cachorro", "festa"]
 
 
